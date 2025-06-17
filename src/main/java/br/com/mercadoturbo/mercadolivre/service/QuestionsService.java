@@ -10,12 +10,12 @@ import jakarta.inject.Inject;
 import java.io.Serializable;
 
 import org.eclipse.microprofile.rest.client.inject.RestClient;
-import org.jboss.logging.Logger;
+
 
 @ApplicationScoped
 public class QuestionsService implements Serializable{
 
-    private static final Logger LOG = Logger.getLogger(QuestionsService.class);
+    
     
     @Inject
     @RestClient
