@@ -1,5 +1,5 @@
 
-package br.com.mercadoturbo.mercadolivre.client.apiexception;
+package br.com.mercadoturbo.mercadolivre.apiexception;
 
 import jakarta.ws.rs.ext.ExceptionMapper;
 import jakarta.ws.rs.ext.Provider;

@@ -7,7 +7,7 @@ package br.com.mercadoturbo.mercadolivre.client;
 
 
 import br.com.mercadoturbo.mercadolivre.dto.UsersResponse;
-import br.com.mercadoturbo.mercadolivre.client.apiexception.MercadoLivreExceptionMapper;
+import br.com.mercadoturbo.mercadolivre.apiexception.MercadoLivreExceptionMapper;
 import br.com.mercadoturbo.mercadolivre.dto.ItemsResponse;
 import io.smallrye.mutiny.Uni;
 import jakarta.ws.rs.DefaultValue;

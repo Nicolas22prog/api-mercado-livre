@@ -1,6 +1,6 @@
 package br.com.mercadoturbo.mercadolivre.client;
 
-import br.com.mercadoturbo.mercadolivre.client.apiexception.MercadoLivreExceptionMapper;
+import br.com.mercadoturbo.mercadolivre.apiexception.MercadoLivreExceptionMapper;
 import br.com.mercadoturbo.mercadolivre.dto.OrderByIdResponse;
 import br.com.mercadoturbo.mercadolivre.dto.OrderResponse;
 import io.smallrye.mutiny.Uni;

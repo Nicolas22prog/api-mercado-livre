@@ -1,4 +1,4 @@
-package br.com.mercadoturbo.mercadolivre.client.apiexception;
+package br.com.mercadoturbo.mercadolivre.apiexception;
 
 public class ApiException extends RuntimeException {
     private final ErrorResponse error;

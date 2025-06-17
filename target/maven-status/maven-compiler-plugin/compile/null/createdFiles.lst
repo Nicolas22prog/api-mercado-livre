@@ -6,6 +6,7 @@ br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$Collector.class
 br\com\mercadoturbo\mercadolivre\dto\OrderResponse$OrderDto$Feedback.class
 br\com\mercadoturbo\mercadolivre\dto\OrderResponse.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$ShippingOption.class
+br\com\mercadoturbo\mercadolivre\service\PaymentService.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse.class
 br\com\mercadoturbo\mercadolivre\dto\OrderResponse$OrderDto$AtmTransferReference.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$Result.class
@@ -30,6 +31,7 @@ br\com\mercadoturbo\mercadolivre\service\OrderService.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$SellerPhone.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$FeedbackDetail.class
 br\com\mercadoturbo\mercadolivre\dto\OrderResponse$OrderDto$Payment.class
+br\com\mercadoturbo\mercadolivre\resource\PaymentResource.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$StatusDetail.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$Feedback.class
 br\com\mercadoturbo\mercadolivre\dto\OrderResponse$OrderDto$Context.class
@@ -40,6 +42,7 @@ br\com\mercadoturbo\mercadolivre\dto\OrderResponse$OrderDto$OrderItem.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$AtmTransferReference.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$Seller.class
 br\com\mercadoturbo\mercadolivre\dto\OrderResponse$OrderDto.class
+br\com\mercadoturbo\mercadolivre\client\MercadoPagoPaymentApi.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$Item.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$Speed.class
 br\com\mercadoturbo\mercadolivre\dto\OrderResponse$OrderDto$Sale.class

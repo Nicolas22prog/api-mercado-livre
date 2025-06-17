@@ -1,57 +1,7 @@
-2025-06-17 09:05:45,546 mercadoturbo api-mercado-livre-dev.jar[10860] INFO  [io.quarkus] (Quarkus Main Thread) api-mercado-livre 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.10.0) started in 0.452s. Listening on: http://localhost:8080
-2025-06-17 09:05:45,547 mercadoturbo api-mercado-livre-dev.jar[10860] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-2025-06-17 09:05:45,548 mercadoturbo api-mercado-livre-dev.jar[10860] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [cdi, rest, rest-client, rest-client-jackson, rest-jackson, smallrye-context-propagation, smallrye-openapi, swagger-ui, vertx]
-2025-06-17 09:05:45,549 mercadoturbo api-mercado-livre-dev.jar[10860] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-3) Live reload total time: 0.611s 
-2025-06-17 09:05:46,016 mercadoturbo api-mercado-livre-dev.jar[10860] ERROR [io.qua.ver.htt.run.QuarkusErrorHandler] (vert.x-eventloop-thread-0) HTTP Request to /orders/search?seller=8033665 failed, error id: b90ca14d-0618-4a9c-a809-fb6f0c45d016-3: org.jboss.resteasy.reactive.ClientWebApplicationException: Received: 'HTTP 400 Bad Request' when invoking: Rest Client method: 'br.com.mercadoturbo.mercadolivre.client.MercadoLivreOrderApi#getOrder'
-	at org.jboss.resteasy.reactive.client.impl.RestClientRequestContext.unwrapException(RestClientRequestContext.java:195)
-	at org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.handleException(AbstractResteasyReactiveContext.java:326)
-	at org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:175)
-	at org.jboss.resteasy.reactive.client.impl.RestClientRequestContext$1.lambda$execute$0(RestClientRequestContext.java:314)
-	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:279)
-	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:261)
-	at io.vertx.core.impl.ContextInternal.lambda$runOnContext$0(ContextInternal.java:59)
-	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
-	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
-	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:566)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.base/java.lang.Thread.run(Thread.java:1447)
-Caused by: com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "status_code" (class br.com.mercadoturbo.mercadolivre.dto.OrderResponse$OrderDto$Payment), not marked as ignorable (17 known properties: "payment_method_id", "date_last_modified", "reason", "date_approved", "collector", "total_paid_amount", "status", "payment_type", "date_created", "transaction_amount", "installments", "id", "atm_transfer_reference", "transaction_amount_refunded", "status_detail", "shipping_cost", "installment_amount"])
- at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 121] (through reference chain: br.com.mercadoturbo.mercadolivre.dto.OrderResponse["results"]->java.util.ArrayList[0]->br.com.mercadoturbo.mercadolivre.dto.OrderResponse$OrderDto["payments"]->java.util.ArrayList[0]->br.com.mercadoturbo.mercadolivre.dto.OrderResponse$OrderDto$Payment["status_code"])
-	at com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException.from(UnrecognizedPropertyException.java:61)
-	at com.fasterxml.jackson.databind.DeserializationContext.handleUnknownProperty(DeserializationContext.java:1153)
-	at com.fasterxml.jackson.databind.deser.std.StdDeserializer.handleUnknownProperty(StdDeserializer.java:2241)
-	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownProperty(BeanDeserializerBase.java:1793)
-	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownVanilla(BeanDeserializerBase.java:1771)
-	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:316)
-	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
-	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer._deserializeFromArray(CollectionDeserializer.java:361)
-	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:246)
-	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:30)
-	at com.fasterxml.jackson.databind.deser.impl.FieldProperty.deserializeAndSet(FieldProperty.java:138)
-	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:310)
-	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
-	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer._deserializeFromArray(CollectionDeserializer.java:361)
-	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:246)
-	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:30)
-	at com.fasterxml.jackson.databind.deser.impl.FieldProperty.deserializeAndSet(FieldProperty.java:138)
-	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:310)
-	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
-	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:342)
-	at com.fasterxml.jackson.databind.ObjectReader._bindAndClose(ObjectReader.java:2125)
-	at com.fasterxml.jackson.databind.ObjectReader.readValue(ObjectReader.java:1501)
-	at io.quarkus.rest.client.reactive.jackson.runtime.serialisers.ClientJacksonMessageBodyReader.readFrom(ClientJacksonMessageBodyReader.java:53)
-	at org.jboss.resteasy.reactive.client.impl.ClientReaderInterceptorContextImpl.proceed(ClientReaderInterceptorContextImpl.java:86)
-	at org.jboss.resteasy.reactive.client.impl.ClientSerialisers.invokeClientReader(ClientSerialisers.java:160)
-	at org.jboss.resteasy.reactive.client.impl.RestClientRequestContext.readEntity(RestClientRequestContext.java:209)
-	at org.jboss.resteasy.reactive.client.handlers.ClientResponseCompleteRestHandler.mapToResponse(ClientResponseCompleteRestHandler.java:105)
-	at org.jboss.resteasy.reactive.client.handlers.ClientResponseCompleteRestHandler.handle(ClientResponseCompleteRestHandler.java:35)
-	at org.jboss.resteasy.reactive.client.handlers.ClientResponseCompleteRestHandler.handle(ClientResponseCompleteRestHandler.java:31)
-	at org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.invokeHandler(AbstractResteasyReactiveContext.java:231)
-	at org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
-	... 12 more
-
-2025-06-17 09:06:06,347 mercadoturbo api-mercado-livre-dev.jar[10860] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-5) Restarting quarkus due to changes in MercadoLivreOrderApi.class.
-2025-06-17 09:06:06,370 mercadoturbo api-mercado-livre-dev.jar[10860] INFO  [io.quarkus] (Quarkus Main Thread) api-mercado-livre stopped in 0.021s
+2025-06-17 10:13:13,310 mercadoturbo api-mercado-livre-dev.jar[14528] WARN  [io.qua.config] (Quarkus Main Thread) Unrecognized configuration key "quarkus.log.console.json" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+2025-06-17 10:13:13,912 mercadoturbo api-mercado-livre-dev.jar[14528] INFO  [io.quarkus] (Quarkus Main Thread) api-mercado-livre 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.10.0) started in 2.659s. Listening on: http://localhost:8080
+2025-06-17 10:13:13,914 mercadoturbo api-mercado-livre-dev.jar[14528] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+2025-06-17 10:13:13,914 mercadoturbo api-mercado-livre-dev.jar[14528] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [cdi, rest, rest-client, rest-client-jackson, rest-jackson, smallrye-context-propagation, smallrye-openapi, swagger-ui, vertx]
+2025-06-17 10:13:55,696 mercadoturbo api-mercado-livre-dev.jar[14528] INFO  [io.qua.dep.dev.fil.StaticFileManager] (vert.x-worker-thread-1) Ignoring module-info.java in dev mode, set the `quarkus.live-reload.ignore-module-info` property to `false` in your project descriptor (`pom.xml` or `build.gradle`) to disable this behavior.
+2025-06-17 10:13:56,118 mercadoturbo api-mercado-livre-dev.jar[14528] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-1) Restarting quarkus due to changes in OrderByIdResponse$FilterValue.class, OrderByIdResponse$BillingInfo.class, OrderByIdResponse$Feedback.class, OrderByIdResponse$State.class, OrderByIdResponse$ReceiverAddress.class, OrderByIdResponse$Seller.class, OrderByIdResponse$City.class, OrderByIdResponse$Sort.class, OrderByIdResponse$AvailableFilter.class, OrderByIdResponse$AtmTransferReference.class, OrderByIdResponse.class, OrderByIdResponse$Item.class, OrderByIdResponse$FeedbackDetail.class, OrderByIdResponse$Paging.class, OrderByIdResponse$StatusDetail.class, OrderByIdResponse$ShippingItem.class, OrderByIdResponse$ShippingOption.class, OrderByIdResponse$Speed.class, OrderByIdResponse$SellerPhone.class, OrderByIdResponse$OrderItem.class, OrderByIdResponse$Shipping.class, OrderByIdResponse$Country.class, OrderByIdResponse$EstimatedDelivery.class, OrderByIdResponse$Payment.class, OrderByIdResponse$Collector.class, OrderByIdResponse$Phone.class, OrderByIdResponse$AvailableSort.class, OrderByIdResponse$Buyer.class, OrderByIdResponse$Result.class.
+2025-06-17 10:13:56,238 mercadoturbo api-mercado-livre-dev.jar[14528] INFO  [io.quarkus] (Quarkus Main Thread) api-mercado-livre stopped in 0.117s

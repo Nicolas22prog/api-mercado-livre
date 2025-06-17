@@ -1,7 +1,7 @@
 package br.com.mercadoturbo.mercadolivre.client;
 
 import br.com.mercadoturbo.mercadolivre.dto.NoticesResponse;
-import br.com.mercadoturbo.mercadolivre.client.apiexception.MercadoLivreExceptionMapper;
+import br.com.mercadoturbo.mercadolivre.apiexception.MercadoLivreExceptionMapper;
 import io.smallrye.mutiny.Uni;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;

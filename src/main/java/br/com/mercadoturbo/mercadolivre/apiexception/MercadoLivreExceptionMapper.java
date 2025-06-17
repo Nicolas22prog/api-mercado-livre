@@ -1,5 +1,5 @@
 
-package br.com.mercadoturbo.mercadolivre.client.apiexception;
+package br.com.mercadoturbo.mercadolivre.apiexception;
 
 import jakarta.json.Json;
 import jakarta.json.JsonObject;
@@ -17,14 +17,14 @@ public class MercadoLivreExceptionMapper implements ResponseExceptionMapper<ApiE
                 String json = response.readEntity(String.class);
                 JsonObject jsonObject = Json.createReader(new StringReader(json)).readObject();
                     
-                    String code = jsonObject.getString("code", "Erro desconhecido");
+                    
                     String message = jsonObject.getString("message", "Erro desconhecido");
                     int status = jsonObject.getInt("status", response.getStatus());
                         
-                    ErrorResponse error = new ErrorResponse(code,status, message);
+                    ErrorResponse error = new ErrorResponse(message,status);
                     return new ApiException(error); 
             } catch(Exception e){
-                 return new ApiException(new ErrorResponse("Erro",response.getStatus(),"Verificar token"));
+                 return new ApiException(new ErrorResponse("Verificar token",response.getStatus()));
             }
         }
 }
