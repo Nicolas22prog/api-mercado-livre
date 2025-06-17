@@ -33,4 +33,13 @@ public interface MercadoLivreOrderApi{
             @QueryParam("q") Long q, // q eh o id do pedido
             @QueryParam("limit") @DefaultValue("50") Integer limit,
             @QueryParam("offset") @DefaultValue("0") Integer offset);
+    
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    Uni<OrderResponse> getBuyer(
+            @HeaderParam("Authorization") String authorization,
+            @QueryParam("buyer") Long buyer, // q eh o id do comprador
+            @QueryParam("limit") @DefaultValue("50") Integer limit,
+            @QueryParam("offset") @DefaultValue("0") Integer offset);
 }

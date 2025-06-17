@@ -24,4 +24,8 @@ public class OrderService implements Serializable{
     public Uni<OrderByIdResponse> fetchOrderById(String accessToken, Long seller, Long orderId, Integer limit, Integer offset){
         return order.getOrderById(accessToken, seller, orderId,limit, offset);
     }
+    
+    public Uni<OrderResponse> fetchBuyer(String accessToken, Long buyer, Integer limit, Integer offset){
+        return order.getBuyer(accessToken, buyer, limit, offset);
+    }
 }
