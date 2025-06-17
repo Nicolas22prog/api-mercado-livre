@@ -6,9 +6,10 @@ import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import java.io.Serializable;
 
 @Path("/payments/{payment_id}")
-public class PaymentResource {
+public class PaymentResource implements Serializable{
 
     
     @Inject

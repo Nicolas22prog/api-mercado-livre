@@ -22,7 +22,7 @@ public class NoticesResponse extends ProxyEnabledDTO{
         public String label;
         public String title;              // pode estar presente em alguns retornos
         public String description;
-        public boolean highlighted;
+        public Boolean highlighted;
         public String from_date;
         public List<Tag> tags;            // pode ser null ou vazio
         public String dismiss_key;        // pode estar presente em alguns retornos

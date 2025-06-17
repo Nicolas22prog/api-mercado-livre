@@ -148,8 +148,8 @@ public class MultigetResponse extends ProxyEnabledDTO{
     }
 
     public static class Geolocation {
-        public double latitude;
-        public double longitude;
+        public Double latitude;
+        public Double longitude;
     }
 
     public static class Attribute {
@@ -162,11 +162,11 @@ public class MultigetResponse extends ProxyEnabledDTO{
     }
 
     public static class Variation {
-        public long id;
+        public Long id;
         public BigDecimal price;
         public List<Attribute> attribute_combinations;
-        public int available_quantity;
-        public int sold_quantity;
+        public Integer available_quantity;
+        public Integer sold_quantity;
         public List<Object> sale_terms;
         public List<String> picture_ids;
         public String seller_custom_field;
