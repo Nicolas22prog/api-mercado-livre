@@ -18,6 +18,7 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 @RegisterRestClient(configKey = "mercado-livre-api")
 @RegisterProvider(MercadoLivreExceptionMapper.class)
+@RegisterProvider(MercadoLivreExceptionMapper.class)
 public interface MercadoLivreQuestionsApi{
 
 
