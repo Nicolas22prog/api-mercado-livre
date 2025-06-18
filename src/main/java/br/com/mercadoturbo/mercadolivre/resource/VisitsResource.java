@@ -91,5 +91,28 @@ public class VisitsResource implements Serializable{
             @QueryParam("unit")String unit){
          return service.fetchUserQuestionsTW(authorization, user_id, last, unit);
      }
-             
+        
+
+
+     @GET
+     @Produces(MediaType.APPLICATION_JSON)
+     @Path("/items/visits")
+     public Uni<VisitsResponse> getMultiItemsVisits(
+             @HeaderParam("Authorization")String authorization,
+            @QueryParam("ids")String ids,
+            @QueryParam("date_from")String date_from,
+            @QueryParam("date_to")String date_to){
+         return service.fetchMultiItemsVisits(authorization, ids, date_from, date_to);
+     }
+     
+     @GET
+     @Path("/items/visits/time_window")
+     @Produces(MediaType.APPLICATION_JSON)
+     public Uni<VisitsTimeWindowResponse> getMultiItemsTW(
+                    @HeaderParam("Authorization")String authorization,
+                    @QueryParam("ids")String item_id,
+                    @QueryParam("last")Integer last,
+                    @QueryParam("unit")String unit){
+         return service.fetchItemsQuestionsTW(authorization, item_id, last, unit);
+     }
 }

@@ -47,4 +47,12 @@ public class VisitsService implements Serializable{
     public Uni<VisitsTimeWindowResponse> fetchUserQuestionsTW(String accessToken, Long user_id, Integer last, String unit){
         return usersVisits.getUserQuestionsTW(accessToken, user_id, last, unit);
     }
+    
+    public Uni<VisitsResponse> fetchMultiItemsVisits(String accessToken, String ids, String date_from, String date_to){
+        return itemsVisits.getMultiItemsVisits(accessToken, ids, date_from, date_to);
+    }
+    
+    public Uni<VisitsTimeWindowResponse> fetchMultiItemsTW(String accessToken, String ids, Integer last, String unit){
+        return itemsVisits.getMultItemsTW(accessToken, ids, last, unit);
+    }
 }
