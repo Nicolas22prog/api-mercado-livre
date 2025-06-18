@@ -1,8 +1,8 @@
 package br.com.mercadoturbo.mercadolivre.resource;
 
 import br.com.mercadoturbo.mercadolivre.dto.GenericVisitsResponse;
-import br.com.mercadoturbo.mercadolivre.dto.UserVisitsResponse;
 import br.com.mercadoturbo.mercadolivre.dto.VisitsResponse;
+import br.com.mercadoturbo.mercadolivre.dto.VisitsTimeWindowResponse;
 import br.com.mercadoturbo.mercadolivre.service.VisitsService;
 import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
@@ -23,17 +23,17 @@ public class VisitsResource implements Serializable{
     @Path("/users/{user_id}/items_visits/time_window")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Uni<VisitsResponse> getVisits(
+    public Uni<VisitsTimeWindowResponse> getVisitsTimeWindow(
             @HeaderParam("Authorization")String authorization,
             @PathParam("user_id")Long user_id,
             @QueryParam("last")Integer last, // max 149 
             @QueryParam("unit")String unit)/*Unidade de tempo, valor disponivel no momento [day]*/ {
-            return service.fetchVisits(authorization, user_id, last, unit);
+            return service.fetchVisitsTimeWindow(authorization, user_id, last, unit);
     }
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/users/{user_id}/items_visits")
-    public Uni<UserVisitsResponse> getUserVisits(
+    public Uni<VisitsResponse> getUserVisits(
             @HeaderParam("Authorization")String authorization,
             @PathParam("user_id")Long user_id,
             @QueryParam("date_from")String date_from,
@@ -68,4 +68,28 @@ public class VisitsResource implements Serializable{
         System.out.println(date_to);
         return service.fetchItemsQuestions(authorization, item_id, date_from, date_to);
     }
+    
+     @GET
+     @Path("/items/{item_id}/contacts/questions/time_window")
+     @Produces(MediaType.APPLICATION_JSON)
+     @Consumes(MediaType.APPLICATION_JSON)
+     public Uni<VisitsTimeWindowResponse> getItemsQuestionsTW(
+            @HeaderParam("Authorization")String authorization,
+            @PathParam("item_id")String item_id,
+            @QueryParam("last")Integer last, // max 149 
+            @QueryParam("unit")String unit)/*Unidade de tempo, valor disponivel no momento [day]*/ {
+            return service.fetchItemsQuestionsTW(authorization, item_id, last, unit);
+     }
+    
+     @GET
+     @Produces(MediaType.APPLICATION_JSON)
+     @Path("/users/{user_id}/contacts/questions/time_window")
+     public Uni<VisitsTimeWindowResponse> getUsersQuestionsTW(
+            @HeaderParam("Authorization")String authorization,
+            @PathParam("user_id")Long user_id,
+            @QueryParam("last")Integer last, // max 149 
+            @QueryParam("unit")String unit){
+         return service.fetchUserQuestionsTW(authorization, user_id, last, unit);
+     }
+             
 }

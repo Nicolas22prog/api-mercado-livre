@@ -8,15 +8,7 @@ public class VisitsResponse extends ProxyEnabledDTO{
     public OffsetDateTime date_from;
     public OffsetDateTime date_to;
     public Integer total_visits;
-    public Integer last;
-    public String unit;
-    public Result[] results;
-
-    public static class Result {
-        public OffsetDateTime date;
-        public Integer total;
-        public VisitDetail[] visits_detail;
-    }
+    public VisitDetail[] visits_detail;
 
     public static class VisitDetail {
         public String company;
