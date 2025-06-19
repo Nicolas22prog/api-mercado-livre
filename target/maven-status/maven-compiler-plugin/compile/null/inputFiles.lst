@@ -5,12 +5,14 @@ C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\client\MercadoLivreAnswersApi.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\client\MercadoLivreBlockApi.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\client\MercadoLivreFeedBackApi.java
-C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\client\MercadoLivreMultigetApi.java
+C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\client\MercadoLivreItemsApi.java
+C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\client\MercadoLivreItemsVisitsApi.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\client\MercadoLivreNoticesApi.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\client\MercadoLivreOrderApi.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\client\MercadoLivreQuestionsApi.java
+C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\client\MercadoLivreShipmentApi.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\client\MercadoLivreUsersApi.java
-C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\client\MercadoLivreVisitsApi.java
+C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\client\MercadoLivreUsersVisitsApi.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\client\MercadoPagoPaymentApi.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\client\ReactivePagination.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\config\ObjectMapperProvider.java
@@ -20,6 +22,7 @@ C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\dto\BlockResponse.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\dto\FeedbackRequest.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\dto\FeedbackResponse.java
+C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\dto\GenericVisitsResponse.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\dto\ItemsResponse.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\dto\MultigetResponse.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\dto\NoticesResponse.java
@@ -28,9 +31,11 @@ C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\dto\PaymentResponse.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\dto\ProxyEnabledDTO.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\dto\QuestionsResponse.java
+C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\dto\ShipmentResponse.java
+C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\dto\ShippingOptionsResponse.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\dto\UsersResponse.java
-C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\dto\UserVisitsResponse.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\dto\VisitsResponse.java
+C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\dto\VisitsTimeWindowResponse.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\resource\AnswerResource.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\resource\BlockResource.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\resource\FeedbackResource.java
@@ -39,6 +44,7 @@ C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\resource\OrderResource.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\resource\PaymentResource.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\resource\QuestonsResource.java
+C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\resource\ShipmentResource.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\resource\UsersResource.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\resource\VisitsResource.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\service\AnswerService.java
@@ -49,5 +55,6 @@ C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\service\OrderService.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\service\PaymentService.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\service\QuestionsService.java
+C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\service\ShipmentService.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\service\UsersService.java
 C:\Users\nicol\Documents\NetBeansProjects\api-mercado-livre\src\main\java\br\com\mercadoturbo\mercadolivre\service\VisitsService.java

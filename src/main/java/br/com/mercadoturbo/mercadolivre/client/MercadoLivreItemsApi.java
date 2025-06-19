@@ -3,6 +3,7 @@ package br.com.mercadoturbo.mercadolivre.client;
 
 import br.com.mercadoturbo.mercadolivre.dto.MultigetResponse;
 import br.com.mercadoturbo.mercadolivre.apiexception.MercadoLivreExceptionMapper;
+import br.com.mercadoturbo.mercadolivre.dto.ShippingOptionsResponse;
 import io.smallrye.mutiny.Uni;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -13,14 +14,19 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 @Path("/items")
 @RegisterRestClient(configKey = "mercado-livre-api")
 @RegisterProvider(MercadoLivreExceptionMapper.class)
-public interface MercadoLivreMultigetApi {
+public interface MercadoLivreItemsApi {
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)           
-    Uni<List<MultigetResponse>> getItens(
+    Uni<List<MultigetResponse>> getMultigetItens(
         @HeaderParam("Authorization") String authorization,
         @QueryParam("ids") String ids,
         @QueryParam("attributes") String attributes
         
 );
+    
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/{item_id}/shipping_options")
+    Uni<ShippingOptionsResponse> getShippingOptions();
 }

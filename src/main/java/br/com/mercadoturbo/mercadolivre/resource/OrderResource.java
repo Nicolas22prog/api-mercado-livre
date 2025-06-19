@@ -1,5 +1,6 @@
 package br.com.mercadoturbo.mercadolivre.resource;
 
+import br.com.mercadoturbo.mercadolivre.dto.ShippingByOrderResponse;
 import br.com.mercadoturbo.mercadolivre.service.OrderService;
 import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
@@ -8,13 +9,14 @@ import jakarta.ws.rs.core.*;
 
 import java.io.Serializable;
 
-@Path("/orders/search")
+@Path("/orders")
 public class OrderResource implements Serializable{
         
     @Inject
     OrderService service;
     
     @GET
+    @Path("/search")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
 public Uni<Response> buscarPedidos(
@@ -50,4 +52,13 @@ public Uni<Response> buscarPedidos(
         .entity("Informe pelo menos 'seller' ou 'buyer' como parâmetro.")
         .build());
 }
+        
+        @GET
+        @Path("/{order_id}/shipments")
+        @Produces(MediaType.APPLICATION_JSON)
+        public Uni<ShippingByOrderResponse> getShippingByOrder(
+                @HeaderParam("Authorization")String authorization,
+                @PathParam("order_id")Long order_id){
+            return service.fetchShippingByOrder(authorization, order_id);
+        }
 }

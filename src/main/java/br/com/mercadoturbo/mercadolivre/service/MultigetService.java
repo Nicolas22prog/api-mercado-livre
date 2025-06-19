@@ -4,7 +4,7 @@
  */
 package br.com.mercadoturbo.mercadolivre.service;
 
-import br.com.mercadoturbo.mercadolivre.client.MercadoLivreMultigetApi;
+import br.com.mercadoturbo.mercadolivre.client.MercadoLivreItemsApi;
 
 import br.com.mercadoturbo.mercadolivre.dto.MultigetResponse;
 import io.smallrye.mutiny.Uni;
@@ -19,10 +19,10 @@ public class MultigetService implements Serializable{
     
     @Inject
     @RestClient
-    private MercadoLivreMultigetApi multiget;
+    private MercadoLivreItemsApi multiget;
     
     public Uni<List<MultigetResponse>> fetchItens(String accesToken, String ids, String attributes){
       
-        return multiget.getItens(accesToken, ids, attributes);
+        return multiget.getMultigetItens(accesToken, ids, attributes);
     }
 }
