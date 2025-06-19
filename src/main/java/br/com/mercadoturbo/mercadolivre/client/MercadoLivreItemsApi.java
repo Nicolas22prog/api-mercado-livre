@@ -3,7 +3,8 @@ package br.com.mercadoturbo.mercadolivre.client;
 
 import br.com.mercadoturbo.mercadolivre.dto.MultigetResponse;
 import br.com.mercadoturbo.mercadolivre.apiexception.MercadoLivreExceptionMapper;
-import br.com.mercadoturbo.mercadolivre.dto.ShippingOptionsResponse;
+import br.com.mercadoturbo.mercadolivre.dto.PostItemRequest;
+import br.com.mercadoturbo.mercadolivre.dto.PostItemResponse;
 import io.smallrye.mutiny.Uni;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -25,8 +26,11 @@ public interface MercadoLivreItemsApi {
         
 );
     
-    @GET
+
+    
+    @POST
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/{item_id}/shipping_options")
-    Uni<ShippingOptionsResponse> getShippingOptions();
+    Uni<PostItemResponse> postItem(
+            @HeaderParam("Authorization")String authorization,
+            PostItemRequest request);
 }

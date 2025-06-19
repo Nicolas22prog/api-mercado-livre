@@ -5,7 +5,10 @@
 package br.com.mercadoturbo.mercadolivre.resource;
 
 import br.com.mercadoturbo.mercadolivre.dto.MultigetResponse;
+import br.com.mercadoturbo.mercadolivre.dto.PostItemRequest;
+import br.com.mercadoturbo.mercadolivre.dto.PostItemResponse;
 import br.com.mercadoturbo.mercadolivre.service.MultigetService;
+import br.com.mercadoturbo.mercadolivre.service.PostItemService;
 import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
@@ -16,10 +19,13 @@ import java.util.List;
 @Path("/items")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class MultigetResource implements Serializable{
+public class ItemsResource implements Serializable{
     
     @Inject
     MultigetService service;
+    
+    @Inject
+    PostItemService itemService;
     
     @GET
     public Uni<List<MultigetResponse>> getItens(
@@ -28,5 +34,12 @@ public class MultigetResource implements Serializable{
             @QueryParam("attributes") String attributes
             ){
         return service.fetchItens(authorization, ids, attributes);
+    }
+    
+    @POST
+    public Uni<PostItemResponse> postItem(
+            @HeaderParam("Authorization")String authorization,
+            PostItemRequest request){
+        return itemService.sendItem(authorization, request);
     }
 }
