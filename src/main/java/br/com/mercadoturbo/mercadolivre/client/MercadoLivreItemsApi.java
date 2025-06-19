@@ -3,6 +3,7 @@ package br.com.mercadoturbo.mercadolivre.client;
 
 import br.com.mercadoturbo.mercadolivre.dto.MultigetResponse;
 import br.com.mercadoturbo.mercadolivre.apiexception.MercadoLivreExceptionMapper;
+import br.com.mercadoturbo.mercadolivre.dto.MigrationValidationResponse;
 import br.com.mercadoturbo.mercadolivre.dto.PostItemRequest;
 import br.com.mercadoturbo.mercadolivre.dto.PostItemResponse;
 import io.smallrye.mutiny.Uni;
@@ -33,4 +34,13 @@ public interface MercadoLivreItemsApi {
     Uni<PostItemResponse> postItem(
             @HeaderParam("Authorization")String authorization,
             PostItemRequest request);
+    
+    
+    @GET
+    @Path("/{item_id}/user_product_listings/validate")
+    @Produces(MediaType.APPLICATION_JSON)
+    Uni<MigrationValidationResponse> getValidation(
+                    @HeaderParam("Authorization")String authorization,
+                    @PathParam("item_id")String item_id);
+            
 }

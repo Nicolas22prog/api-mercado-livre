@@ -38,7 +38,8 @@ public class UsersResource implements Serializable{
             @HeaderParam("Authorization") String authorization,            
             @PathParam("id") String id,
             @QueryParam("limit") @DefaultValue("50") int limit,
-            @QueryParam("offset") @DefaultValue("0") int offset){
-        return us.fetchItems(authorization, id, limit, offset);
+            @QueryParam("offset") @DefaultValue("0") int offset,
+            @QueryParam("user_product_id")String user_product_id){
+        return us.fetchItems(authorization, id, limit, offset, user_product_id);
     }
 }

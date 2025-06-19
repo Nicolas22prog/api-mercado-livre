@@ -1,4 +1,4 @@
-2025-06-19 13:46:40,297 mercadoturbo api-mercado-livre-dev.jar[11068] INFO  [io.quarkus] (Quarkus Main Thread) api-mercado-livre 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.10.0) started in 0.607s. Listening on: http://localhost:8080
-2025-06-19 13:46:40,298 mercadoturbo api-mercado-livre-dev.jar[11068] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-2025-06-19 13:46:40,299 mercadoturbo api-mercado-livre-dev.jar[11068] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [cdi, rest, rest-client, rest-client-jackson, rest-jackson, smallrye-context-propagation, smallrye-openapi, swagger-ui, vertx]
-2025-06-19 13:46:40,299 mercadoturbo api-mercado-livre-dev.jar[11068] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-5) Live reload total time: 0.866s 
+2025-06-19 16:04:33,177 mercadoturbo api-mercado-livre-dev.jar[14088] INFO  [io.quarkus] (Quarkus Main Thread) api-mercado-livre 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.10.0) started in 0.612s. Listening on: http://localhost:8080
+2025-06-19 16:04:33,177 mercadoturbo api-mercado-livre-dev.jar[14088] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+2025-06-19 16:04:33,177 mercadoturbo api-mercado-livre-dev.jar[14088] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [cdi, rest, rest-client, rest-client-jackson, rest-jackson, smallrye-context-propagation, smallrye-openapi, swagger-ui, vertx]
+2025-06-19 16:04:33,177 mercadoturbo api-mercado-livre-dev.jar[14088] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-3) Live reload total time: 0.789s 

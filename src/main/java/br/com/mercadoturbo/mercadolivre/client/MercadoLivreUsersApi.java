@@ -36,6 +36,7 @@ public interface MercadoLivreUsersApi {
     @HeaderParam("Authorization") String autorization,
             @PathParam("id") String id,
             @QueryParam("limit") @DefaultValue("50") int limit,
-            @QueryParam("offset") @DefaultValue("0") int offset
+            @QueryParam("offset") @DefaultValue("0") int offset,
+            @QueryParam("user_product_id") String user_product_id
             );
 }

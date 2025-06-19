@@ -4,9 +4,11 @@
  */
 package br.com.mercadoturbo.mercadolivre.resource;
 
+import br.com.mercadoturbo.mercadolivre.dto.MigrationValidationResponse;
 import br.com.mercadoturbo.mercadolivre.dto.MultigetResponse;
 import br.com.mercadoturbo.mercadolivre.dto.PostItemRequest;
 import br.com.mercadoturbo.mercadolivre.dto.PostItemResponse;
+import br.com.mercadoturbo.mercadolivre.service.MigrationValidationService;
 import br.com.mercadoturbo.mercadolivre.service.MultigetService;
 import br.com.mercadoturbo.mercadolivre.service.PostItemService;
 import io.smallrye.mutiny.Uni;
@@ -27,6 +29,9 @@ public class ItemsResource implements Serializable{
     @Inject
     PostItemService itemService;
     
+    @Inject
+    MigrationValidationService validation;
+    
     @GET
     public Uni<List<MultigetResponse>> getItens(
             @HeaderParam("Authorization") String authorization,
@@ -36,10 +41,20 @@ public class ItemsResource implements Serializable{
         return service.fetchItens(authorization, ids, attributes);
     }
     
-    @POST
+    @POST  //NAO TESTADO AINDA
     public Uni<PostItemResponse> postItem(
             @HeaderParam("Authorization")String authorization,
             PostItemRequest request){
         return itemService.sendItem(authorization, request);
+    }
+    
+    
+    @GET
+    @Path("/{item_id}/user_product_listings/validate") //item_id é o id antigo do produto
+    @Produces(MediaType.APPLICATION_JSON)
+    public Uni<MigrationValidationResponse> getValidation(
+                @HeaderParam("Authorization")String authorization,
+                @PathParam("item_id")String item_id){
+        return validation.fetchValidation(authorization, item_id);
     }
 }

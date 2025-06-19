@@ -28,7 +28,7 @@ public class UsersService implements Serializable{
         return mlu.getUsers(accessToken, id);
     }
     
-    public Uni<ItemsResponse> fetchItems(String accessToken, String id, int limit, int offset){
-        return mlu.getItems(accessToken, id, limit, offset);
+    public Uni<ItemsResponse> fetchItems(String accessToken, String id, int limit, int offset, String user_product_id){
+        return mlu.getItems(accessToken, id, limit, offset, user_product_id);
     }
 }

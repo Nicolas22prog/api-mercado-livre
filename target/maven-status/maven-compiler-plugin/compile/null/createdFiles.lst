@@ -41,6 +41,8 @@ br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$Item.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$Speed.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$State.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$Country.class
+br\com\mercadoturbo\mercadolivre\dto\MigrationValidationResponse.class
+br\com\mercadoturbo\mercadolivre\dto\MigrationValidationResponse$Cause.class
 br\com\mercadoturbo\mercadolivre\dto\OrderResponse$OrderDto$Shipping.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$EstimatedDelivery.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$Collector.class
@@ -68,6 +70,7 @@ br\com\mercadoturbo\mercadolivre\dto\OrderResponse$OrderDto$Context.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$OrderItem.class
 br\com\mercadoturbo\mercadolivre\client\MercadoLivreShipmentApi.class
 br\com\mercadoturbo\mercadolivre\dto\OrderResponse$OrderDto$Collector.class
+br\com\mercadoturbo\mercadolivre\service\MigrationValidationService.class
 br\com\mercadoturbo\mercadolivre\dto\ShippingOptionsResponse.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$AtmTransferReference.class
 br\com\mercadoturbo\mercadolivre\dto\ShipmentResponse$State.class
