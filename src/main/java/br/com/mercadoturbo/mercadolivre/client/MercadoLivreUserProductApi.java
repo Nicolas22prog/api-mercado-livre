@@ -1,6 +1,7 @@
 package br.com.mercadoturbo.mercadolivre.client;
 
 import br.com.mercadoturbo.mercadolivre.apiexception.MercadoLivreExceptionMapper;
+import br.com.mercadoturbo.mercadolivre.dto.StockResponse;
 import br.com.mercadoturbo.mercadolivre.dto.UserProductResponse;
 import io.smallrye.mutiny.Uni;
 import jakarta.ws.rs.*;
@@ -16,6 +17,13 @@ public interface MercadoLivreUserProductApi {
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     Uni<UserProductResponse> getUserProduct(
+            @HeaderParam("Authorization")String authorization,
+            @PathParam("user_product_id")String user_product_id);
+    
+     @GET
+     @Path("/stock")
+     @Produces(MediaType.APPLICATION_JSON)
+     Uni<StockResponse> getStock(
             @HeaderParam("Authorization")String authorization,
             @PathParam("user_product_id")String user_product_id);
 }

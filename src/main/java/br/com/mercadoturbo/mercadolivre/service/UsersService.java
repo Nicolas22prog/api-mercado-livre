@@ -6,6 +6,7 @@ package br.com.mercadoturbo.mercadolivre.service;
 
 import br.com.mercadoturbo.mercadolivre.client.MercadoLivreUsersApi;
 import br.com.mercadoturbo.mercadolivre.dto.ItemsResponse;
+import br.com.mercadoturbo.mercadolivre.dto.StockLocationsResponse;
 
 import br.com.mercadoturbo.mercadolivre.dto.UsersResponse;
 import io.smallrye.mutiny.Uni;
@@ -30,5 +31,9 @@ public class UsersService implements Serializable{
     
     public Uni<ItemsResponse> fetchItems(String accessToken, String id, int limit, int offset, String user_product_id){
         return mlu.getItems(accessToken, id, limit, offset, user_product_id);
+    }
+    
+    public Uni<StockLocationsResponse> fetchLocations(String accessToken, String user_id, String tags, Integer limit, Integer offset){
+        return mlu.getLocations(accessToken, user_id, tags, limit, offset);
     }
 }

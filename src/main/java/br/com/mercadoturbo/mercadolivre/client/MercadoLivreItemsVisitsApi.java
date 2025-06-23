@@ -1,7 +1,6 @@
 package br.com.mercadoturbo.mercadolivre.client;
 
 import br.com.mercadoturbo.mercadolivre.dto.GenericVisitsResponse;
-import br.com.mercadoturbo.mercadolivre.dto.MigrationStatusResponse;
 import br.com.mercadoturbo.mercadolivre.dto.VisitsResponse;
 import br.com.mercadoturbo.mercadolivre.dto.VisitsTimeWindowResponse;
 import io.smallrye.mutiny.Uni;

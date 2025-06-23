@@ -40,12 +40,5 @@ public class FamilyResource implements Serializable{
         return migration.postMigration(authorization, site_id, request);
 }
     
-    @GET
-    @Path("/{item_id}/migration_live_listing")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Uni<MigrationStatusResponse> getMigrationStatus(
-                @HeaderParam("Authorization")String authorization,
-                @PathParam("item_id")String item_id){
-        return migration.fetchMigrationStatus(authorization, item_id);
-    }
+    
 }

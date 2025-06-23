@@ -1,6 +1,6 @@
 package br.com.mercadoturbo.mercadolivre.service;
 
-import br.com.mercadoturbo.mercadolivre.client.MercadoLivreStockApi;
+import br.com.mercadoturbo.mercadolivre.client.MercadoLivreUserProductApi;
 import br.com.mercadoturbo.mercadolivre.dto.StockResponse;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -13,7 +13,7 @@ public class StockService implements Serializable{
     
     @Inject
     @RestClient
-    MercadoLivreStockApi stock;
+    MercadoLivreUserProductApi stock;
     
     public Uni<StockResponse> fetchStock(String accessTokne, String user_product_id){
         return stock.getStock(accessTokne, user_product_id);
