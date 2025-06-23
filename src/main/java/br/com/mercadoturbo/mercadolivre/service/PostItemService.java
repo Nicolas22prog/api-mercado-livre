@@ -19,4 +19,8 @@ public class PostItemService implements Serializable{
     public Uni<PostItemResponse> sendItem(String accessToken, PostItemRequest request){
         return post.postItem(accessToken, request);
     }
+    
+    public Uni<PostItemResponse> updateItem(String accessTokne,Long item_id ,PostItemRequest request){
+        return post.putItem(accessTokne, item_id,request);
+    }
 }

@@ -57,4 +57,14 @@ public class ItemsResource implements Serializable{
                 @PathParam("item_id")String item_id){
         return validation.fetchValidation(authorization, item_id);
     }
+    
+    @PUT
+    @Path("/{item_id}/family_name")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Uni<PostItemResponse> updateItem(
+                @HeaderParam("Authorization")String authorization,
+                @PathParam("item_id")Long item_id,
+                PostItemRequest request){
+        return itemService.updateItem(authorization, item_id, request);
+    }
 }

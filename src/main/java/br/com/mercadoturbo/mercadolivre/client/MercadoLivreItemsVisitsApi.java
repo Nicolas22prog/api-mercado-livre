@@ -1,6 +1,7 @@
 package br.com.mercadoturbo.mercadolivre.client;
 
 import br.com.mercadoturbo.mercadolivre.dto.GenericVisitsResponse;
+import br.com.mercadoturbo.mercadolivre.dto.MigrationStatusResponse;
 import br.com.mercadoturbo.mercadolivre.dto.VisitsResponse;
 import br.com.mercadoturbo.mercadolivre.dto.VisitsTimeWindowResponse;
 import io.smallrye.mutiny.Uni;
@@ -48,5 +49,6 @@ public interface MercadoLivreItemsVisitsApi {
                     @QueryParam("ids")String item_id,
                     @QueryParam("last")Integer last,
                     @QueryParam("unit")String unit);
+    
     
 }
