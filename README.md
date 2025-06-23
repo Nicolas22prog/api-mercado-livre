@@ -216,7 +216,7 @@ Exemplo de corpo da requisição:
   Retorna os produtos de uma determinada família.
 
 - `GET /users/{user_id}/stores/search`
-    Retorna os estoques cadastrados do vendedor, pode receber o Queryparam tags que filtra os dados
+   Retorna os estoques cadastrados do vendedor, pode receber o Queryparam tags que filtra os dados
  
 ## Observação sobre a Busca por Categorias
 
