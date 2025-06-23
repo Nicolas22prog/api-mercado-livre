@@ -4,10 +4,12 @@
  */
 package br.com.mercadoturbo.mercadolivre.resource;
 
+import br.com.mercadoturbo.mercadolivre.dto.MigrationStatusResponse;
 import br.com.mercadoturbo.mercadolivre.dto.MigrationValidationResponse;
 import br.com.mercadoturbo.mercadolivre.dto.MultigetResponse;
 import br.com.mercadoturbo.mercadolivre.dto.PostItemRequest;
 import br.com.mercadoturbo.mercadolivre.dto.PostItemResponse;
+import br.com.mercadoturbo.mercadolivre.service.MigrationService;
 import br.com.mercadoturbo.mercadolivre.service.MigrationValidationService;
 import br.com.mercadoturbo.mercadolivre.service.MultigetService;
 import br.com.mercadoturbo.mercadolivre.service.PostItemService;
@@ -31,6 +33,9 @@ public class ItemsResource implements Serializable{
     
     @Inject
     MigrationValidationService validation;
+    
+    @Inject
+    MigrationService migration;
     
     @GET
     public Uni<List<MultigetResponse>> getItens(
@@ -66,5 +71,13 @@ public class ItemsResource implements Serializable{
                 @PathParam("item_id")Long item_id,
                 PostItemRequest request){
         return itemService.updateItem(authorization, item_id, request);
+    }
+    @GET
+    @Path("/{item_id}/migration_live_listing")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Uni<MigrationStatusResponse> getMigrationStatus(
+                @HeaderParam("Authorization")String authorization,
+                @PathParam("item_id")String item_id){
+        return migration.fetchMigrationStatus(authorization, item_id);
     }
 }
