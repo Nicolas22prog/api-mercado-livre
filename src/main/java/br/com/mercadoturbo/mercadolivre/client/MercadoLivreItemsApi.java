@@ -54,7 +54,7 @@ public interface MercadoLivreItemsApi {
                 PostItemRequest request);
        
     @GET
-    @Path("/{item_id}/migration_live_listing?")
+    @Path("/{item_id}/migration_live_listing")
     @Produces(MediaType.APPLICATION_JSON)
     Uni<MigrationStatusResponse> getMigrationStatus(
                 @HeaderParam("Authorization")String authorization,

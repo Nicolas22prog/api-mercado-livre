@@ -1,6 +1,7 @@
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$AvailableFilter.class
 br\com\mercadoturbo\mercadolivre\dto\ShipmentResponse$Dimensions.class
 br\com\mercadoturbo\mercadolivre\dto\ShippingOptionsResponse$Speed.class
+br\com\mercadoturbo\mercadolivre\resource\StockResource.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$AvailableSort.class
 br\com\mercadoturbo\mercadolivre\dto\ShipmentResponse$Municipality.class
 br\com\mercadoturbo\mercadolivre\dto\OrderResponse$OrderDto$Feedback.class
@@ -9,6 +10,7 @@ br\com\mercadoturbo\mercadolivre\dto\ShipmentResponse$City.class
 br\com\mercadoturbo\mercadolivre\service\PaymentService.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse.class
 br\com\mercadoturbo\mercadolivre\dto\ShipmentResponse$Offset.class
+br\com\mercadoturbo\mercadolivre\service\MigrationService.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$Result.class
 br\com\mercadoturbo\mercadolivre\dto\ShippingOptionsResponse$Option.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$Paging.class
@@ -17,11 +19,13 @@ br\com\mercadoturbo\mercadolivre\dto\ShipmentResponse$Source.class
 br\com\mercadoturbo\mercadolivre\resource\ShipmentResource.class
 br\com\mercadoturbo\mercadolivre\dto\OrderResponse$OrderDto$Seller.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$ReceiverAddress.class
+br\com\mercadoturbo\mercadolivre\dto\MigrationRequest.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$Payment.class
 br\com\mercadoturbo\mercadolivre\dto\ShipmentResponse$Country.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$ShippingItem.class
 br\com\mercadoturbo\mercadolivre\dto\OrderResponse$OrderDto$Buyer.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$BillingInfo.class
+br\com\mercadoturbo\mercadolivre\client\MercadoLivreStockApi.class
 br\com\mercadoturbo\mercadolivre\dto\ShippingOptionsResponse$Destination.class
 br\com\mercadoturbo\mercadolivre\dto\ShipmentResponse$Agency.class
 br\com\mercadoturbo\mercadolivre\dto\OrderResponse$OrderDto$Coupon.class
@@ -32,8 +36,10 @@ br\com\mercadoturbo\mercadolivre\dto\OrderResponse$OrderDto$Payment.class
 br\com\mercadoturbo\mercadolivre\dto\ShipmentResponse$LeadTime.class
 br\com\mercadoturbo\mercadolivre\dto\ShipmentResponse$Neighborhood.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$FilterValue.class
+br\com\mercadoturbo\mercadolivre\service\StockService.class
 br\com\mercadoturbo\mercadolivre\service\ShipmentService.class
 br\com\mercadoturbo\mercadolivre\dto\ShipmentResponse.class
+br\com\mercadoturbo\mercadolivre\dto\StockResponse.class
 br\com\mercadoturbo\mercadolivre\dto\ShipmentResponse$Origin.class
 br\com\mercadoturbo\mercadolivre\dto\OrderResponse$OrderDto$OrderItem.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$Seller.class
@@ -61,12 +67,15 @@ br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$City.class
 br\com\mercadoturbo\mercadolivre\dto\OrderResponse$OrderDto$RequestedQuantity.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$Buyer.class
 br\com\mercadoturbo\mercadolivre\dto\ShipmentResponse$TimeFrame.class
+br\com\mercadoturbo\mercadolivre\dto\MigrationStatusResponse.class
 br\com\mercadoturbo\mercadolivre\dto\OrderResponse$OrderDto$VariationAttribute.class
 br\com\mercadoturbo\mercadolivre\dto\OrderResponse$OrderDto$Item.class
 br\com\mercadoturbo\mercadolivre\resource\PaymentResource.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$StatusDetail.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$Feedback.class
 br\com\mercadoturbo\mercadolivre\dto\OrderResponse$OrderDto$Context.class
+br\com\mercadoturbo\mercadolivre\dto\MigrationStatusResponse$NewItem.class
+br\com\mercadoturbo\mercadolivre\dto\StockResponse$Location.class
 br\com\mercadoturbo\mercadolivre\dto\OrderByIdResponse$OrderItem.class
 br\com\mercadoturbo\mercadolivre\client\MercadoLivreShipmentApi.class
 br\com\mercadoturbo\mercadolivre\dto\OrderResponse$OrderDto$Collector.class

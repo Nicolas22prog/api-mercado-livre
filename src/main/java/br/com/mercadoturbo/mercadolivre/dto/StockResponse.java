@@ -1,6 +1,6 @@
 package br.com.mercadoturbo.mercadolivre.dto;
 
-public class StockResponse {
+public class StockResponse extends ProxyEnabledDTO{
 
     public Location[] locations;
     public Long user_id;

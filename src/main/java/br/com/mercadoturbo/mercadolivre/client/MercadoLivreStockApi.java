@@ -8,7 +8,7 @@ import jakarta.ws.rs.core.MediaType;
 import org.eclipse.microprofile.rest.client.annotation.RegisterProvider;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
-@Path("/user-product/{user_product_id}/stock")
+@Path("/user-products/{user_product_id}/stock")
 @RegisterRestClient(configKey = "mercado-livre-api")
 @RegisterProvider(MercadoLivreExceptionMapper.class)
 public interface MercadoLivreStockApi {
