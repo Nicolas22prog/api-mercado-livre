@@ -215,6 +215,9 @@ Exemplo de corpo da requisição:
 - `GET /sites/{site_id}/user-product-families/{family_id}`  
   Retorna os produtos de uma determinada família.
 
+- `GET /users/{user_id}/stores/search`
+    Retorna os estoques cadastrados do vendedor, pode receber o Queryparam tags que filtra os dados
+ 
 ## Observação sobre a Busca por Categorias
 
 O endpoint abaixo foi descontinuado e retorna erro 400:
