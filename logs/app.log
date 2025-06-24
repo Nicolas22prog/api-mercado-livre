@@ -1,4 +1,4 @@
-2025-06-24 10:31:20,203 mercadoturbo api-mercado-livre-dev.jar[1184] INFO  [io.quarkus] (Quarkus Main Thread) api-mercado-livre 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.10.0) started in 0.653s. Listening on: http://localhost:8080
-2025-06-24 10:31:20,204 mercadoturbo api-mercado-livre-dev.jar[1184] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-2025-06-24 10:31:20,204 mercadoturbo api-mercado-livre-dev.jar[1184] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [cdi, rest, rest-client, rest-client-jackson, rest-jackson, smallrye-context-propagation, smallrye-openapi, swagger-ui, vertx]
-2025-06-24 10:31:20,205 mercadoturbo api-mercado-livre-dev.jar[1184] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-19) Live reload total time: 0.789s 
+2025-06-24 16:50:45,183 mercadoturbo api-mercado-livre-dev.jar[14528] WARN  [io.qua.config] (Quarkus Main Thread) Unrecognized configuration key "quarkus.log.console.json" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+2025-06-24 16:50:45,824 mercadoturbo api-mercado-livre-dev.jar[14528] INFO  [io.quarkus] (Quarkus Main Thread) api-mercado-livre 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.10.0) started in 2.801s. Listening on: http://localhost:8080
+2025-06-24 16:50:45,825 mercadoturbo api-mercado-livre-dev.jar[14528] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+2025-06-24 16:50:45,826 mercadoturbo api-mercado-livre-dev.jar[14528] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [cdi, rest, rest-client, rest-client-jackson, rest-jackson, smallrye-context-propagation, smallrye-openapi, swagger-ui, vertx]
