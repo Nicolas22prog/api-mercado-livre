@@ -3,6 +3,8 @@ package br.com.mercadoturbo.mercadolivre.client;
 import br.com.mercadoturbo.mercadolivre.apiexception.MercadoLivreExceptionMapper;
 import br.com.mercadoturbo.mercadolivre.dto.PostPriceRequest;
 import br.com.mercadoturbo.mercadolivre.dto.PricesResponse;
+import br.com.mercadoturbo.mercadolivre.dto.QuantityPriceRequest;
+import br.com.mercadoturbo.mercadolivre.dto.QuantityPriceResponse;
 import br.com.mercadoturbo.mercadolivre.dto.SaleDTO;
 import io.smallrye.mutiny.Uni;
 import jakarta.ws.rs.*;
@@ -45,4 +47,8 @@ public interface MercadoLivreSaleApi {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/prices/standard/quantity")
+    Uni<QuantityPriceResponse> postPriceQuantity(
+            @HeaderParam("Authorization")String authorization,
+            @PathParam("item_id") String item_id,
+            QuantityPriceRequest request);
 }
