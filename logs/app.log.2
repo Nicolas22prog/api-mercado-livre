@@ -1,4 +1,65 @@
-2025-06-24 10:31:20,203 mercadoturbo api-mercado-livre-dev.jar[1184] INFO  [io.quarkus] (Quarkus Main Thread) api-mercado-livre 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.10.0) started in 0.653s. Listening on: http://localhost:8080
-2025-06-24 10:31:20,204 mercadoturbo api-mercado-livre-dev.jar[1184] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-2025-06-24 10:31:20,204 mercadoturbo api-mercado-livre-dev.jar[1184] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [cdi, rest, rest-client, rest-client-jackson, rest-jackson, smallrye-context-propagation, smallrye-openapi, swagger-ui, vertx]
-2025-06-24 10:31:20,205 mercadoturbo api-mercado-livre-dev.jar[1184] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-19) Live reload total time: 0.789s 
+2025-06-25 13:58:15,867 mercadoturbo api-mercado-livre-dev.jar[13760] INFO  [io.quarkus] (Quarkus Main Thread) api-mercado-livre 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.10.0) started in 0.725s. Listening on: http://localhost:8080
+2025-06-25 13:58:15,867 mercadoturbo api-mercado-livre-dev.jar[13760] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+2025-06-25 13:58:15,868 mercadoturbo api-mercado-livre-dev.jar[13760] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [cdi, rest, rest-client, rest-client-jackson, rest-jackson, smallrye-context-propagation, smallrye-openapi, swagger-ui, vertx]
+2025-06-25 13:58:15,868 mercadoturbo api-mercado-livre-dev.jar[13760] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-21) Live reload total time: 0.844s 
+2025-06-25 13:58:15,886 mercadoturbo api-mercado-livre-dev.jar[13760] ERROR [io.qua.ver.htt.run.QuarkusErrorHandler] (executor-thread-1) HTTP Request to /pictures/items/upload failed, error id: f71091f8-319e-4c5b-b80e-e392a39611a4-5: java.lang.RuntimeException: Error injecting br.com.mercadoturbo.mercadolivre.client.MercadoLivreUploadApi br.com.mercadoturbo.mercadolivre.service.ImageUploadService.upload
+	at br.com.mercadoturbo.mercadolivre.service.ImageUploadService_Bean.doCreate(Unknown Source)
+	at br.com.mercadoturbo.mercadolivre.service.ImageUploadService_Bean.create(Unknown Source)
+	at br.com.mercadoturbo.mercadolivre.service.ImageUploadService_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.c23(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:21)
+	at br.com.mercadoturbo.mercadolivre.service.ImageUploadService_ClientProxy.arc$delegate(Unknown Source)
+	at br.com.mercadoturbo.mercadolivre.service.ImageUploadService_ClientProxy.sendImage(Unknown Source)
+	at br.com.mercadoturbo.mercadolivre.resource.ImagemUploadResource.postImage(ImagemUploadResource.java:26)
+	at br.com.mercadoturbo.mercadolivre.resource.ImagemUploadResource$quarkusrestinvoker$postImage_be0950add4d579bb36093d3e6fe02d71c08c6586.invoke(Unknown Source)
+	at org.jboss.resteasy.reactive.server.handlers.InvocationHandler.handle(InvocationHandler.java:29)
+	at io.quarkus.resteasy.reactive.server.runtime.QuarkusResteasyReactiveRequestContext.invokeHandler(QuarkusResteasyReactiveRequestContext.java:141)
+	at org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
+	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$14.runWith(VertxCoreRecorder.java:599)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2516)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2495)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1521)
+	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.lang.IllegalStateException: REST client interface: interface br.com.mercadoturbo.mercadolivre.client.MercadoLivreUploadApi was not indexed at build time. See https://quarkus.io/guides/cdi-reference#bean_discovery for information on how to index the module that contains it.
+	at org.jboss.resteasy.reactive.client.impl.ClientProxies.get(ClientProxies.java:35)
+	at org.jboss.resteasy.reactive.client.impl.WebTargetImpl.proxy(WebTargetImpl.java:449)
+	at io.quarkus.rest.client.reactive.runtime.RestClientBuilderImpl.build(RestClientBuilderImpl.java:465)
+	at io.quarkus.rest.client.reactive.runtime.QuarkusRestClientBuilderImpl.build(QuarkusRestClientBuilderImpl.java:260)
+	at io.quarkus.rest.client.reactive.runtime.RestClientCDIDelegateBuilder.build(RestClientCDIDelegateBuilder.java:64)
+	at io.quarkus.rest.client.reactive.runtime.RestClientCDIDelegateBuilder.createDelegate(RestClientCDIDelegateBuilder.java:46)
+	at io.quarkus.rest.client.reactive.runtime.RestClientReactiveCDIWrapperBase.delegate(RestClientReactiveCDIWrapperBase.java:76)
+	at io.quarkus.rest.client.reactive.runtime.RestClientReactiveCDIWrapperBase.<init>(RestClientReactiveCDIWrapperBase.java:30)
+	at br.com.mercadoturbo.mercadolivre.client.MercadoLivreUploadApi$$CDIWrapper.<init>(Unknown Source)
+	at br.com.mercadoturbo.mercadolivre.client.MercadoLivreUploadApi$$CDIWrapper_ClientProxy.<init>(Unknown Source)
+	at br.com.mercadoturbo.mercadolivre.client.MercadoLivreUploadApi$$CDIWrapper_Bean.proxy(Unknown Source)
+	at br.com.mercadoturbo.mercadolivre.client.MercadoLivreUploadApi$$CDIWrapper_Bean.get(Unknown Source)
+	at br.com.mercadoturbo.mercadolivre.client.MercadoLivreUploadApi$$CDIWrapper_Bean.get(Unknown Source)
+	... 25 more
+
+2025-06-25 13:58:15,889 mercadoturbo api-mercado-livre-dev.jar[13760] ERROR [org.jbo.res.rea.ser.cor.mul.MultiPartParserDefinition] (executor-thread-2) Cannot remove uploaded file C:\cygwin64\tmp\uploads\resteasy-reactive13842977778296256115upload: java.nio.file.FileSystemException: C:\cygwin64\tmp\uploads\resteasy-reactive13842977778296256115upload: O arquivo já está sendo usado por outro processo
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:269)
+	at java.base/sun.nio.fs.AbstractFileSystemProvider.delete(AbstractFileSystemProvider.java:105)
+	at java.base/java.nio.file.Files.delete(Files.java:1049)
+	at org.jboss.resteasy.reactive.server.core.multipart.MultiPartParserDefinition$MultiPartUploadHandler$1.run(MultiPartParserDefinition.java:407)
+	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$14.runWith(VertxCoreRecorder.java:599)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2516)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2495)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1495)
+	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+
+2025-06-25 14:01:04,059 mercadoturbo api-mercado-livre-dev.jar[13760] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-23) Restarting quarkus due to changes in ImageUploadService.class.
+2025-06-25 14:01:04,098 mercadoturbo api-mercado-livre-dev.jar[13760] INFO  [io.quarkus] (Quarkus Main Thread) api-mercado-livre stopped in 0.038s

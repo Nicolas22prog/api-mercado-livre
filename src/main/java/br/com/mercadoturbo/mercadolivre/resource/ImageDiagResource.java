@@ -16,6 +16,7 @@ public class ImageDiagResource{
     
     @POST
     @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     public Uni<ImageDiagResponse> postDiag(
             @HeaderParam("Authorization")String authorization,
             ImageDiagRequest request){

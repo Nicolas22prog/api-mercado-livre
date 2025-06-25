@@ -17,6 +17,7 @@ public interface MercadoLivreDiagnosticoApi {
     
     @POST
     @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     Uni<ImageDiagResponse> postDiag(
             @HeaderParam("Authorization")String authorization,
             ImageDiagRequest request);
