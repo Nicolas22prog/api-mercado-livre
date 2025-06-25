@@ -46,7 +46,8 @@ public class ItemsResource implements Serializable{
         return service.fetchItens(authorization, ids, attributes);
     }
     
-    @POST  //NAO TESTADO AINDA
+    @POST
+    @Path("/post")//NAO TESTADO AINDA
     public Uni<PostItemResponse> postItem(
             @HeaderParam("Authorization")String authorization,
             PostItemRequest request){

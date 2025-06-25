@@ -1,13 +1,12 @@
 package br.com.mercadoturbo.mercadolivre.dto;
 
-
-
-import jakarta.ws.rs.FormParam;
-import java.io.File;
+import org.jboss.resteasy.reactive.RestForm;
+import org.jboss.resteasy.reactive.multipart.FileUpload;
 
 
 public class ImagemUploadForm {
     
-    @FormParam("file")
-    public File file;
+    
+    @RestForm("file")
+    public FileUpload file;
 }

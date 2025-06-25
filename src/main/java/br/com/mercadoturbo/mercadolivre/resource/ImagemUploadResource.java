@@ -22,7 +22,7 @@ public class ImagemUploadResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Uni<ImageUploadResponse> postImage(
             @HeaderParam("Authorization")String authorization,
-            ImagemUploadForm form){
+          ImagemUploadForm form){
      
         return service.sendImage(authorization, form);
     }
