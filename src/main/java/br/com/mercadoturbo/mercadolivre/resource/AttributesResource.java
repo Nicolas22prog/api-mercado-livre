@@ -57,3 +57,4 @@ public class AttributesResource implements Serializable{
         return service.sendConditional(authorization, category_id, request);
     }
 }
+
