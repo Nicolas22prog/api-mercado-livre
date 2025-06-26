@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 
-public class AttributesConditionalRequest {
+public class AttributesConditionalRequest{
          public String title;
     public String category_id;
     public BigDecimal price; // <- ajustado para BigDecimal

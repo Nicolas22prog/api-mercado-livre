@@ -3,7 +3,7 @@ package br.com.mercadoturbo.mercadolivre.dto;
 import java.util.List;
 
 
-public class ImageDiagResponse {
+public class ImageDiagResponse extends ProxyEnabledDTO{
  public String id;
     public List<Diagnostic> diagnostics;
 

@@ -2,7 +2,7 @@ package br.com.mercadoturbo.mercadolivre.dto;
 
 import java.math.BigDecimal;
 
-public class ShippingOptionsResponse {
+public class ShippingOptionsResponse extends ProxyEnabledDTO{
 
     public Destination destination;
     public Option[] options;

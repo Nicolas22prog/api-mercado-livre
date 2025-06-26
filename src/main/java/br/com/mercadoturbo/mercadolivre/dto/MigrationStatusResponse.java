@@ -2,7 +2,7 @@ package br.com.mercadoturbo.mercadolivre.dto;
 
 import java.time.OffsetDateTime;
 
-public class MigrationStatusResponse {
+public class MigrationStatusResponse extends ProxyEnabledDTO{
 
     public String item_id;
     public Boolean migration_completed;

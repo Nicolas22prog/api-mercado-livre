@@ -4,7 +4,7 @@ import java.time.OffsetDateTime;
 import java.util.List;
 
 
-public class WareHouseResponse {
+public class WareHouseResponse extends ProxyEnabledDTO{
     public long user_id;
     public OffsetDateTime product_release_date; // pode ser null
     public String id;

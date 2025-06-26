@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 
-public class AttributesItemsResponse {
+public class AttributesItemsResponse extends ProxyEnabledDTO{
 public String id;
     public String site_id;
     public String title;

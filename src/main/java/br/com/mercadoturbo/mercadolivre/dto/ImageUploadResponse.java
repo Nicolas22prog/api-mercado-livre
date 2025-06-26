@@ -1,7 +1,7 @@
 package br.com.mercadoturbo.mercadolivre.dto;
 import java.util.List;
 
-public class ImageUploadResponse {
+public class ImageUploadResponse extends ProxyEnabledDTO{
     public String id;
     public List<Variation> variations;
 

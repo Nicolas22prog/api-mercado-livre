@@ -3,7 +3,7 @@ package br.com.mercadoturbo.mercadolivre.dto;
 import java.util.List;
 
 
-public class QuantityPriceResponse {
+public class QuantityPriceResponse extends ProxyEnabledDTO{
  public String id;
     public List<Price> prices;
 

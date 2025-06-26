@@ -1,10 +1,9 @@
 package br.com.mercadoturbo.mercadolivre.dto;
 
-import io.smallrye.mutiny.Uni;
 import java.time.OffsetDateTime;
 
 
-public class DescriptionResponse {
+public class DescriptionResponse extends ProxyEnabledDTO{
    
 
     public String text;

@@ -3,7 +3,7 @@ package br.com.mercadoturbo.mercadolivre.dto;
 import java.time.OffsetDateTime;
 
 
-public class SaleDTO {
+public class SaleDTO extends ProxyEnabledDTO{
     public String price_id;
     public double amount;
     public double regular_amount;
