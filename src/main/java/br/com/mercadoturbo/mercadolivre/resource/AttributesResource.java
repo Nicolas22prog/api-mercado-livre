@@ -1,5 +1,7 @@
 package br.com.mercadoturbo.mercadolivre.resource;
 
+import br.com.mercadoturbo.mercadolivre.dto.AttributesConditionalRequest;
+import br.com.mercadoturbo.mercadolivre.dto.AttributesConditionalResponse;
 import br.com.mercadoturbo.mercadolivre.service.AttributesService;
 import br.com.mercadoturbo.mercadolivre.dto.AttributesResponse;
 import br.com.mercadoturbo.mercadolivre.dto.TechinicalSpecsResponse;
@@ -43,5 +45,15 @@ public class AttributesResource implements Serializable{
             @PathParam("category_id")String category_id){
         return service.fetchOutput(authorization, category_id);
     }
+ 
     
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/attributes/conditional")
+    public Uni<AttributesConditionalResponse> postConditional(
+        @HeaderParam("Authorization")String authorization,
+        @PathParam("category_id")String category_id,
+        AttributesConditionalRequest request){
+        return service.sendConditional(authorization, category_id, request);
+    }
 }

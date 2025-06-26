@@ -1,6 +1,7 @@
 package br.com.mercadoturbo.mercadolivre.client;
 
 import br.com.mercadoturbo.mercadolivre.apiexception.MercadoLivreExceptionMapper;
+import br.com.mercadoturbo.mercadolivre.dto.AttributesConditionalResponse;
 import br.com.mercadoturbo.mercadolivre.dto.AttributesResponse;
 import br.com.mercadoturbo.mercadolivre.dto.TechinicalSpecsResponse;
 import io.smallrye.mutiny.Uni;
@@ -33,6 +34,13 @@ public interface MercadoLivreAttributesApi {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/technical_specs/output")
     Uni<TechinicalSpecsResponse> getTechOutput(
+            @HeaderParam("Authorization")String authorization,
+            @PathParam("category_id")String category_id);
+    
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/attributes/conditional")
+    Uni<AttributesConditionalResponse> postConditional(
             @HeaderParam("Authorization")String authorization,
             @PathParam("category_id")String category_id);
 }

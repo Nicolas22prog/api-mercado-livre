@@ -1,6 +1,8 @@
 package br.com.mercadoturbo.mercadolivre.service;
 
 import br.com.mercadoturbo.mercadolivre.client.MercadoLivreAttributesApi;
+import br.com.mercadoturbo.mercadolivre.dto.AttributesConditionalRequest;
+import br.com.mercadoturbo.mercadolivre.dto.AttributesConditionalResponse;
 import br.com.mercadoturbo.mercadolivre.dto.AttributesResponse;
 import br.com.mercadoturbo.mercadolivre.dto.TechinicalSpecsResponse;
 import io.smallrye.mutiny.Uni;
@@ -27,5 +29,9 @@ public class AttributesService implements Serializable{
     
     public Uni<TechinicalSpecsResponse> fetchOutput(String accessToken, String category_id){
         return attributes.getTechOutput(accessToken, category_id);
+    }
+    
+    public Uni<AttributesConditionalResponse> sendConditional(String accessToken, String category_id,AttributesConditionalRequest request){
+        return attributes.postConditional(accessToken, category_id, request);
     }
 }
