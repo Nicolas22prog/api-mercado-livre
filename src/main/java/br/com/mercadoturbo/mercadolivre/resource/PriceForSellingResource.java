@@ -8,7 +8,7 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import java.util.List;
 
-@Path("sites/{site_id}/listing_prices")
+@Path("/sites/{site_id}/listing_prices")
 public class PriceForSellingResource {
 
     @Inject

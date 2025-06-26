@@ -1,16 +1,22 @@
 package br.com.mercadoturbo.mercadolivre.dto;
 
-
 import java.util.List;
 
-public class AttributesResponse extends ProxyEnabledDTO{
+public class AttributesResponse extends ProxyEnabledDTO {
 
     public String id;
     public String name;
+    public String value_id;
+    public String value_name;
+    public String value_type;
+
+   
+    public List<Value> values;
+
+   
     public Tags tags;
     public String hierarchy;
     public Integer relevance;
-    public String value_type;
     public Integer value_max_length;
     public String type;
     public String default_unit;
@@ -20,7 +26,6 @@ public class AttributesResponse extends ProxyEnabledDTO{
     public String attribute_group_id;
     public String attribute_group_name;
     public List<Unit> allowed_units;
-    public List<Value> values;
 
     public static class Tags {
         public Boolean hidden;
@@ -43,12 +48,16 @@ public class AttributesResponse extends ProxyEnabledDTO{
     public static class Value {
         public String id;
         public String name;
-        public Metadata metadata;
+        public Struct struct;           
+        public Metadata metadata;     
+    }
+
+    public static class Struct {
+        public Integer number;
+        public String unit;
     }
 
     public static class Metadata {
         public Boolean value;
     }
 }
-
-

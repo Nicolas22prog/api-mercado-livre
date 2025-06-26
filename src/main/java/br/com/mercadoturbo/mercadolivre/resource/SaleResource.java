@@ -30,7 +30,7 @@ public class SaleResource implements Serializable{
     }
     
     @GET
-    @Path("prices")
+    @Path("/prices")
     @Produces(MediaType.APPLICATION_JSON)
     public Uni<PricesResponse> getPrices(   
                 @HeaderParam("Authorization")String authorization,

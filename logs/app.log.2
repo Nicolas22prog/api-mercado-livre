@@ -1,6 +1,38 @@
-2025-06-26 08:36:08,523 mercadoturbo api-mercado-livre-dev.jar[1424] INFO  [io.quarkus] (Quarkus Main Thread) api-mercado-livre 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.10.0) started in 0.727s. Listening on: http://localhost:8080
-2025-06-26 08:36:08,524 mercadoturbo api-mercado-livre-dev.jar[1424] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-2025-06-26 08:36:08,524 mercadoturbo api-mercado-livre-dev.jar[1424] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [cdi, rest, rest-client, rest-client-jackson, rest-jackson, smallrye-context-propagation, smallrye-openapi, swagger-ui, vertx]
-2025-06-26 08:36:08,525 mercadoturbo api-mercado-livre-dev.jar[1424] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-13) Live reload total time: 0.870s 
-2025-06-26 08:46:05,333 mercadoturbo api-mercado-livre-dev.jar[1424] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-15) Restarting quarkus due to changes in MercadoLivreAttributesApi.class, AttributesResource.class, AttributesService.class.
-2025-06-26 08:46:05,367 mercadoturbo api-mercado-livre-dev.jar[1424] INFO  [io.quarkus] (Quarkus Main Thread) api-mercado-livre stopped in 0.032s
+2025-06-26 15:22:56,842 mercadoturbo api-mercado-livre-dev.jar[2680] INFO  [io.quarkus] (Quarkus Main Thread) api-mercado-livre 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.10.0) started in 0.818s. Listening on: http://localhost:8080
+2025-06-26 15:22:56,843 mercadoturbo api-mercado-livre-dev.jar[2680] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+2025-06-26 15:22:56,843 mercadoturbo api-mercado-livre-dev.jar[2680] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [cdi, rest, rest-client, rest-client-jackson, rest-jackson, smallrye-context-propagation, smallrye-openapi, swagger-ui, vertx]
+2025-06-26 15:22:56,844 mercadoturbo api-mercado-livre-dev.jar[2680] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-10) Live reload total time: 0.992s 
+2025-06-26 15:22:56,855 mercadoturbo api-mercado-livre-dev.jar[2680] ERROR [io.qua.ver.htt.run.QuarkusErrorHandler] (vert.x-eventloop-thread-1) HTTP Request to /catalog_domains/MLB-CELLPHONES/attributes/BRAND/top_values failed, error id: f9ced0f8-b767-4159-9f88-082384a4c83b-2: java.lang.IllegalArgumentException: Path parameter not provided attribute_id
+	at org.jboss.resteasy.reactive.common.jaxrs.UriBuilderImpl.replaceParameter(UriBuilderImpl.java:635)
+	at org.jboss.resteasy.reactive.common.jaxrs.UriBuilderImpl.buildCharSequence(UriBuilderImpl.java:562)
+	at org.jboss.resteasy.reactive.common.jaxrs.UriBuilderImpl.buildString(UriBuilderImpl.java:534)
+	at org.jboss.resteasy.reactive.common.jaxrs.UriBuilderImpl.buildFromValues(UriBuilderImpl.java:747)
+	at org.jboss.resteasy.reactive.common.jaxrs.UriBuilderImpl.build(UriBuilderImpl.java:741)
+	at org.jboss.resteasy.reactive.client.impl.WebTargetImpl.createQuarkusRestInvocationBuilder(WebTargetImpl.java:334)
+	at org.jboss.resteasy.reactive.client.impl.WebTargetImpl.request(WebTargetImpl.java:313)
+	at br.com.mercadoturbo.mercadolivre.client.MercadoLivreBrandApi$$QuarkusRestClientInterface.postAttribute(Unknown Source)
+	at br.com.mercadoturbo.mercadolivre.client.MercadoLivreBrandApi$$CDIWrapper.postAttribute(Unknown Source)
+	at br.com.mercadoturbo.mercadolivre.client.MercadoLivreBrandApi$$CDIWrapper_ClientProxy.postAttribute(Unknown Source)
+	at br.com.mercadoturbo.mercadolivre.service.BrandService.sendAttributes(BrandService.java:21)
+	at br.com.mercadoturbo.mercadolivre.service.BrandService_ClientProxy.sendAttributes(Unknown Source)
+	at br.com.mercadoturbo.mercadolivre.resource.BrandResource.postAttribute(BrandResource.java:25)
+	at br.com.mercadoturbo.mercadolivre.resource.BrandResource$quarkusrestinvoker$postAttribute_efb24fc01ec25a045d8237e5a080023ca1e4549e.invoke(Unknown Source)
+	at org.jboss.resteasy.reactive.server.handlers.InvocationHandler.handle(InvocationHandler.java:29)
+	at io.quarkus.resteasy.reactive.server.runtime.QuarkusResteasyReactiveRequestContext.invokeHandler(QuarkusResteasyReactiveRequestContext.java:141)
+	at org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
+	at org.jboss.resteasy.reactive.server.vertx.VertxResteasyReactiveRequestContext$1$1.handle(VertxResteasyReactiveRequestContext.java:78)
+	at org.jboss.resteasy.reactive.server.vertx.VertxResteasyReactiveRequestContext$1$1.handle(VertxResteasyReactiveRequestContext.java:75)
+	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:279)
+	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:261)
+	at io.vertx.core.impl.ContextInternal.lambda$runOnContext$0(ContextInternal.java:59)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+
+2025-06-26 15:24:50,532 mercadoturbo api-mercado-livre-dev.jar[2680] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-12) Restarting quarkus due to changes in BrandService.class, MercadoLivreBrandApi.class, BrandResource.class.
+2025-06-26 15:24:50,568 mercadoturbo api-mercado-livre-dev.jar[2680] INFO  [io.quarkus] (Quarkus Main Thread) api-mercado-livre stopped in 0.034s

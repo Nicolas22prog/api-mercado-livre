@@ -3,6 +3,7 @@ package br.com.mercadoturbo.mercadolivre.client;
 
 import br.com.mercadoturbo.mercadolivre.dto.MultigetResponse;
 import br.com.mercadoturbo.mercadolivre.apiexception.MercadoLivreExceptionMapper;
+import br.com.mercadoturbo.mercadolivre.dto.AttributesItemsResponse;
 import br.com.mercadoturbo.mercadolivre.dto.MigrationStatusResponse;
 import br.com.mercadoturbo.mercadolivre.dto.MigrationValidationResponse;
 import br.com.mercadoturbo.mercadolivre.dto.PostItemRequest;
@@ -59,4 +60,13 @@ public interface MercadoLivreItemsApi {
     Uni<MigrationStatusResponse> getMigrationStatus(
                 @HeaderParam("Authorization")String authorization,
                 @PathParam("item_id")String item_id);
+    
+    @GET
+    @Path("/{item_id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    Uni<AttributesItemsResponse> getItemAttributes(
+                @HeaderParam("Authorization")String authorization,
+                @PathParam("item_id")String item_id,
+                @QueryParam("attributes")String attributes,
+                @QueryParam("include_internal_attributes")Boolean include_internal_attributes);
 }

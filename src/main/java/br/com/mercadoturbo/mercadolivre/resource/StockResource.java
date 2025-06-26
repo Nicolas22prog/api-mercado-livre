@@ -8,7 +8,7 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import java.io.Serializable;
 
-@Path("user-products/{user_product_id}/stock")
+@Path("/user-products/{user_product_id}/stock")
 public class StockResource implements Serializable{
     @Inject
     StockService service;

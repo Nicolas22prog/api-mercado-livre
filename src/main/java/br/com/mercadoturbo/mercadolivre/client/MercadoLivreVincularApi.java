@@ -26,4 +26,6 @@ public interface MercadoLivreVincularApi {
             @HeaderParam("Authorization")String authorization,
             @PathParam("item_id")String item_id,
             PictureUpdateRequest request);
+    
+    
 }

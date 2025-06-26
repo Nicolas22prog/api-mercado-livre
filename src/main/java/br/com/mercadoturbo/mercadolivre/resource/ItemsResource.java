@@ -9,6 +9,7 @@ import br.com.mercadoturbo.mercadolivre.dto.MigrationValidationResponse;
 import br.com.mercadoturbo.mercadolivre.dto.MultigetResponse;
 import br.com.mercadoturbo.mercadolivre.dto.PostItemRequest;
 import br.com.mercadoturbo.mercadolivre.dto.PostItemResponse;
+import br.com.mercadoturbo.mercadolivre.service.AttributesService;
 import br.com.mercadoturbo.mercadolivre.service.MigrationService;
 import br.com.mercadoturbo.mercadolivre.service.MigrationValidationService;
 import br.com.mercadoturbo.mercadolivre.service.MultigetService;
@@ -36,6 +37,9 @@ public class ItemsResource implements Serializable{
     
     @Inject
     MigrationService migration;
+    
+    @Inject
+    AttributesService attributesService;
     
     @GET
     public Uni<List<MultigetResponse>> getItens(
@@ -81,4 +85,6 @@ public class ItemsResource implements Serializable{
                 @PathParam("item_id")String item_id){
         return migration.fetchMigrationStatus(authorization, item_id);
     }
+    
+    
 }

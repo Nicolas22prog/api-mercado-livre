@@ -9,7 +9,7 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import java.io.Serializable;
 
-@Path("/items/{item_id}")
+@Path("/items/description/{item_id}")
 public class DescriptionResource implements Serializable{
 
     @Inject 
