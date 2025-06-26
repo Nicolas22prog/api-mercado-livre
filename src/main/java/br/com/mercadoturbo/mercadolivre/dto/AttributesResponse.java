@@ -9,7 +9,7 @@ public class AttributesResponse extends ProxyEnabledDTO{
     public String name;
     public Tags tags;
     public String hierarchy;
-    public int relevance;
+    public Integer relevance;
     public String value_type;
     public Integer value_max_length;
     public String type;
