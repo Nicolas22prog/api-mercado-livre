@@ -1,0 +1,1603 @@
+{
+	"info": {
+		"_postman_id": "44724515-cae4c421-3d82-4640-a8c5-21bd6cbc2591",
+		"name": "Proxy ML",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Scripts\" tab**\n\nAdding tests to your requests can help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/fa30ea0a-373d-4545-a668-e7b283cca343/aW1hZ2UucG5n\" alt=\"\" height=\"1530\" width=\"2162\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n    \n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Dados dos items",
+			"id": "44724515-549a2c7c-b221-4325-8a01-64fe0f12a9e0",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-061209-f3af2a4375f1e3bb30f5ed7f9f0af6b6-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/items?ids=MLB3242418393,MLB3243828572,MLB3212274750",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"items"
+					],
+					"query": [
+						{
+							"key": "ids",
+							"value": "MLB3242418393,MLB3243828572,MLB3212274750"
+						}
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/itens-e-buscas](https://developers.mercadolivre.com.br/pt_br/itens-e-buscas)"
+			},
+			"response": []
+		},
+		{
+			"name": "Dados Usuario",
+			"id": "44724515-5e9dcc3b-fc41-4ff7-a67e-70c77ce76903",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-061306-948655409c86ea46cf33165c843f447e-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/8033665",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"8033665"
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/usuarios-e-aplicativos](https://developers.mercadolivre.com.br/pt_br/usuarios-e-aplicativos)"
+			},
+			"response": []
+		},
+		{
+			"name": "Itens do usuario",
+			"id": "44724515-2ca9fca8-dd51-4d47-9dae-dbc8d25b01c8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-061607-efc3bc4e18c6235a525bd1110201b403-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/8033665/items/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"8033665",
+						"items",
+						"search"
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/usuarios-e-aplicativos](https://developers.mercadolivre.com.br/pt_br/usuarios-e-aplicativos)"
+			},
+			"response": []
+		},
+		{
+			"name": "Communications",
+			"id": "44724515-1b9c7fef-0a39-4261-aa48-ed24c473f4ce",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-061209-f3af2a4375f1e3bb30f5ed7f9f0af6b6-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/communications/notices",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"communications",
+						"notices"
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/conheca-as-novidades-que-os-vendedores-recebem](https://developers.mercadolivre.com.br/pt_br/conheca-as-novidades-que-os-vendedores-recebem)"
+			},
+			"response": []
+		},
+		{
+			"name": "token",
+			"id": "44724515-7500da43-4050-4183-8a91-3eddcbd0a536",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://170.187.139.110:8081/data/jwt/get/token?username={{vault:jwt_username}}&password={{vault:jwt_password}}",
+					"protocol": "http",
+					"host": [
+						"170",
+						"187",
+						"139",
+						"110"
+					],
+					"port": "8081",
+					"path": [
+						"data",
+						"jwt",
+						"get",
+						"token"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "{{vault:jwt_username}}"
+						},
+						{
+							"key": "password",
+							"value": "{{vault:jwt_password}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "token especifico",
+			"id": "44724515-bf2d7683-2712-432e-b79d-205716ad20de",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ0YXJnZXRTZXJ2aWNlIiwiaXNzIjoiaHR0cHM6Ly9zZXJ2ZXIuZXhhbXBsZS5jb20iLCJqdGkiOiJlOGMzZWY4NC00MmQ3LTRlZjQtYTI0Yy1hMDhlN2ZkYzZlYjEiLCJzdWIiOiJuaWNvbGFzIiwidXBuIjoibmljb2xhcyIsInByZWZlcnJlZF91c2VybmFtZSI6Im5pY29sYXMiLCJpYXQiOjE3NDk4MzU4NTQsImV4cCI6MTc0OTgzOTQ1NCwiY3VzdG9tLXZhbHVlIjoibmljb2xhcy1BcnRodXIxNjExKiIsImdyb3VwcyI6WyJwcm90ZWN0ZWQiLCJ1c2VyIl19.UIAyaJRTwSpvpjVWGmtXh4kHAnJDvsKhgM0w2mahZY16ycP0d4Brkw-Mp8zw15jyrwq9KE0Sy_jjuqZQWHT-ymL40mrcluEhjSAs_m3hT_dFFrtjiM8r1PbXT4SiRAa5KHsmQuxZO3qJtdr7um7Bwc_eztZ5wjShPbIwWdf5nqnzRRq2B5VyGh5QOZyGABTK9sAIyk1rgzmXQbXKAJEoZ_cvtkUZppQEdWNC-fALZoZ_bGWRomYaCKBweOQgRwOAz6uaUglBKFkrpSMgeRyK6IZc64Y5lYVgIuSjB9W29lKshC5ZsJy0BfRhJB7g-2wGuxRsuDfHkEI87Kc7tiCpGg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://170.187.139.110:8081/data/ml/id/{{gettoken_seller_id}}",
+					"protocol": "http",
+					"host": [
+						"170",
+						"187",
+						"139",
+						"110"
+					],
+					"port": "8081",
+					"path": [
+						"data",
+						"ml",
+						"id",
+						"{{gettoken_seller_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Perguntas por id de produto",
+			"id": "44724515-c10fe25a-226f-48f6-a805-b1328d9ff413",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-061609-e172817bea09f8b8fa9a1b1bfada5f58-445066511",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/questions/my/receivide_questions/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"questions",
+						"my",
+						"receivide_questions",
+						"search"
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/perguntas-e-respostas](https://developers.mercadolivre.com.br/pt_br/perguntas-e-respostas)"
+			},
+			"response": []
+		},
+		{
+			"name": "Resposta a uma pergunta, especificada por id da pergunta",
+			"id": "44724515-095b2030-7aad-44ee-a786-39f3ba7c32d8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer APP_USR-8021611602487823-061609-e172817bea09f8b8fa9a1b1bfada5f58-445066511",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"question_id\": 13360769068,\r\n  \"text\": \"Ola, tudo bem? Não temos na cor rosa\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/answers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"answers"
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/perguntas-e-respostas](https://developers.mercadolivre.com.br/pt_br/perguntas-e-respostas)"
+			},
+			"response": []
+		},
+		{
+			"name": "Ver os usuarios bloqueados ",
+			"id": "44724515-584a83a8-8517-4749-9383-da9302084ef7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/block-api/search/users/$USER_ID",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"block-api",
+						"search",
+						"users",
+						"$USER_ID"
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/perguntas-e-respostas](https://developers.mercadolivre.com.br/pt_br/perguntas-e-respostas)"
+			},
+			"response": []
+		},
+		{
+			"name": "Pedidos",
+			"id": "44724515-f9d7bd40-4ab2-4f29-90b0-24049a380b36",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders/search?seller=8033665",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"search"
+					],
+					"query": [
+						{
+							"key": "seller",
+							"value": "8033665"
+						}
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/pedidos-e-opinioes](https://developers.mercadolivre.com.br/pt_br/pedidos-e-opinioes)"
+			},
+			"response": []
+		},
+		{
+			"name": "Pedido por Id",
+			"id": "44724515-03d3651c-cbe1-4596-a221-24b585d46906",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders/search?seller=8033665&q={Order_ID}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"search"
+					],
+					"query": [
+						{
+							"key": "seller",
+							"value": "8033665"
+						},
+						{
+							"key": "q",
+							"value": "{Order_ID}"
+						}
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/pedidos-e-opinioes](https://developers.mercadolivre.com.br/pt_br/pedidos-e-opinioes)"
+			},
+			"response": []
+		},
+		{
+			"name": "Dados do comprador",
+			"id": "44724515-12bfb80d-5732-4dc3-a0ce-cae993f00892",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-061710-8b1180ec5487e96ae5c37d6d8f9a008e-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders/search?buyer=",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"search"
+					],
+					"query": [
+						{
+							"key": "buyer",
+							"value": ""
+						}
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/pedidos-e-opinioes](https://developers.mercadolivre.com.br/pt_br/pedidos-e-opinioes)"
+			},
+			"response": []
+		},
+		{
+			"name": "Feedback",
+			"id": "44724515-b0a06a20-f93e-4c66-892e-ffbbee2ca1ce",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-061706-67c57bd1a531643a4e3b049fdcb7c471-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders/2000008548321138/feedback",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"2000008548321138",
+						"feedback"
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/pedidos-e-opinioes](https://developers.mercadolivre.com.br/pt_br/pedidos-e-opinioes)"
+			},
+			"response": []
+		},
+		{
+			"name": "Dar Feedback",
+			"id": "44724515-7013009d-113f-45a3-99da-744d703baf46",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-061706-67c57bd1a531643a4e3b049fdcb7c471-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders/2000008548321138/feedback",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"2000008548321138",
+						"feedback"
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/pedidos-e-opinioes](https://developers.mercadolivre.com.br/pt_br/pedidos-e-opinioes)"
+			},
+			"response": []
+		},
+		{
+			"name": "Dados do pagamento",
+			"id": "44724515-4805f2fa-6c99-494e-9ead-f9919bee7c87",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-061306-948655409c86ea46cf33165c843f447e-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/payments/{payment_id}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payments",
+						"{payment_id}"
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/pedidos-e-opinioes](https://developers.mercadolivre.com.br/pt_br/pedidos-e-opinioes)"
+			},
+			"response": []
+		},
+		{
+			"name": "visitas por usuário e tempo. TIME_WINDOW",
+			"id": "44724515-a330cb6c-ed55-43ec-8ccc-fe1e36de9876",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-061810-70ed14d48dadb574eb60c01d56723031-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/visits/users/8033665/items_visits/time_window?last=149&unit=day",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"visits",
+						"users",
+						"8033665",
+						"items_visits",
+						"time_window"
+					],
+					"query": [
+						{
+							"key": "last",
+							"value": "149"
+						},
+						{
+							"key": "unit",
+							"value": "day"
+						}
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/metricas](https://developers.mercadolivre.com.br/pt_br/metricas)"
+			},
+			"response": []
+		},
+		{
+			"name": "visitas recebidas em item datoFrom dateTo",
+			"id": "44724515-d18aaf94-9278-4b4c-9b2d-67cb2375ae8d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-061810-70ed14d48dadb574eb60c01d56723031-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/visits/users/8033665/items_visits?date_from=2025-06-01T00:00:00Z&date_to=2025-06-17T00:00:00Z",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"visits",
+						"users",
+						"8033665",
+						"items_visits"
+					],
+					"query": [
+						{
+							"key": "date_from",
+							"value": "2025-06-01T00:00:00Z"
+						},
+						{
+							"key": "date_to",
+							"value": "2025-06-17T00:00:00Z"
+						}
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/metricas](https://developers.mercadolivre.com.br/pt_br/metricas)"
+			},
+			"response": []
+		},
+		{
+			"name": "Items Questions Visits",
+			"id": "44724515-7d25314b-0240-4391-8f00-1eb426edd3c0",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-061810-70ed14d48dadb574eb60c01d56723031-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/visits/items/MLB3242418393/contacts/questions?date_from=2025-06-01T00:00:00Z&date_to=2025-06-17T00:00:00Z",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"visits",
+						"items",
+						"MLB3242418393",
+						"contacts",
+						"questions"
+					],
+					"query": [
+						{
+							"key": "date_from",
+							"value": "2025-06-01T00:00:00Z"
+						},
+						{
+							"key": "date_to",
+							"value": "2025-06-17T00:00:00Z"
+						}
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/metricas](https://developers.mercadolivre.com.br/pt_br/metricas)"
+			},
+			"response": []
+		},
+		{
+			"name": "Users Questions Visits",
+			"id": "44724515-5f63bf13-b035-41a0-9ea2-58e3d61a4836",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-061806-90e75a125277e79f9e060afa89753893-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/visits/users/8033665/contacts/questions?date_from=2025-06-01T00:00:00Z&date_to=2025-06-17T00:00:00Z",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"visits",
+						"users",
+						"8033665",
+						"contacts",
+						"questions"
+					],
+					"query": [
+						{
+							"key": "date_from",
+							"value": "2025-06-01T00:00:00Z"
+						},
+						{
+							"key": "date_to",
+							"value": "2025-06-17T00:00:00Z"
+						}
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/metricas](https://developers.mercadolivre.com.br/pt_br/metricas)"
+			},
+			"response": []
+		},
+		{
+			"name": "Users Questions Visits TIME_WINDOW",
+			"id": "44724515-8f6b1801-39b0-4c69-99ec-6e56e55c6e52",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-061810-70ed14d48dadb574eb60c01d56723031-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/visits/users/8033665/contacts/questions/time_window?last=149&unit=day",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"visits",
+						"users",
+						"8033665",
+						"contacts",
+						"questions",
+						"time_window"
+					],
+					"query": [
+						{
+							"key": "last",
+							"value": "149"
+						},
+						{
+							"key": "unit",
+							"value": "day"
+						}
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/metricas](https://developers.mercadolivre.com.br/pt_br/metricas)"
+			},
+			"response": []
+		},
+		{
+			"name": "Items Questions Visits TIME_WINDOW",
+			"id": "44724515-f756e819-6e15-4bfe-93aa-a3cbcd46a3ea",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-061810-70ed14d48dadb574eb60c01d56723031-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/visits/items/MLB3972440435/contacts/questions/time_window?last=149&unit=day",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"visits",
+						"items",
+						"MLB3972440435",
+						"contacts",
+						"questions",
+						"time_window"
+					],
+					"query": [
+						{
+							"key": "last",
+							"value": "149"
+						},
+						{
+							"key": "unit",
+							"value": "day"
+						}
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/metricas](https://developers.mercadolivre.com.br/pt_br/metricas)"
+			},
+			"response": []
+		},
+		{
+			"name": "Multiget de Visitas",
+			"id": "44724515-4b4c9aa9-383c-4b33-91fc-fa85e8e18859",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-061810-70ed14d48dadb574eb60c01d56723031-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/visits/items/visits?ids=MLB5277636770,MLB3972440435,MLB2036585124,MLB2041076517,MLB2041035036&date_from=2025-06-01T00:00:00Z&date_to=2025-06-17T00:00:00Z",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"visits",
+						"items",
+						"visits"
+					],
+					"query": [
+						{
+							"key": "ids",
+							"value": "MLB5277636770,MLB3972440435,MLB2036585124,MLB2041076517,MLB2041035036"
+						},
+						{
+							"key": "date_from",
+							"value": "2025-06-01T00:00:00Z"
+						},
+						{
+							"key": "date_to",
+							"value": "2025-06-17T00:00:00Z"
+						}
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/metricas](https://developers.mercadolivre.com.br/pt_br/metricas)"
+			},
+			"response": []
+		},
+		{
+			"name": "SHIPMENT",
+			"id": "44724515-b289b8da-e441-4497-bdac-bfcb7c3447e8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-061907-88aaebf347a9b6771df915fc56026c32-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/shipments/43517749708",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shipments",
+						"43517749708"
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/envio](https://developers.mercadolivre.com.br/pt_br/envio)"
+			},
+			"response": []
+		},
+		{
+			"name": "Shipping By Order",
+			"id": "44724515-fa8e2aa6-2d00-4e9a-b668-fec208e87f36",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-061907-88aaebf347a9b6771df915fc56026c32-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders/2000008676448884/shipments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"2000008676448884",
+						"shipments"
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/envio](https://developers.mercadolivre.com.br/pt_br/envio)"
+			},
+			"response": []
+		},
+		{
+			"name": "dados de envio by id",
+			"id": "44724515-a35c6810-d3bf-4923-834e-66d4fea22233",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-061907-88aaebf347a9b6771df915fc56026c32-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders/2000008563585002/shipments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"2000008563585002",
+						"shipments"
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/envio](https://developers.mercadolivre.com.br/pt_br/envio)"
+			},
+			"response": []
+		},
+		{
+			"name": "Dados do produto UserProduct",
+			"id": "44724515-728041c2-e2b1-4ceb-a171-d801ed66ca19",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-061910-57051ea57e7096fcca25918eb5910a7a-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user-products/MLBU1431839198",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user-products",
+						"MLBU1431839198"
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/user-products](https://developers.mercadolivre.com.br/pt_br/user-products)"
+			},
+			"response": []
+		},
+		{
+			"name": "Elegibilidade de migração para UserProduct",
+			"id": "44724515-a336ac8c-baa3-4f90-b0cb-6b90b78c13cc",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-061910-57051ea57e7096fcca25918eb5910a7a-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/items/MLB2036585124/user_product_listings/validate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"items",
+						"MLB2036585124",
+						"user_product_listings",
+						"validate"
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/user-products](https://developers.mercadolivre.com.br/pt_br/user-products)"
+			},
+			"response": []
+		},
+		{
+			"name": "Produtos de uma familia User Product",
+			"id": "44724515-f527cff2-660a-4930-a03b-ce4b8af2da80",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-061910-57051ea57e7096fcca25918eb5910a7a-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/sites/MLB/user-products-families/1590015549320749587",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sites",
+						"MLB",
+						"user-products-families",
+						"1590015549320749587"
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/user-products](https://developers.mercadolivre.com.br/pt_br/user-products)"
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastra produto no padrao User Product",
+			"id": "44724515-bbeb899a-5c62-4f96-8ecd-ff4cab897c4b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-061910-57051ea57e7096fcca25918eb5910a7a-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"items"
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/user-products](https://developers.mercadolivre.com.br/pt_br/user-products)"
+			},
+			"response": []
+		},
+		{
+			"name": "Migration Status",
+			"id": "44724515-582fcdf8-f981-4406-8857-0846518a1175",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-062305-ecdee313b297e1f4a157adea22505f22-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer APP_USR-8021611602487823-061609-e172817bea09f8b8fa9a1b1bfada5f58-445066511",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"question_id\": 13360769068,\r\n  \"text\": \"Ola, tudo bem? Não temos na cor rosa\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/items/MLB3212274750/migration_live_listing",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"items",
+						"MLB3212274750",
+						"migration_live_listing"
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/user-products](https://developers.mercadolivre.com.br/pt_br/user-products)"
+			},
+			"response": []
+		},
+		{
+			"name": "Dados do estoque",
+			"id": "44724515-beb18576-cdf8-4016-973a-a0910371a613",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-062305-ecdee313b297e1f4a157adea22505f22-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer APP_USR-8021611602487823-061609-e172817bea09f8b8fa9a1b1bfada5f58-445066511",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"question_id\": 13360769068,\r\n  \"text\": \"Ola, tudo bem? Não temos na cor rosa\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/user-products/MLBU1431839198/stock",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user-products",
+						"MLBU1431839198",
+						"stock"
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/estoque-distribuido](https://developers.mercadolivre.com.br/pt_br/estoque-distribuido)"
+			},
+			"response": []
+		},
+		{
+			"name": "Estoques",
+			"id": "44724515-e3f7d7fc-aef5-41d9-9642-635d963ded08",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-062309-1d25414f1bcd60f122b98f49b95792da-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer APP_USR-8021611602487823-061609-e172817bea09f8b8fa9a1b1bfada5f58-445066511",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"question_id\": 13360769068,\r\n  \"text\": \"Ola, tudo bem? Não temos na cor rosa\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/8033665/stores/search?tags=stock_location",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"8033665",
+						"stores",
+						"search"
+					],
+					"query": [
+						{
+							"key": "tags",
+							"value": "stock_location"
+						}
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/diagnostico-de-imagens](https://developers.mercadolivre.com.br/pt_br/diagnostico-de-imagens)"
+			},
+			"response": []
+		},
+		{
+			"name": "Diagnostico de Imagens",
+			"id": "44724515-bb86f037-8885-4ec0-80e1-2779cfaae44e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-062309-1d25414f1bcd60f122b98f49b95792da-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer APP_USR-8021611602487823-061609-e172817bea09f8b8fa9a1b1bfada5f58-445066511",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/moderations/pictures/diagnostic",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"moderations",
+						"pictures",
+						"diagnostic"
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/diagnostico-de-imagens](https://developers.mercadolivre.com.br/pt_br/diagnostico-de-imagens)"
+			},
+			"response": []
+		},
+		{
+			"name": "Upload de Imagens",
+			"id": "44724515-5565501f-187b-446b-b68b-c5806430e10f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-062504-16f42b674c9733c718f997d797d481af-445066511",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": " multipart/form-data",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer APP_USR-8021611602487823-061609-e172817bea09f8b8fa9a1b1bfada5f58-445066511",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"uuid": "17fcde21-476f-4d60-bb91-dcd799a87636",
+							"contentType": " multipart/form-data",
+							"src": "postman-cloud:///1f05135a-6a03-4880-977d-a4dcb04a94a7"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/pictures/items/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pictures",
+						"items",
+						"upload"
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/trabalhar-com-imagens](https://developers.mercadolivre.com.br/pt_br/trabalhar-com-imagens)"
+			},
+			"response": []
+		},
+		{
+			"name": "Atributos da categoria",
+			"id": "44724515-52a09dc9-b975-4329-96a8-666a52969a02",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-062604-7e2d8cb5356c00a981ad370148cf5823-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/categories/MLB1055/attributes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categories",
+						"MLB1055",
+						"attributes"
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/atributos](https://developers.mercadolivre.com.br/pt_br/atributos)"
+			},
+			"response": []
+		},
+		{
+			"name": "Especificações techs de uma categoria",
+			"id": "44724515-b500e2d2-d560-4d8c-b60e-82b929de6681",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-062604-7e2d8cb5356c00a981ad370148cf5823-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/categories/MLB1055/technical_specs/input",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categories",
+						"MLB1055",
+						"technical_specs",
+						"input"
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/atributos](https://developers.mercadolivre.com.br/pt_br/atributos)"
+			},
+			"response": []
+		},
+		{
+			"name": "/technical_specs/output",
+			"id": "44724515-ba8149db-834a-4835-a60d-e35f1d5f41d9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-062604-7e2d8cb5356c00a981ad370148cf5823-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/categories/MLB1055/technical_specs/output",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categories",
+						"MLB1055",
+						"technical_specs",
+						"output"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POStar item para ver as condiçoes",
+			"id": "44724515-36714913-7fba-49e2-8c3c-78340548559d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-062604-7e2d8cb5356c00a981ad370148cf5823-8033665",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/categories/MLB1055/attributes/conditional",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categories",
+						"MLB1055",
+						"attributes",
+						"conditional"
+					]
+				},
+				"description": "[https://developers.mercadolivre.com.br/pt_br/atributos](https://developers.mercadolivre.com.br/pt_br/atributos)"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "530bbdd9-38d3-441e-92dc-61f171c18dc2",
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"id": "57b5ecc1-1ffd-4eb5-a9a4-fa78c5251c5d",
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}
