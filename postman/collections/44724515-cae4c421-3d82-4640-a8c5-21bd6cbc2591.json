@@ -1566,6 +1566,50 @@
 				"description": "[https://developers.mercadolivre.com.br/pt_br/atributos](https://developers.mercadolivre.com.br/pt_br/atributos)"
 			},
 			"response": []
+		},
+		{
+			"name": "http://localhost:8080/items/MLB1496069492?attributes=attributes&include_internal_attributes=true",
+			"id": "44724515-62e88a42-98e9-4756-8834-acb76c6b9342",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-062607-d43299c73bd86cf10c0aa1a5cce0537f-445066511",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/items/MLB1496069492?attributes=attributes&include_internal_attributes=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"items",
+						"MLB1496069492"
+					],
+					"query": [
+						{
+							"key": "attributes",
+							"value": "attributes"
+						},
+						{
+							"key": "include_internal_attributes",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
