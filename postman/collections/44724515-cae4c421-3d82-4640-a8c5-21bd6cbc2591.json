@@ -1654,6 +1654,56 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Requisição de consulta de ficha tecnica",
+			"id": "44724515-2dd25564-e307-4680-a902-42fa5fe0bd31",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-062706-7dcec7465500be6efd5d19981a361ab2-445066511",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"attributes\": [\r\n            {\r\n                \"id\": \"BRAND\",\r\n                \"name\": \"Marca\",\r\n                \"value_id\": \"14671\",\r\n                \"value_name\": \"Nike\",\r\n                \"value_struct\": null,\r\n                \"values\": [\r\n                    {\r\n                        \"id\": \"14671\",\r\n                        \"name\": \"Nike\",\r\n                        \"struct\": null\r\n                    }\r\n                ],\r\n                \"attribute_group_id\": \"OTHERS\",\r\n                \"attribute_group_name\": \"Otros\"\r\n            },\r\n            {\r\n                \"id\": \"GENDER\",\r\n                \"name\": \"Género\",\r\n                \"value_id\": \"339665\",\r\n                \"value_name\": \"Mujer\",\r\n                \"value_struct\": null,\r\n                \"values\": [\r\n                    {\r\n                        \"id\": \"339665\",\r\n                        \"name\": \"Mujer\",\r\n                        \"struct\": null\r\n                    }\r\n                ],\r\n                \"attribute_group_id\": \"OTHERS\",\r\n                \"attribute_group_name\": \"Otros\"\r\n            }\r\n        ]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/domains/MLB-SNEAKERS/technical_specs?section=grid",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"domains",
+						"MLB-SNEAKERS",
+						"technical_specs"
+					],
+					"query": [
+						{
+							"key": "section",
+							"value": "grid"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
