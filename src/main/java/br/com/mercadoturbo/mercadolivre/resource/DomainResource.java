@@ -5,6 +5,7 @@ import br.com.mercadoturbo.mercadolivre.dto.MedidasRequest;
 import br.com.mercadoturbo.mercadolivre.service.DomainService;
 import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
+import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.HeaderParam;
 import jakarta.ws.rs.POST;
@@ -23,6 +24,7 @@ public class DomainResource {
     @GET
     @Path("/{domain_id}/technical_specs")
     @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     public Uni<DomainResponse> getTechSpecs(
             @HeaderParam("Authorization") String authorization,
             @PathParam("domain_id") String domainId) {
@@ -31,6 +33,7 @@ public class DomainResource {
 
     @POST
     @Path("/{domain_id}/technical_specs")
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Uni<DomainResponse> postTechSpecs(
             @HeaderParam("Authorization") String authorization,
