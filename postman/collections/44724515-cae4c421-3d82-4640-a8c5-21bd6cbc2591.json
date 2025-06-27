@@ -1610,6 +1610,50 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Um post para receber os atributos",
+			"id": "44724515-7d78b9d8-3557-4579-9dc4-8c00c2c0e086",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-062611-e92ca38a003e7e0c4c8b1b203db3e097-445066511",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/catalog_domains/MLB-CELLPHONES/attributes/BRAND/top_values",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"catalog_domains",
+						"MLB-CELLPHONES",
+						"attributes",
+						"BRAND",
+						"top_values"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
