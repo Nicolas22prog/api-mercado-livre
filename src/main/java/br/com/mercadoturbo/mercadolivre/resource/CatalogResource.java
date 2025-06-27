@@ -1,5 +1,7 @@
 package br.com.mercadoturbo.mercadolivre.resource;
 
+import java.io.Serializable;
+
 import br.com.mercadoturbo.mercadolivre.dto.CatalogRequest;
 import br.com.mercadoturbo.mercadolivre.dto.CatalogResponse;
 import br.com.mercadoturbo.mercadolivre.dto.DomainsTrackResponse;
@@ -15,7 +17,7 @@ import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 
 @Path("/catalog")
-public class CatalogResource {
+public class CatalogResource implements Serializable{
     @Inject
     CatalogService catalogService;
 

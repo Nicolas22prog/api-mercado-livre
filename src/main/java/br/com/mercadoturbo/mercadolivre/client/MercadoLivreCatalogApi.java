@@ -41,4 +41,5 @@ public interface  MercadoLivreCatalogApi {
             @QueryParam("offset") Integer offset,
             @QueryParam("limit") Integer limit,
             CatalogRequest request);
+            
 }

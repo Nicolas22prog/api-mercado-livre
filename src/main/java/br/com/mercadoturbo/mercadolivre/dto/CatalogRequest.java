@@ -17,4 +17,5 @@ public class CatalogRequest {
     public static class Value {
         public String name;
     }
+    
 }
