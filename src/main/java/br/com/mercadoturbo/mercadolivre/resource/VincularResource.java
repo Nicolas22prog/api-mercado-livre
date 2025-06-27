@@ -58,8 +58,9 @@ public class VincularResource {
                 @HeaderParam("Authorization")String authorization,
                 @PathParam("item_id")String item_id,
                 @QueryParam("attributes")String attributes,
+                @QueryParam("include_attributes")String include_attributes,
                 @QueryParam("include_internal_attributes")Boolean include_internal_attributes){
-        return attributesService.fetchItemsAttributes(authorization, item_id, attributes, include_internal_attributes);
+        return attributesService.fetchItemsAttributes(authorization, item_id, attributes, include_attributes,include_internal_attributes);
     }
 
     @PUT

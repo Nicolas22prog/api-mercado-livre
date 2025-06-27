@@ -179,8 +179,19 @@ public class PostItemResponse extends ProxyEnabledDTO{
         public String id;
         public BigDecimal price;
         public Integer available_quantity;
+        public Integer sold_quantity; // Campo adicionado
         public Attribute[] attributes;
         public Picture[] pictures;
         public SaleTerm[] sale_terms;
+        public AttributeCombination[] attribute_combinations;
+        public String[] picture_ids;
+        public String seller_custom_field;
+        public String catalog_product_id;
+        public static class AttributeCombination {
+            public String id;
+            public String name;
+            public String value_id;
+            public String value_name;
+        }
     }
 }

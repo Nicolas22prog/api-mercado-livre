@@ -1,16 +1,22 @@
 package br.com.mercadoturbo.mercadolivre.resource;
 
-import br.com.mercadoturbo.mercadolivre.dto.AttributesConditionalRequest;
-import br.com.mercadoturbo.mercadolivre.dto.AttributesConditionalResponse;
-import br.com.mercadoturbo.mercadolivre.service.AttributesService;
-import br.com.mercadoturbo.mercadolivre.dto.AttributesResponse;
-import br.com.mercadoturbo.mercadolivre.dto.TechinicalSpecsResponse;
-import io.smallrye.mutiny.Uni;
-import jakarta.inject.Inject;
-import jakarta.ws.rs.*;
-import jakarta.ws.rs.core.MediaType;
 import java.io.Serializable;
 import java.util.List;
+
+import br.com.mercadoturbo.mercadolivre.dto.AttributesConditionalRequest;
+import br.com.mercadoturbo.mercadolivre.dto.AttributesConditionalResponse;
+import br.com.mercadoturbo.mercadolivre.dto.AttributesResponse;
+import br.com.mercadoturbo.mercadolivre.dto.TechinicalSpecsResponse;
+import br.com.mercadoturbo.mercadolivre.service.AttributesService;
+import io.smallrye.mutiny.Uni;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.HeaderParam;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
 
 @Path("/categories/{category_id}")
 public class AttributesResource implements Serializable{
@@ -56,5 +62,7 @@ public class AttributesResource implements Serializable{
         AttributesConditionalRequest request){
         return service.sendConditional(authorization, category_id, request);
     }
+
+    
 }
 

@@ -4,15 +4,21 @@
  */
 package br.com.mercadoturbo.mercadolivre.service;
 
-import br.com.mercadoturbo.mercadolivre.client.MercadoLivreItemsApi;
+import java.io.Serializable;
+import java.util.List;
 
+import org.eclipse.microprofile.rest.client.inject.RestClient;
+
+import br.com.mercadoturbo.mercadolivre.client.MercadoLivreItemsApi;
 import br.com.mercadoturbo.mercadolivre.dto.MultigetResponse;
+import br.com.mercadoturbo.mercadolivre.dto.PostItemResponse;
+import br.com.mercadoturbo.mercadolivre.dto.RelistRequest;
+import br.com.mercadoturbo.mercadolivre.dto.VariationFullResponse;
+import br.com.mercadoturbo.mercadolivre.dto.VariationRequest;
+import br.com.mercadoturbo.mercadolivre.dto.VariationsUpdateRequest;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import java.io.Serializable;
-import java.util.List;
-import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 @ApplicationScoped
 public class MultigetService implements Serializable{
@@ -24,5 +30,29 @@ public class MultigetService implements Serializable{
     public Uni<List<MultigetResponse>> fetchItens(String accesToken, String ids, String attributes){
       
         return multiget.getMultigetItens(accesToken, ids, attributes);
+    }
+
+    public Uni<PostItemResponse.Variation> getVariations(String accessToken, String item_id) {
+        return multiget.getVariations(accessToken, item_id);
+    }
+
+    public Uni<PostItemResponse.Variation> getVariation(String accessToken, String item_id, String variation_id) {
+        return multiget.getVariation(accessToken, item_id, variation_id);
+    }
+
+    public Uni<VariationRequest> postVariation(String accessToken, String item_id, VariationRequest request) {
+        return multiget.postVariation(accessToken, item_id, request);
+    }
+
+    public Uni<VariationFullResponse> updateVariations(String accessToken, String item_id, VariationsUpdateRequest request) {
+        return multiget.updateVariations(accessToken, item_id, request);
+    }
+
+    public Uni<PostItemResponse> deleteVariation(String accessToken, String item_id, String variation_id) {
+        return multiget.deleteVariation(accessToken, item_id, variation_id);
+    }
+
+    public Uni<PostItemResponse> relistItem(String accessToken, String item_id, RelistRequest request) {
+        return multiget.relistItem(accessToken, item_id, request);
     }
 }

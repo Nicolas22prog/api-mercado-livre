@@ -28,4 +28,6 @@ public interface MercadoLivreBrandApi {
             @PathParam("attribute_id")String attribute_id,
              KnownAttributesRequest knownAttributesRequest
             );
+
+            
 }
