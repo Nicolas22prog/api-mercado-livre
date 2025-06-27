@@ -1676,7 +1676,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n        \"attributes\": [\r\n            {\r\n                \"id\": \"BRAND\",\r\n                \"name\": \"Marca\",\r\n                \"value_id\": \"14671\",\r\n                \"value_name\": \"Nike\",\r\n                \"value_struct\": null,\r\n                \"values\": [\r\n                    {\r\n                        \"id\": \"14671\",\r\n                        \"name\": \"Nike\",\r\n                        \"struct\": null\r\n                    }\r\n                ],\r\n                \"attribute_group_id\": \"OTHERS\",\r\n                \"attribute_group_name\": \"Otros\"\r\n            },\r\n            {\r\n                \"id\": \"GENDER\",\r\n                \"name\": \"Género\",\r\n                \"value_id\": \"339665\",\r\n                \"value_name\": \"Mujer\",\r\n                \"value_struct\": null,\r\n                \"values\": [\r\n                    {\r\n                        \"id\": \"339665\",\r\n                        \"name\": \"Mujer\",\r\n                        \"struct\": null\r\n                    }\r\n                ],\r\n                \"attribute_group_id\": \"OTHERS\",\r\n                \"attribute_group_name\": \"Otros\"\r\n            }\r\n        ]\r\n    }",
+					"raw": " { \"domain_id\": \"SNEAKERS\",\r\n   \"site_id\": \"MLB\",\r\n   \"seller_id\": 445066511,\r\n   \"main_attribute_id\": \"F_US_SIZE\",\r\n   \"attributes\": [\r\n       {\r\n           \"id\": \"GENDER\",\r\n           \"values\": [\r\n               {\r\n                   \"name\": \"Mulher\"\r\n               }\r\n           ]\r\n       },\r\n       {\r\n           \"id\": \"BRAND\",\r\n           \"values\": [\r\n               {\r\n                   \"name\": \"adidas\"\r\n               }\r\n           ]\r\n       }\r\n   ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1684,22 +1684,17 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/domains/MLB-SNEAKERS/technical_specs?section=grid",
+					"raw": "http://localhost:8080/catalog/charts/domains/search",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"catalog",
+						"charts",
 						"domains",
-						"MLB-SNEAKERS",
-						"technical_specs"
-					],
-					"query": [
-						{
-							"key": "section",
-							"value": "grid"
-						}
+						"search"
 					]
 				}
 			},
