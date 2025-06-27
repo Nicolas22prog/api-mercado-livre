@@ -1699,6 +1699,48 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Items com penalizade",
+			"id": "44724515-7e00fdb7-451b-446d-8690-c7206f08dcaa",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "APP_USR-8021611602487823-062706-7dcec7465500be6efd5d19981a361ab2-445066511",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/445066511/items/search?tags=incomplete_technical_specs\n",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"445066511",
+						"items",
+						"search"
+					],
+					"query": [
+						{
+							"key": "tags",
+							"value": "incomplete_technical_specs\n"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
