@@ -3,7 +3,7 @@ package br.com.mercadoturbo.mercadolivre.dto;
 import java.util.List;
 import java.util.Map;
 
-public class DomainResponse {
+public class DomainResponse extends ProxyEnabledDTO{
     public Input input;
     public Map<String, Object> output;
 

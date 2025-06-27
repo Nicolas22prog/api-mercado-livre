@@ -38,10 +38,11 @@ public class UsersResource implements Serializable{
     public Uni<ItemsResponse> getItems(
             @HeaderParam("Authorization") String authorization,            
             @PathParam("user_id") String user_id,
+            @QueryParam("tags")String tags,
             @QueryParam("limit") @DefaultValue("50") int limit,
             @QueryParam("offset") @DefaultValue("0") int offset,
             @QueryParam("user_product_id")String user_product_id){
-        return us.fetchItems(authorization, user_id, limit, offset, user_product_id);
+        return us.fetchItems(authorization, user_id,tags, limit, offset, user_product_id);
     }
     
     @Path("/stores/search")

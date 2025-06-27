@@ -36,6 +36,7 @@ public interface MercadoLivreUsersApi {
     Uni<ItemsResponse> getItems(
     @HeaderParam("Authorization") String autorization,
             @PathParam("user_id") String user_id,
+            @QueryParam("tags") String tags,
             @QueryParam("limit") @DefaultValue("50") int limit,
             @QueryParam("offset") @DefaultValue("0") int offset,
             @QueryParam("user_product_id") String user_product_id

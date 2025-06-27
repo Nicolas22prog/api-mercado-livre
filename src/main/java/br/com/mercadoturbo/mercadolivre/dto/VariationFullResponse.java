@@ -3,7 +3,7 @@ package br.com.mercadoturbo.mercadolivre.dto;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 
-public class VariationFullResponse {
+public class VariationFullResponse extends ProxyEnabledDTO{
     public Long id;
     public String site_id;
     public String title;

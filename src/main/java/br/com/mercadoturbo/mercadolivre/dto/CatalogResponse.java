@@ -3,7 +3,7 @@ package br.com.mercadoturbo.mercadolivre.dto;
 import java.util.List;
 import java.util.Map;
 
-public class CatalogResponse {
+public class CatalogResponse extends ProxyEnabledDTO{
     public Paging paging;
     public List<Chart> charts;
 
