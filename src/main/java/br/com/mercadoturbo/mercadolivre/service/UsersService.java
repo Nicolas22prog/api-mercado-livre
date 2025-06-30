@@ -8,7 +8,6 @@ import java.io.Serializable;
 
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
-import br.com.mercadoturbo.mercadolivre.client.MercadoLivreTaxesApi;
 import br.com.mercadoturbo.mercadolivre.client.MercadoLivreUsersApi;
 import br.com.mercadoturbo.mercadolivre.dto.ItemsResponse;
 import br.com.mercadoturbo.mercadolivre.dto.NotasFiscaisRequest;
@@ -28,9 +27,6 @@ public class UsersService implements Serializable{
     @RestClient
     private MercadoLivreUsersApi mlu;
 
-    @Inject
-    @RestClient
-    MercadoLivreTaxesApi mlt;
     
     
     public Uni<UsersResponse> fetchUsers(String accessToken, String id){
