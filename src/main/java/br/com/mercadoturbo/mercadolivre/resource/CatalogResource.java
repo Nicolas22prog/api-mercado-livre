@@ -18,6 +18,7 @@ import jakarta.ws.rs.core.MediaType;
 
 @Path("/catalog")
 public class CatalogResource implements Serializable{
+    
     @Inject
     CatalogService catalogService;
 
@@ -44,5 +45,8 @@ public class CatalogResource implements Serializable{
             @QueryParam("limit") Integer limit,
             CatalogRequest request){
                 return catalogService.postDomainSearch(authorization,offset,limit ,request);
-            }        
+            }
+            
+            
+  
 }

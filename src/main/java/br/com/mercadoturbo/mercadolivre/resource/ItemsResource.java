@@ -7,6 +7,8 @@ package br.com.mercadoturbo.mercadolivre.resource;
 import java.io.Serializable;
 import java.util.List;
 
+import br.com.mercadoturbo.mercadolivre.dto.AttributesRequest;
+import br.com.mercadoturbo.mercadolivre.dto.AttributesResponse;
 import br.com.mercadoturbo.mercadolivre.dto.MigrationStatusResponse;
 import br.com.mercadoturbo.mercadolivre.dto.MigrationValidationResponse;
 import br.com.mercadoturbo.mercadolivre.dto.MultigetResponse;
@@ -158,5 +160,16 @@ public class ItemsResource implements Serializable{
                 @PathParam("item_id")String item_id,
                 RelistRequest request){
         return service.relistItem(authorization, item_id, request);
+    }
+
+    @PUT
+    @Path("/{item_id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Uni<AttributesResponse> updateItem(
+                @HeaderParam("Authorization")String authorization,
+                @PathParam("item_id")String item_id,
+                AttributesRequest request){
+        return service.updateItem(authorization, item_id, request);
     }
 }

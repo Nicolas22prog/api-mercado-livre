@@ -8,6 +8,7 @@ import org.eclipse.microprofile.rest.client.inject.RestClient;
 import br.com.mercadoturbo.mercadolivre.client.MercadoLivreBrandApi;
 import br.com.mercadoturbo.mercadolivre.client.MercadoLivreItemsApi;
 import br.com.mercadoturbo.mercadolivre.dto.AttributesRequest;
+import br.com.mercadoturbo.mercadolivre.dto.AttributesResponse;
 import br.com.mercadoturbo.mercadolivre.dto.BrandMetric;
 import br.com.mercadoturbo.mercadolivre.dto.KnownAttributesRequest;
 import io.smallrye.mutiny.Uni;
@@ -31,7 +32,7 @@ public class BrandService implements Serializable{
         return brand.postAttribute(accessToken, domain_id, attribute_id, request);
     }
 
-    public Uni<AttributesRequest> updateAttributes(String accessToken, String item_id ,AttributesRequest request) {
+    public Uni<AttributesResponse> updateAttributes(String accessToken, String item_id ,AttributesRequest request) {
         return items.updateItem(accessToken, item_id, request); 
     }
 }

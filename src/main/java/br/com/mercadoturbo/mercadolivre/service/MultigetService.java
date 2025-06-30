@@ -10,6 +10,8 @@ import java.util.List;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import br.com.mercadoturbo.mercadolivre.client.MercadoLivreItemsApi;
+import br.com.mercadoturbo.mercadolivre.dto.AttributesRequest;
+import br.com.mercadoturbo.mercadolivre.dto.AttributesResponse;
 import br.com.mercadoturbo.mercadolivre.dto.MultigetResponse;
 import br.com.mercadoturbo.mercadolivre.dto.PostItemResponse;
 import br.com.mercadoturbo.mercadolivre.dto.RelistRequest;
@@ -54,5 +56,9 @@ public class MultigetService implements Serializable{
 
     public Uni<PostItemResponse> relistItem(String accessToken, String item_id, RelistRequest request) {
         return multiget.relistItem(accessToken, item_id, request);
+    }
+
+    public Uni<AttributesResponse> updateItem(String accessToken, String item_id, AttributesRequest request) {
+        return multiget.updateItem(accessToken, item_id, request);
     }
 }

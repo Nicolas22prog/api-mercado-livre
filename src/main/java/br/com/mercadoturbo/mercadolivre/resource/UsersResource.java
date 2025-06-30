@@ -4,19 +4,26 @@
  */
 package br.com.mercadoturbo.mercadolivre.resource;
 
+import java.io.Serializable;
+
 import br.com.mercadoturbo.mercadolivre.dto.ItemsResponse;
+import br.com.mercadoturbo.mercadolivre.dto.NotasFiscaisRequest;
+import br.com.mercadoturbo.mercadolivre.dto.NotasFiscaisResponse;
 import br.com.mercadoturbo.mercadolivre.dto.StockLocationsResponse;
 import br.com.mercadoturbo.mercadolivre.dto.UsersResponse;
 import br.com.mercadoturbo.mercadolivre.service.UsersService;
 import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
+import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DefaultValue;
-
-
-import jakarta.ws.rs.*;
-
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.HeaderParam;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
-import java.io.Serializable;
 
 @Path("/users/{user_id}")
 public class UsersResource implements Serializable{
@@ -55,5 +62,16 @@ public class UsersResource implements Serializable{
             @QueryParam("limit") Integer limit,
             @QueryParam("offset")Integer offset){
         return us.fetchLocations(authorization, user_id, tags, limit, offset);
+    }
+
+    @POST
+    @Path("/invoices/orders")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Uni<NotasFiscaisResponse> postNotasFiscais(
+            @HeaderParam("Authorization") String authorization,
+            @PathParam("user_id") String user_id,
+            NotasFiscaisRequest request) {
+        return us.postNotasFiscais(authorization, user_id, request);
     }
 }

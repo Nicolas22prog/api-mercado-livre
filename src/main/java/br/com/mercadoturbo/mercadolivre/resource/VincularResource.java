@@ -2,6 +2,7 @@ package br.com.mercadoturbo.mercadolivre.resource;
 
 import br.com.mercadoturbo.mercadolivre.dto.AttributesItemsResponse;
 import br.com.mercadoturbo.mercadolivre.dto.AttributesRequest;
+import br.com.mercadoturbo.mercadolivre.dto.AttributesResponse;
 import br.com.mercadoturbo.mercadolivre.dto.LinkRequest;
 import br.com.mercadoturbo.mercadolivre.dto.PictureUpdateRequest;
 import br.com.mercadoturbo.mercadolivre.service.AttributesService;
@@ -67,7 +68,7 @@ public class VincularResource {
     @Path("/{item_id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Uni<AttributesRequest> updateItem(
+    public Uni<AttributesResponse> updateItem(
                 @HeaderParam("Authorization")String authorization,
                 @PathParam("item_id")String item_id,
                 AttributesRequest request){

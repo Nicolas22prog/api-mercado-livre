@@ -1,6 +1,6 @@
 package br.com.mercadoturbo.mercadolivre.dto;
 
-public class VariationsRequest {
+    public class VariationsRequest {
     public Variation[] variations;
 
     public static class Variation {

@@ -9,6 +9,7 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 import br.com.mercadoturbo.mercadolivre.apiexception.MercadoLivreExceptionMapper;
 import br.com.mercadoturbo.mercadolivre.dto.AttributesItemsResponse;
 import br.com.mercadoturbo.mercadolivre.dto.AttributesRequest;
+import br.com.mercadoturbo.mercadolivre.dto.AttributesResponse;
 import br.com.mercadoturbo.mercadolivre.dto.MigrationStatusResponse;
 import br.com.mercadoturbo.mercadolivre.dto.MigrationValidationResponse;
 import br.com.mercadoturbo.mercadolivre.dto.MultigetResponse;
@@ -91,7 +92,7 @@ public interface MercadoLivreItemsApi {
     @Path("/{item_id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    Uni<AttributesRequest> updateItem(
+    Uni<AttributesResponse> updateItem(
                 @HeaderParam("Authorization")String authorization,
                 @PathParam("item_id")String item_id,
                 AttributesRequest request);

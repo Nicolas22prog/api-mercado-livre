@@ -6,15 +6,26 @@ package br.com.mercadoturbo.mercadolivre.client;
 
 
 
-import br.com.mercadoturbo.mercadolivre.dto.UsersResponse;
-import br.com.mercadoturbo.mercadolivre.apiexception.MercadoLivreExceptionMapper;
-import br.com.mercadoturbo.mercadolivre.dto.ItemsResponse;
-import br.com.mercadoturbo.mercadolivre.dto.StockLocationsResponse;
-import io.smallrye.mutiny.Uni;
-import jakarta.ws.rs.*;
-import jakarta.ws.rs.core.MediaType;
 import org.eclipse.microprofile.rest.client.annotation.RegisterProvider;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
+
+import br.com.mercadoturbo.mercadolivre.apiexception.MercadoLivreExceptionMapper;
+import br.com.mercadoturbo.mercadolivre.dto.ItemsResponse;
+import br.com.mercadoturbo.mercadolivre.dto.NotasFiscaisRequest;
+import br.com.mercadoturbo.mercadolivre.dto.NotasFiscaisResponse;
+import br.com.mercadoturbo.mercadolivre.dto.StockLocationsResponse;
+import br.com.mercadoturbo.mercadolivre.dto.UsersResponse;
+import io.smallrye.mutiny.Uni;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DefaultValue;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.HeaderParam;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
+import jakarta.ws.rs.core.MediaType;
 
 @Path("/users/{user_id}")
 @RegisterRestClient(configKey = "mercado-livre-api")
@@ -51,4 +62,14 @@ public interface MercadoLivreUsersApi {
             @QueryParam("tags")String tags,
             @QueryParam("limit") Integer limit,
             @QueryParam("offset")Integer offset);
+
+    @POST
+    @Path("/invoices/orders")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    Uni<NotasFiscaisResponse> postNotasFiscais(
+            @HeaderParam("Authorization") String authorization,
+            @PathParam("user_id") String user_id,
+            NotasFiscaisRequest request);
+
 }
