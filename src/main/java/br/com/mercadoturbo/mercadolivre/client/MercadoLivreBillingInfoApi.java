@@ -24,5 +24,6 @@ public interface MercadoLivreBillingInfoApi {
     @Produces(MediaType.APPLICATION_JSON)
     Uni<BillingInfoResponse> getBillingInfo(
             @HeaderParam("Authorization") String authorization,
+            @HeaderParam("x-version") String version,
             @PathParam("order_id") Long orderId);
 }

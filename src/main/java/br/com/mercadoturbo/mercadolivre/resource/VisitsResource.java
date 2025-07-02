@@ -1,14 +1,23 @@
 package br.com.mercadoturbo.mercadolivre.resource;
 
+import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
+
 import br.com.mercadoturbo.mercadolivre.dto.GenericVisitsResponse;
 import br.com.mercadoturbo.mercadolivre.dto.VisitsResponse;
 import br.com.mercadoturbo.mercadolivre.dto.VisitsTimeWindowResponse;
 import br.com.mercadoturbo.mercadolivre.service.VisitsService;
 import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
-import jakarta.ws.rs.*;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.HeaderParam;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
-import java.io.Serializable;
 
 
 
@@ -97,7 +106,7 @@ public class VisitsResource implements Serializable{
      @GET
      @Produces(MediaType.APPLICATION_JSON)
      @Path("/items/visits")
-     public Uni<VisitsResponse> getMultiItemsVisits(
+     public Uni<List<VisitsResponse>> getMultiItemsVisits(
              @HeaderParam("Authorization")String authorization,
             @QueryParam("ids")String ids,
             @QueryParam("date_from")String date_from,
@@ -115,4 +124,14 @@ public class VisitsResource implements Serializable{
                     @QueryParam("unit")String unit){
          return service.fetchItemsQuestionsTW(authorization, item_id, last, unit);
      }
+
+
+        @GET
+        @Path("/items")
+        @Produces(MediaType.APPLICATION_JSON)
+        @Consumes(MediaType.APPLICATION_JSON)
+        public Uni<Map<String, Integer>> getVisitsCount(
+            @HeaderParam("Authorization") String authorization,
+            @QueryParam("ids") String ids) {
+            return service.fetchVisitsCount(authorization, ids);}
 }

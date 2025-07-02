@@ -1,14 +1,23 @@
 package br.com.mercadoturbo.mercadolivre.client;
 
+import org.eclipse.microprofile.rest.client.annotation.RegisterProvider;
+import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
+
 import br.com.mercadoturbo.mercadolivre.apiexception.MercadoLivreExceptionMapper;
 import br.com.mercadoturbo.mercadolivre.dto.OrderByIdResponse;
 import br.com.mercadoturbo.mercadolivre.dto.OrderResponse;
+import br.com.mercadoturbo.mercadolivre.dto.OrderSimpleResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ShippingByOrderResponse;
 import io.smallrye.mutiny.Uni;
-import jakarta.ws.rs.*;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DefaultValue;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.HeaderParam;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
-import org.eclipse.microprofile.rest.client.annotation.RegisterProvider;
-import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 @Path("/orders")
 @RegisterRestClient(configKey = "mercado-livre-api")
@@ -54,4 +63,13 @@ public interface MercadoLivreOrderApi{
     Uni<ShippingByOrderResponse> getshippingByOrder(
             @HeaderParam("Authorization")String authorization,
             @PathParam("order_id")Long order_id);
+
+
+        @GET
+        @Path("/{order_id}")
+        @Produces(MediaType.APPLICATION_JSON)
+        @Consumes(MediaType.APPLICATION_JSON)
+        Uni<OrderSimpleResponse> getOrderDetails(
+                @HeaderParam("Authorization") String authorization,
+                @PathParam("order_id") Long orderId);
 }

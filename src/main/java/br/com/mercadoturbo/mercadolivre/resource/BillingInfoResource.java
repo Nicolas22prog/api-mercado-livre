@@ -26,7 +26,8 @@ public class BillingInfoResource implements Serializable{
     @Produces(MediaType.APPLICATION_JSON)
     public Uni<BillingInfoResponse> getBillingInfo(
             @HeaderParam("Authorization") String authorization,
+            @HeaderParam("x-version") String version,
             @PathParam("order_id") Long orderId) {
-        return service.getBillingInfo(authorization, orderId);
+        return service.getBillingInfo(authorization ,version ,orderId);
     }
 }

@@ -18,7 +18,7 @@ public class BillingInfoService implements Serializable {
     MercadoLivreBillingInfoApi billingInfoApi;
     
 
-    public Uni<BillingInfoResponse> getBillingInfo(String accessToken, Long orderId) {
-        return billingInfoApi.getBillingInfo(accessToken, orderId);
+    public Uni<BillingInfoResponse> getBillingInfo(String accessToken,String version ,Long orderId) {
+        return billingInfoApi.getBillingInfo(accessToken,version ,orderId);
     }
 }

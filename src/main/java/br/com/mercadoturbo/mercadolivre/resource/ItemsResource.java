@@ -75,6 +75,7 @@ public class ItemsResource implements Serializable{
     @GET
     @Path("/{item_id}/user_product_listings/validate") //item_id é o id antigo do produto
     @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     public Uni<MigrationValidationResponse> getValidation(
                 @HeaderParam("Authorization")String authorization,
                 @PathParam("item_id")String item_id){

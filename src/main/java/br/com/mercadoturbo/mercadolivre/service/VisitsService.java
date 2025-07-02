@@ -1,5 +1,11 @@
 package br.com.mercadoturbo.mercadolivre.service;
 
+import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
+
+import org.eclipse.microprofile.rest.client.inject.RestClient;
+
 import br.com.mercadoturbo.mercadolivre.client.MercadoLivreItemsVisitsApi;
 import br.com.mercadoturbo.mercadolivre.client.MercadoLivreUsersVisitsApi;
 import br.com.mercadoturbo.mercadolivre.dto.GenericVisitsResponse;
@@ -8,8 +14,6 @@ import br.com.mercadoturbo.mercadolivre.dto.VisitsTimeWindowResponse;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import java.io.Serializable;
-import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 @ApplicationScoped
 public class VisitsService implements Serializable{
@@ -48,11 +52,15 @@ public class VisitsService implements Serializable{
         return usersVisits.getUserQuestionsTW(accessToken, user_id, last, unit);
     }
     
-    public Uni<VisitsResponse> fetchMultiItemsVisits(String accessToken, String ids, String date_from, String date_to){
+    public Uni<List<VisitsResponse>> fetchMultiItemsVisits(String accessToken, String ids, String date_from, String date_to){
         return itemsVisits.getMultiItemsVisits(accessToken, ids, date_from, date_to);
     }
     
     public Uni<VisitsTimeWindowResponse> fetchMultiItemsTW(String accessToken, String ids, Integer last, String unit){
         return itemsVisits.getMultItemsTW(accessToken, ids, last, unit);
+    }
+
+    public Uni<Map<String, Integer>> fetchVisitsCount(String accessToken, String ids) {
+        return itemsVisits.getVisitsCount(accessToken, ids);
     }
 }
