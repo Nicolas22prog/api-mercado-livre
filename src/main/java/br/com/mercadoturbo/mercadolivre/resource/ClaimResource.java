@@ -8,10 +8,16 @@ import br.com.mercadoturbo.mercadolivre.dto.ClaimDetailResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimMessagesResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimReasonResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimsResponse;
+import br.com.mercadoturbo.mercadolivre.dto.DevolucoesResponse;
 import br.com.mercadoturbo.mercadolivre.dto.DisputeResponse;
+import br.com.mercadoturbo.mercadolivre.dto.EvidenceRequest;
+import br.com.mercadoturbo.mercadolivre.dto.EvidenceResponse;
 import br.com.mercadoturbo.mercadolivre.dto.FileAttachmentResponse;
 import br.com.mercadoturbo.mercadolivre.dto.GetFileResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ImagemUploadForm;
+import br.com.mercadoturbo.mercadolivre.dto.PartialRefoundResponse;
+import br.com.mercadoturbo.mercadolivre.dto.RefundRequest;
+import br.com.mercadoturbo.mercadolivre.dto.RefundResponse;
 import br.com.mercadoturbo.mercadolivre.dto.SendMessageRequest;
 import br.com.mercadoturbo.mercadolivre.service.ClaimService;
 import io.smallrye.mutiny.Uni;
@@ -35,7 +41,6 @@ public class ClaimResource implements Serializable{
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    @Path("/{claim_id}")
     public Uni<ClaimByIdResponse> getClaimDetails(
         @HeaderParam("Authorization") String accessToken,
         @PathParam("claim_id") String claimId
@@ -71,7 +76,7 @@ public class ClaimResource implements Serializable{
     }
 
     @GET
-    @Path("/reasons/{reason_id}")
+    @Path("/{claim_id}/reasons/{reason_id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<ClaimReasonResponse> getClaimReason(
@@ -92,7 +97,7 @@ public class ClaimResource implements Serializable{
         return service.fetchClaimActionHistory(authorization, claimId);
     }
 
-     @GET
+    @GET
     @Path("/{claim_id}/status-history")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -103,7 +108,7 @@ public class ClaimResource implements Serializable{
         return service.fetchClaimStatusHistory(authorization, claimId); 
     }
 
-     @GET
+    @GET
     @Path("/{claim_id}/affects-reputation")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -114,7 +119,7 @@ public class ClaimResource implements Serializable{
         return service.fetchReputation(authorization, claimId);
     }
 
-      @GET
+    @GET
     @Path("/{claim_id}/messages")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -147,7 +152,6 @@ public class ClaimResource implements Serializable{
         SendMessageRequest request
     ){
         return service.sendMessage(authorization, claim_id, request);
-
     }
 
     @GET
@@ -162,7 +166,7 @@ public class ClaimResource implements Serializable{
         return service.fetchFileResponse(authorization, claim_id, attachment_id);
     }
 
-        @POST
+    @POST
     @Path("/{claim_id}/actions/open-dispute")
     @Produces(MediaType.APPLICATION_JSON)
     public Uni<DisputeResponse> postDisput(
@@ -181,4 +185,98 @@ public class ClaimResource implements Serializable{
             @PathParam("claim_id")String claim_id){
             return service.fetchResolution(authorization, claim_id);
             }
+
+    @GET
+    @Path("/{claim_id}/partial-refund/available-offers")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Uni<PartialRefoundResponse> getPartialRefund(
+            @HeaderParam("Authorization") String authorization,
+            @PathParam("claim_id")String claim_id
+    ){
+        return service.fetchPartialRefund(authorization, claim_id);
+    }
+
+    @POST
+    @Path("/{claim_id}/expected-resolutions/partial-refund")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Uni<RefundResponse> postPartialRefund(
+        @HeaderParam("Authorization")String authorization,
+        @PathParam("claim_id") String claim_id,
+        RefundRequest request
+    ){
+        return service.sendPartialRefund(authorization, claim_id, request);
+    }
+
+    @POST
+    @Path("/{claim_id}/expected-resolutions/refund")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Uni<List<RefundResponse>> postRefund(
+        @HeaderParam("Authorization")String authorization,
+        @PathParam("claim_id") String claim_id
+    ){
+        return service.sendRefund(authorization, claim_id);
+    }
+
+    
+    @POST
+    @Path("/{claim_id}/expected-resolutions/allow-return")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Uni<List<RefundResponse>> postAllowRefund(
+        @HeaderParam("Authorization")String authorization,
+        @PathParam("claim_id") String claim_id
+    ){
+        return service.sendAllowRefund(authorization, claim_id);
+    }
+
+     @GET
+    @Path("/{claim_id}/attachments-evidences/{attachment_id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Uni<GetFileResponse> postEvidences(
+        @HeaderParam("Authorization")String authorization,
+        @PathParam("claim_id")String claim_id,
+        @PathParam("attachment_id")String attachment_id
+    ){
+        return service.sendEvidences(authorization, claim_id, attachment_id);
+    }
+
+        @POST
+    @Path("/{claim_id}/attachments-evidences")
+    @Produces(MediaType.MULTIPART_FORM_DATA)
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    public Uni<FileAttachmentResponse> postEvidenceFile(
+            @HeaderParam("Authorization")String authorization,
+            @PathParam("claim_id") String claim_id,
+            ImagemUploadForm form
+    ){
+        return service.sendEvidencesFile(authorization ,claim_id ,form );
+    }
+
+    @POST
+    @Path("/{claim_id}/actions/evidences")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Uni<EvidenceResponse> postActionEvidence(
+            @HeaderParam("Authorization")String authorization,
+            @PathParam("claim_id") String claim_id,
+            EvidenceRequest request
+    ){
+        return service.sendActionEvidence(authorization, claim_id, request);
+    }
+
+
+        @GET
+    @Path("/{claim_id}/returns")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Uni<DevolucoesResponse> getDevolucoes(
+            @HeaderParam("Authorization")String authorization,
+            @PathParam("claim_id")String claim_id
+    ){
+        return service.fetchDevolucoes(authorization, claim_id);
+    }
 }

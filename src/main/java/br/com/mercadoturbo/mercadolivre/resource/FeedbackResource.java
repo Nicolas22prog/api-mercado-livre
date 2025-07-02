@@ -28,7 +28,8 @@ public class FeedbackResource implements Serializable{
     @Produces(MediaType.APPLICATION_JSON)
     public Uni<FeedbackResponse.Sale>postFeedback(
                 @HeaderParam("Authorization")String authorization,
+                @PathParam("order_id")String order_id,
                  FeedbackRequest request){
-        return service.sendFeedback(authorization, request);
+        return service.sendFeedback(authorization, order_id, request);
     }
 }

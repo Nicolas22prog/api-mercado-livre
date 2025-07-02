@@ -1,6 +1,65 @@
-2025-07-02 09:10:46,515 mercadoturbo api-mercado-livre-dev.jar[14672] INFO  [io.quarkus] (Quarkus Main Thread) api-mercado-livre 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.10.0) started in 1.191s. Listening on: http://localhost:8080
-2025-07-02 09:10:46,516 mercadoturbo api-mercado-livre-dev.jar[14672] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-2025-07-02 09:10:46,516 mercadoturbo api-mercado-livre-dev.jar[14672] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [cdi, rest, rest-client, rest-client-jackson, rest-jackson, smallrye-context-propagation, smallrye-openapi, swagger-ui, vertx]
-2025-07-02 09:10:46,517 mercadoturbo api-mercado-livre-dev.jar[14672] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-17) Live reload total time: 1.388s 
-2025-07-02 09:16:04,756 mercadoturbo api-mercado-livre-dev.jar[14672] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-19) Restarting quarkus due to changes in ClaimService.class, MercadoLivreClaimApi.class, ClaimResource.class.
-2025-07-02 09:16:04,807 mercadoturbo api-mercado-livre-dev.jar[14672] INFO  [io.quarkus] (Quarkus Main Thread) api-mercado-livre stopped in 0.050s
+2025-07-02 15:33:53,194 mercadoturbo api-mercado-livre-dev.jar[16464] INFO  [io.quarkus] (Quarkus Main Thread) api-mercado-livre 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.10.0) started in 1.417s. Listening on: http://localhost:8080
+2025-07-02 15:33:53,194 mercadoturbo api-mercado-livre-dev.jar[16464] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+2025-07-02 15:33:53,194 mercadoturbo api-mercado-livre-dev.jar[16464] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [cdi, rest, rest-client, rest-client-jackson, rest-jackson, smallrye-context-propagation, smallrye-openapi, swagger-ui, vertx]
+2025-07-02 15:33:53,195 mercadoturbo api-mercado-livre-dev.jar[16464] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-20) Live reload total time: 1.668s 
+2025-07-02 15:33:53,208 mercadoturbo api-mercado-livre-dev.jar[16464] ERROR [io.qua.ver.htt.run.QuarkusErrorHandler] (vert.x-eventloop-thread-1) HTTP Request to /post-purchase/v1/claims/search?status=closed failed, error id: f6a64ec5-5883-4084-bdd6-25ef20188cd7-3: java.lang.IllegalArgumentException: Path parameter not provided claim_id
+	at org.jboss.resteasy.reactive.common.jaxrs.UriBuilderImpl.replaceParameter(UriBuilderImpl.java:635)
+	at org.jboss.resteasy.reactive.common.jaxrs.UriBuilderImpl.buildCharSequence(UriBuilderImpl.java:562)
+	at org.jboss.resteasy.reactive.common.jaxrs.UriBuilderImpl.buildString(UriBuilderImpl.java:534)
+	at org.jboss.resteasy.reactive.common.jaxrs.UriBuilderImpl.buildFromValues(UriBuilderImpl.java:747)
+	at org.jboss.resteasy.reactive.common.jaxrs.UriBuilderImpl.build(UriBuilderImpl.java:741)
+	at org.jboss.resteasy.reactive.client.impl.WebTargetImpl.createQuarkusRestInvocationBuilder(WebTargetImpl.java:334)
+	at org.jboss.resteasy.reactive.client.impl.WebTargetImpl.request(WebTargetImpl.java:313)
+	at br.com.mercadoturbo.mercadolivre.client.MercadoLivreClaimApi$$QuarkusRestClientInterface.getClaims(Unknown Source)
+	at br.com.mercadoturbo.mercadolivre.client.MercadoLivreClaimApi$$CDIWrapper.getClaims(Unknown Source)
+	at br.com.mercadoturbo.mercadolivre.client.MercadoLivreClaimApi$$CDIWrapper_ClientProxy.getClaims(Unknown Source)
+	at br.com.mercadoturbo.mercadolivre.service.ClaimService.fetchClaims(ClaimService.java:45)
+	at br.com.mercadoturbo.mercadolivre.service.ClaimService_ClientProxy.fetchClaims(Unknown Source)
+	at br.com.mercadoturbo.mercadolivre.resource.ClaimResource.getClaims(ClaimResource.java:74)
+	at br.com.mercadoturbo.mercadolivre.resource.ClaimResource$quarkusrestinvoker$getClaims_eb7c9d855c31357f9a1310ae2f02cfb0154d440c.invoke(Unknown Source)
+	at org.jboss.resteasy.reactive.server.handlers.InvocationHandler.handle(InvocationHandler.java:29)
+	at io.quarkus.resteasy.reactive.server.runtime.QuarkusResteasyReactiveRequestContext.invokeHandler(QuarkusResteasyReactiveRequestContext.java:141)
+	at org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
+	at org.jboss.resteasy.reactive.server.handlers.RestInitialHandler.beginProcessing(RestInitialHandler.java:48)
+	at org.jboss.resteasy.reactive.server.vertx.ResteasyReactiveVertxHandler.handle(ResteasyReactiveVertxHandler.java:23)
+	at org.jboss.resteasy.reactive.server.vertx.ResteasyReactiveVertxHandler.handle(ResteasyReactiveVertxHandler.java:10)
+	at io.vertx.ext.web.impl.RouteState.handleContext(RouteState.java:1285)
+	at io.vertx.ext.web.impl.RoutingContextImplBase.iterateNext(RoutingContextImplBase.java:177)
+	at io.vertx.ext.web.impl.RoutingContextImpl.next(RoutingContextImpl.java:137)
+	at io.quarkus.vertx.http.runtime.options.HttpServerCommonHandlers$1.handle(HttpServerCommonHandlers.java:62)
+	at io.quarkus.vertx.http.runtime.options.HttpServerCommonHandlers$1.handle(HttpServerCommonHandlers.java:40)
+	at io.vertx.ext.web.impl.RouteState.handleContext(RouteState.java:1285)
+	at io.vertx.ext.web.impl.RoutingContextImplBase.iterateNext(RoutingContextImplBase.java:177)
+	at io.vertx.ext.web.impl.RoutingContextImpl.next(RoutingContextImpl.java:137)
+	at io.quarkus.resteasy.reactive.server.runtime.ResteasyReactiveRecorder$13.handle(ResteasyReactiveRecorder.java:352)
+	at io.quarkus.resteasy.reactive.server.runtime.ResteasyReactiveRecorder$13.handle(ResteasyReactiveRecorder.java:345)
+	at io.vertx.ext.web.impl.RouteState.handleContext(RouteState.java:1285)
+	at io.vertx.ext.web.impl.RoutingContextImplBase.iterateNext(RoutingContextImplBase.java:177)
+	at io.vertx.ext.web.impl.RoutingContextImpl.next(RoutingContextImpl.java:137)
+	at io.quarkus.vertx.http.runtime.devmode.VertxHttpHotReplacementSetup.handleHotReplacementRequest(VertxHttpHotReplacementSetup.java:144)
+	at io.quarkus.vertx.http.runtime.VertxHttpRecorder$5.handle(VertxHttpRecorder.java:442)
+	at io.quarkus.vertx.http.runtime.VertxHttpRecorder$5.handle(VertxHttpRecorder.java:438)
+	at io.vertx.ext.web.impl.RouteState.handleContext(RouteState.java:1285)
+	at io.vertx.ext.web.impl.RoutingContextImplBase.iterateNext(RoutingContextImplBase.java:177)
+	at io.vertx.ext.web.impl.RoutingContextImpl.next(RoutingContextImpl.java:137)
+	at io.vertx.ext.web.impl.RouterImpl.handle(RouterImpl.java:68)
+	at io.vertx.ext.web.impl.RouterImpl.handle(RouterImpl.java:37)
+	at io.quarkus.vertx.http.runtime.options.HttpServerCommonHandlers$2.handle(HttpServerCommonHandlers.java:86)
+	at io.quarkus.vertx.http.runtime.options.HttpServerCommonHandlers$2.handle(HttpServerCommonHandlers.java:69)
+	at io.quarkus.vertx.http.runtime.VertxHttpRecorder$1.handle(VertxHttpRecorder.java:167)
+	at io.quarkus.vertx.http.runtime.VertxHttpRecorder$1.handle(VertxHttpRecorder.java:143)
+	at io.quarkus.vertx.http.runtime.devmode.VertxHttpHotReplacementSetup$5.handle(VertxHttpHotReplacementSetup.java:202)
+	at io.quarkus.vertx.http.runtime.devmode.VertxHttpHotReplacementSetup$5.handle(VertxHttpHotReplacementSetup.java:192)
+	at io.vertx.core.impl.future.FutureImpl$4.onSuccess(FutureImpl.java:176)
+	at io.vertx.core.impl.future.FutureBase.lambda$emitSuccess$0(FutureBase.java:60)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+
+2025-07-02 15:34:55,946 mercadoturbo api-mercado-livre-dev.jar[16464] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-22) Restarting quarkus due to changes in ClaimService.class, MercadoLivreClaimApi.class, ClaimResource.class.
+2025-07-02 15:34:56,005 mercadoturbo api-mercado-livre-dev.jar[16464] INFO  [io.quarkus] (Quarkus Main Thread) api-mercado-livre stopped in 0.058s

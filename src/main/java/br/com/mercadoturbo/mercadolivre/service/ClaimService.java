@@ -11,10 +11,16 @@ import br.com.mercadoturbo.mercadolivre.dto.ClaimDetailResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimMessagesResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimReasonResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimsResponse;
+import br.com.mercadoturbo.mercadolivre.dto.DevolucoesResponse;
 import br.com.mercadoturbo.mercadolivre.dto.DisputeResponse;
+import br.com.mercadoturbo.mercadolivre.dto.EvidenceRequest;
+import br.com.mercadoturbo.mercadolivre.dto.EvidenceResponse;
 import br.com.mercadoturbo.mercadolivre.dto.FileAttachmentResponse;
 import br.com.mercadoturbo.mercadolivre.dto.GetFileResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ImagemUploadForm;
+import br.com.mercadoturbo.mercadolivre.dto.PartialRefoundResponse;
+import br.com.mercadoturbo.mercadolivre.dto.RefundRequest;
+import br.com.mercadoturbo.mercadolivre.dto.RefundResponse;
 import br.com.mercadoturbo.mercadolivre.dto.SendMessageRequest;
 import br.com.mercadoturbo.mercadolivre.resource.ClaimHistoryResponse;
 import io.smallrye.mutiny.Uni;
@@ -80,4 +86,36 @@ public class ClaimService implements Serializable{
         return claimApi.getResolutions(accessToken, claim_id);
     }
 
+    public Uni<PartialRefoundResponse> fetchPartialRefund(String accessToken, String claim_id){
+        return claimApi.getPartialRefund(accessToken, claim_id);
+    }
+
+    public Uni<RefundResponse> sendPartialRefund(String accessToken, String claim_id, RefundRequest request){
+        return claimApi.postPartialRefund(accessToken, claim_id, request);
+    }
+
+    public Uni<List<RefundResponse>> sendRefund(String accessToken, String claim_id){
+        return claimApi.postRefund(accessToken, claim_id);
+    }
+
+     public Uni<List<RefundResponse>> sendAllowRefund(String accessToken, String claim_id){
+        return claimApi.postAllowRefund(accessToken, claim_id);
+    }
+
+    public Uni<GetFileResponse> sendEvidences(String accessToken, String claim_id, String attachment){
+        return claimApi.postEvidences(accessToken, claim_id, attachment);
+    }
+
+    public Uni<FileAttachmentResponse> sendEvidencesFile(String accessToken, String claim_id,ImagemUploadForm form)
+    {
+        return claimApi.postEvidenceFile(accessToken, claim_id, form);
+    }
+
+    public Uni<EvidenceResponse> sendActionEvidence(String accessToken,String claim_id, EvidenceRequest request){
+        return claimApi.postActionEvidence(accessToken, claim_id, request);
+    }
+
+    public Uni<DevolucoesResponse> fetchDevolucoes(String accesTokens, String claim_id){
+        return claimApi.getDevolucoes(accesTokens, claim_id);
+    }
 }
