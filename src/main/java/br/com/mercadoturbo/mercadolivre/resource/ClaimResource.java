@@ -18,6 +18,8 @@ import br.com.mercadoturbo.mercadolivre.dto.ImagemUploadForm;
 import br.com.mercadoturbo.mercadolivre.dto.PartialRefoundResponse;
 import br.com.mercadoturbo.mercadolivre.dto.RefundRequest;
 import br.com.mercadoturbo.mercadolivre.dto.RefundResponse;
+import br.com.mercadoturbo.mercadolivre.dto.ReturnReviewFailResponse;
+import br.com.mercadoturbo.mercadolivre.dto.ReturnReviewOkResponse;
 import br.com.mercadoturbo.mercadolivre.dto.SendMessageRequest;
 import br.com.mercadoturbo.mercadolivre.service.ClaimService;
 import io.smallrye.mutiny.Uni;
@@ -278,5 +280,27 @@ public class ClaimResource implements Serializable{
             @PathParam("claim_id")String claim_id
     ){
         return service.fetchDevolucoes(authorization, claim_id);
+    }
+
+        @POST
+    @Path("/{claim_id}/actions/return-review-ok")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Uni<ReturnReviewOkResponse> postReturnOK(
+        @HeaderParam("Authorization") String authorization,
+        @PathParam("claim_id")String claim_id
+    ){
+        return service.sendReturnOk(authorization, claim_id);
+    }
+
+    @GET
+    @Path("/{claim_id}/actions/return-review-fail")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Uni<ReturnReviewFailResponse> postReturnFail(
+        @HeaderParam("Authorization") String authorization,
+        @PathParam("claim_id")String claim_id
+    ){
+        return service.sendReturnFail(authorization, claim_id);
     }
 }

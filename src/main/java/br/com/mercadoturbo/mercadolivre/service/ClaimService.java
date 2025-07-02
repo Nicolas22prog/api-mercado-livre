@@ -21,6 +21,8 @@ import br.com.mercadoturbo.mercadolivre.dto.ImagemUploadForm;
 import br.com.mercadoturbo.mercadolivre.dto.PartialRefoundResponse;
 import br.com.mercadoturbo.mercadolivre.dto.RefundRequest;
 import br.com.mercadoturbo.mercadolivre.dto.RefundResponse;
+import br.com.mercadoturbo.mercadolivre.dto.ReturnReviewFailResponse;
+import br.com.mercadoturbo.mercadolivre.dto.ReturnReviewOkResponse;
 import br.com.mercadoturbo.mercadolivre.dto.SendMessageRequest;
 import br.com.mercadoturbo.mercadolivre.resource.ClaimHistoryResponse;
 import io.smallrye.mutiny.Uni;
@@ -117,5 +119,13 @@ public class ClaimService implements Serializable{
 
     public Uni<DevolucoesResponse> fetchDevolucoes(String accesTokens, String claim_id){
         return claimApi.getDevolucoes(accesTokens, claim_id);
+    }
+
+    public Uni<ReturnReviewOkResponse> sendReturnOk(String accessToken, String claim_id){
+        return claimApi.postReturnOK(accessToken, claim_id);
+    }
+
+        public Uni<ReturnReviewFailResponse> sendReturnFail(String accessToken, String claim_id){
+        return claimApi.postReturnFail(accessToken, claim_id);
     }
 }
