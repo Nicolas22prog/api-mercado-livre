@@ -8,7 +8,9 @@ import br.com.mercadoturbo.mercadolivre.dto.ClaimDetailResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimMessagesResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimReasonResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimsResponse;
+import br.com.mercadoturbo.mercadolivre.dto.DisputeResponse;
 import br.com.mercadoturbo.mercadolivre.dto.FileAttachmentResponse;
+import br.com.mercadoturbo.mercadolivre.dto.GetFileResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ImagemUploadForm;
 import br.com.mercadoturbo.mercadolivre.dto.SendMessageRequest;
 import br.com.mercadoturbo.mercadolivre.service.ClaimService;
@@ -125,8 +127,8 @@ public class ClaimResource implements Serializable{
 
     @POST
     @Path("/{claim_id}/attachments")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.MULTIPART_FORM_DATA)
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
     public Uni<FileAttachmentResponse> postAttachment(
         @HeaderParam("Authorization") String authorization,
         @PathParam("claim_id") String claimId,
@@ -145,5 +147,38 @@ public class ClaimResource implements Serializable{
         SendMessageRequest request
     ){
         return service.sendMessage(authorization, claim_id, request);
+
     }
+
+    @GET
+    @Path("/{claim_id}/attachments/{attachment_id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Uni<GetFileResponse> getFileResponse(
+        @HeaderParam("Authorization") String authorization,
+        @PathParam("claim_id")String claim_id,
+        @PathParam("attachemnte_id") String attachment_id
+    ) {
+        return service.fetchFileResponse(authorization, claim_id, attachment_id);
+    }
+
+        @POST
+    @Path("/{claim_id}/actions/open-dispute")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Uni<DisputeResponse> postDisput(
+        @HeaderParam("Authorization") String authorization,
+        @PathParam("claim_id")String claim_id
+    ) {
+        return service.sendDispute(authorization, claim_id);
+    }
+
+    @GET
+    @Path("/{claim_id}/expected-resolutions")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Uni<List<ClaimHistoryResponse.ActionItem>> getResolutions(
+                @HeaderParam("Authorization") String authorization,
+            @PathParam("claim_id")String claim_id){
+            return service.fetchResolution(authorization, claim_id);
+            }
 }

@@ -11,7 +11,9 @@ import br.com.mercadoturbo.mercadolivre.dto.ClaimDetailResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimMessagesResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimReasonResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimsResponse;
+import br.com.mercadoturbo.mercadolivre.dto.DisputeResponse;
 import br.com.mercadoturbo.mercadolivre.dto.FileAttachmentResponse;
+import br.com.mercadoturbo.mercadolivre.dto.GetFileResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ImagemUploadForm;
 import br.com.mercadoturbo.mercadolivre.dto.SendMessageRequest;
 import br.com.mercadoturbo.mercadolivre.resource.ClaimHistoryResponse;
@@ -112,8 +114,8 @@ public interface MercadoLivreClaimApi {
 
     @POST
     @Path("/{claim_id}/attachments")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.MULTIPART_FORM_DATA)
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
     Uni<FileAttachmentResponse> postAttachment(
         @HeaderParam("Authorization") String authorization,
         @PathParam("claim_id") String claimId,
@@ -129,4 +131,30 @@ public interface MercadoLivreClaimApi {
         @PathParam("claim_id") String claim_id,
         SendMessageRequest request
     );
+
+    @GET
+    @Path("/{claim_id}/attachments/{attachment_id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    Uni<GetFileResponse> getFileResponse(
+        @HeaderParam("Authorization") String authorization,
+        @PathParam("claim_id")String claim_id,
+        @PathParam("attachemnte_id") String attachment_id
+    );
+
+    @POST
+    @Path("/{claim_id}/actions/open-dispute")
+    @Produces(MediaType.APPLICATION_JSON)
+    Uni<DisputeResponse> postDisput(
+        @HeaderParam("Authorization") String authorization,
+        @PathParam("claim_id")String claim_id
+    );
+
+    @GET
+    @Path("/{claim_id}/expected-resolutions")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    Uni<List<ClaimHistoryResponse.ActionItem>> getResolutions(
+                @HeaderParam("Authorization") String authorization,
+            @PathParam("claim_id")String claim_id);
 }

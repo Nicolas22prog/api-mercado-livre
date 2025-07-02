@@ -3,7 +3,7 @@ package br.com.mercadoturbo.mercadolivre.dto;
 import java.time.OffsetDateTime;
 import java.util.List;
 
-public class ClaimReasonResponse {
+public class ClaimReasonResponse extends ProxyEnabledDTO{
     public String id;
     public String flow;
     public String name;

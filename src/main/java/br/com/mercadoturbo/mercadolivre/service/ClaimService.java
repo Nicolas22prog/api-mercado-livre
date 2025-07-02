@@ -11,7 +11,9 @@ import br.com.mercadoturbo.mercadolivre.dto.ClaimDetailResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimMessagesResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimReasonResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimsResponse;
+import br.com.mercadoturbo.mercadolivre.dto.DisputeResponse;
 import br.com.mercadoturbo.mercadolivre.dto.FileAttachmentResponse;
+import br.com.mercadoturbo.mercadolivre.dto.GetFileResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ImagemUploadForm;
 import br.com.mercadoturbo.mercadolivre.dto.SendMessageRequest;
 import br.com.mercadoturbo.mercadolivre.resource.ClaimHistoryResponse;
@@ -65,4 +67,17 @@ public class ClaimService implements Serializable{
     public Uni<String> sendMessage(String accessToken, String claim_id, SendMessageRequest   request){
         return claimApi.postMessage(accessToken, claim_id, request);
     }
+
+    public Uni<GetFileResponse> fetchFileResponse(String accessToken, String claim_id, String attachment_id){
+        return claimApi.getFileResponse(accessToken, claim_id, attachment_id);
+    }
+
+    public Uni<DisputeResponse> sendDispute(String accessToken, String claim_id){
+        return claimApi.postDisput(accessToken, claim_id);
+    }
+
+    public Uni<List<ClaimHistoryResponse.ActionItem>> fetchResolution(String accessToken, String claim_id){
+        return claimApi.getResolutions(accessToken, claim_id);
+    }
+
 }

@@ -18,10 +18,15 @@ public class ClaimHistoryResponse {
     public static class ActionItem {
         public String action_name;
         public String player_role;
+        public Long user_id;
         public String action_reason_id;
         public String claim_stage;
         public String claim_status;
+        public String expected_resolution;
+        public List<Object> details;
         public OffsetDateTime date_created;
+        public OffsetDateTime last_updated;
+        public String status;
     }
 
     public static class HistoryItem {
