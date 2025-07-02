@@ -34,13 +34,15 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 
-@Path("/post-purchase/v1/claims")
+@Path("/post-purchase/v1")
 public class ClaimResource implements Serializable{
     
     @Inject
     ClaimService service;
 
+  
     @GET
+    @Path("/claims/{claim_id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<ClaimByIdResponse> getClaimDetails(
@@ -52,7 +54,7 @@ public class ClaimResource implements Serializable{
 
 
     @GET
-    @Path("/{claim_id}/detail")
+    @Path("/claims/{claim_id}/detail")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<ClaimDetailResponse> getClaimDetail(
@@ -64,7 +66,7 @@ public class ClaimResource implements Serializable{
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/search")
+    @Path("/claims/search")
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<ClaimsResponse> getClaims(
         @HeaderParam("Authorization") String accessToken,
@@ -78,7 +80,7 @@ public class ClaimResource implements Serializable{
     }
 
     @GET
-    @Path("/{claim_id}/reasons/{reason_id}")
+    @Path("/claims/{claim_id}/reasons/{reason_id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<ClaimReasonResponse> getClaimReason(
@@ -89,7 +91,7 @@ public class ClaimResource implements Serializable{
     }
 
     @GET
-    @Path("/{claim_id}/actions-history")
+    @Path("/claims/{claim_id}/actions-history")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<List<ClaimHistoryResponse.ActionItem>> getClaimActionHistory(
@@ -100,7 +102,7 @@ public class ClaimResource implements Serializable{
     }
 
     @GET
-    @Path("/{claim_id}/status-history")
+    @Path("/claims/{claim_id}/status-history")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<List<ClaimHistoryResponse.HistoryItem>> getClaimStatusHistory(
@@ -111,7 +113,7 @@ public class ClaimResource implements Serializable{
     }
 
     @GET
-    @Path("/{claim_id}/affects-reputation")
+    @Path("/claims/{claim_id}/affects-reputation")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<ClaimHistoryResponse> getClaimReputation(
@@ -122,7 +124,7 @@ public class ClaimResource implements Serializable{
     }
 
     @GET
-    @Path("/{claim_id}/messages")
+    @Path("/claims/{claim_id}/messages")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<List<ClaimMessagesResponse>> getClaimMessages(
@@ -133,7 +135,7 @@ public class ClaimResource implements Serializable{
     }
 
     @POST
-    @Path("/{claim_id}/attachments")
+    @Path("/claims/{claim_id}/attachments")
     @Produces(MediaType.MULTIPART_FORM_DATA)
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     public Uni<FileAttachmentResponse> postAttachment(
@@ -145,7 +147,7 @@ public class ClaimResource implements Serializable{
     }
 
     @POST
-    @Path("/{claim_id}/actions/send-message")
+    @Path("/claims/{claim_id}/actions/send-message")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<String> postMessage(
@@ -157,7 +159,7 @@ public class ClaimResource implements Serializable{
     }
 
     @GET
-    @Path("/{claim_id}/attachments/{attachment_id}")
+    @Path("/claims/{claim_id}/attachments/{attachment_id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<GetFileResponse> getFileResponse(
@@ -169,7 +171,7 @@ public class ClaimResource implements Serializable{
     }
 
     @POST
-    @Path("/{claim_id}/actions/open-dispute")
+    @Path("/claims/{claim_id}/actions/open-dispute")
     @Produces(MediaType.APPLICATION_JSON)
     public Uni<DisputeResponse> postDisput(
         @HeaderParam("Authorization") String authorization,
@@ -179,7 +181,7 @@ public class ClaimResource implements Serializable{
     }
 
     @GET
-    @Path("/{claim_id}/expected-resolutions")
+    @Path("/claims/{claim_id}/expected-resolutions")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<List<ClaimHistoryResponse.ActionItem>> getResolutions(
@@ -189,7 +191,7 @@ public class ClaimResource implements Serializable{
             }
 
     @GET
-    @Path("/{claim_id}/partial-refund/available-offers")
+    @Path("/claims/{claim_id}/partial-refund/available-offers")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<PartialRefoundResponse> getPartialRefund(
@@ -200,7 +202,7 @@ public class ClaimResource implements Serializable{
     }
 
     @POST
-    @Path("/{claim_id}/expected-resolutions/partial-refund")
+    @Path("/claims/{claim_id}/expected-resolutions/partial-refund")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<RefundResponse> postPartialRefund(
@@ -212,7 +214,7 @@ public class ClaimResource implements Serializable{
     }
 
     @POST
-    @Path("/{claim_id}/expected-resolutions/refund")
+    @Path("/claims/{claim_id}/expected-resolutions/refund")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<List<RefundResponse>> postRefund(
@@ -224,7 +226,7 @@ public class ClaimResource implements Serializable{
 
     
     @POST
-    @Path("/{claim_id}/expected-resolutions/allow-return")
+    @Path("/claims/{claim_id}/expected-resolutions/allow-return")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<List<RefundResponse>> postAllowRefund(
@@ -235,7 +237,7 @@ public class ClaimResource implements Serializable{
     }
 
      @GET
-    @Path("/{claim_id}/attachments-evidences/{attachment_id}")
+    @Path("/claims/{claim_id}/attachments-evidences/{attachment_id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<GetFileResponse> postEvidences(
@@ -247,7 +249,7 @@ public class ClaimResource implements Serializable{
     }
 
         @POST
-    @Path("/{claim_id}/attachments-evidences")
+    @Path("/claims/{claim_id}/attachments-evidences")
     @Produces(MediaType.MULTIPART_FORM_DATA)
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     public Uni<FileAttachmentResponse> postEvidenceFile(
@@ -259,7 +261,7 @@ public class ClaimResource implements Serializable{
     }
 
     @POST
-    @Path("/{claim_id}/actions/evidences")
+    @Path("/claims/{claim_id}/actions/evidences")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<EvidenceResponse> postActionEvidence(
@@ -272,7 +274,7 @@ public class ClaimResource implements Serializable{
 
 
         @GET
-    @Path("/{claim_id}/returns")
+    @Path("/claims/{claim_id}/returns")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<DevolucoesResponse> getDevolucoes(
@@ -283,7 +285,7 @@ public class ClaimResource implements Serializable{
     }
 
         @POST
-    @Path("/{claim_id}/actions/return-review-ok")
+    @Path("/claims/{claim_id}/actions/return-review-ok")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<ReturnReviewOkResponse> postReturnOK(
@@ -294,13 +296,13 @@ public class ClaimResource implements Serializable{
     }
 
     @GET
-    @Path("/{claim_id}/actions/return-review-fail")
+    @Path("/returns/reasons/return-fail")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<ReturnReviewFailResponse> postReturnFail(
-        @HeaderParam("Authorization") String authorization,
-        @PathParam("claim_id")String claim_id
-    ){
-        return service.sendReturnFail(authorization, claim_id);
+        @HeaderParam("Authorization") String authorization
+    )
+    {
+        return service.sendReturnFail(authorization);
     }
 }

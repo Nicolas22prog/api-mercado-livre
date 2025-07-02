@@ -125,7 +125,7 @@ public class ClaimService implements Serializable{
         return claimApi.postReturnOK(accessToken, claim_id);
     }
 
-        public Uni<ReturnReviewFailResponse> sendReturnFail(String accessToken, String claim_id){
-        return claimApi.postReturnFail(accessToken, claim_id);
+        public Uni<ReturnReviewFailResponse> sendReturnFail(String accessToken){
+        return claimApi.postReturnFail(accessToken);
     }
 }
