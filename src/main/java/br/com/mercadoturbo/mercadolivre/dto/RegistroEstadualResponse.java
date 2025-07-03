@@ -1,6 +1,6 @@
 package br.com.mercadoturbo.mercadolivre.dto;
 
-public class RegistroEstadualResponse {
+public class RegistroEstadualResponse extends ProxyEnabledDTO{
     public Long seller_id;
     public String cnpj;
     public String state;

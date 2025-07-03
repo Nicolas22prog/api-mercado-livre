@@ -6,6 +6,7 @@ import java.util.List;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import br.com.mercadoturbo.mercadolivre.client.MercadoLivreClaimApi;
+import br.com.mercadoturbo.mercadolivre.dto.ChangesCost;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimByIdResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimDetailResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimMessagesResponse;
@@ -23,6 +24,7 @@ import br.com.mercadoturbo.mercadolivre.dto.RefundRequest;
 import br.com.mercadoturbo.mercadolivre.dto.RefundResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ReturnReviewFailResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ReturnReviewOkResponse;
+import br.com.mercadoturbo.mercadolivre.dto.ReviewMessageRequest;
 import br.com.mercadoturbo.mercadolivre.dto.SendMessageRequest;
 import br.com.mercadoturbo.mercadolivre.resource.ClaimHistoryResponse;
 import io.smallrye.mutiny.Uni;
@@ -127,5 +129,17 @@ public class ClaimService implements Serializable{
 
         public Uni<ReturnReviewFailResponse> sendReturnFail(String accessToken){
         return claimApi.postReturnFail(accessToken);
+    }
+
+    public Uni<FileAttachmentResponse> sendReturnEvidence(String accessToken,String claim_id, ImagemUploadForm form){
+        return claimApi.postAttachment(accessToken, claim_id, form);
+    }
+
+    public Uni<ReturnReviewOkResponse> sendFailReason(String accessToken, String claim_id, List<ReviewMessageRequest> request){
+        return claimApi.postFailReason(accessToken, claim_id, request);
+    }
+
+    public Uni<ChangesCost> fetchChangesCost(String accessToken, String claim_id, Boolean calculate_amount_usd){
+        return claimApi.getChangeCost(accessToken, claim_id, calculate_amount_usd);
     }
 }

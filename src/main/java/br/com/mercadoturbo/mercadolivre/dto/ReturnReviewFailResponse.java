@@ -2,7 +2,7 @@ package br.com.mercadoturbo.mercadolivre.dto;
 
 import java.util.List;
 
-public class ReturnReviewFailResponse {
+public class ReturnReviewFailResponse extends ProxyEnabledDTO{
     public List<Reason> reasons;
 
     public static class Reason {

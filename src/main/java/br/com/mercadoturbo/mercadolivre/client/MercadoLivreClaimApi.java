@@ -6,6 +6,7 @@ import org.eclipse.microprofile.rest.client.annotation.RegisterProvider;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 import br.com.mercadoturbo.mercadolivre.apiexception.MercadoLivreExceptionMapper;
+import br.com.mercadoturbo.mercadolivre.dto.ChangesCost;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimByIdResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimDetailResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimMessagesResponse;
@@ -23,6 +24,7 @@ import br.com.mercadoturbo.mercadolivre.dto.RefundRequest;
 import br.com.mercadoturbo.mercadolivre.dto.RefundResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ReturnReviewFailResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ReturnReviewOkResponse;
+import br.com.mercadoturbo.mercadolivre.dto.ReviewMessageRequest;
 import br.com.mercadoturbo.mercadolivre.dto.SendMessageRequest;
 import br.com.mercadoturbo.mercadolivre.resource.ClaimHistoryResponse;
 import io.smallrye.mutiny.Uni;
@@ -259,5 +261,36 @@ public interface MercadoLivreClaimApi {
     @Consumes(MediaType.APPLICATION_JSON)
     Uni<ReturnReviewFailResponse> postReturnFail(
         @HeaderParam("Authorization") String authorization
+    );
+
+    @POST
+    @Path("/claims/{claim_id}/actions/return-review-fail")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    Uni<ReturnReviewOkResponse> postFailReason(
+        @HeaderParam("Authorization")String authorization,
+        @PathParam("claim_id")String claimId,
+        List<ReviewMessageRequest> request
+    ); 
+
+    
+    @POST
+    @Path("/claims/{claim_id}/returns/attachments")
+    @Produces(MediaType.MULTIPART_FORM_DATA)
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    Uni<FileAttachmentResponse> postReturnEvidence(
+            @HeaderParam("Authorization") String authorization,
+            @PathParam("claim_id")String claim_id,
+            ImagemUploadForm form
+    );
+
+    @GET
+    @Path("/claims/{claim_id}/charges/return-cost")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    Uni<ChangesCost> getChangeCost(
+        @HeaderParam("Authorization")String authorization,
+        @PathParam("claim_id")String claim_id,
+        @QueryParam("calculate_amount_usd") Boolean calculate_amount_usd
     );
 }

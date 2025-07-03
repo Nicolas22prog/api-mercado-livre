@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.List;
 
-public class NotaFiscalResponse {
+public class NotaFiscalResponse extends ProxyEnabledDTO{
     public String id;
     public String status;
     public String transaction_status;

@@ -1,6 +1,6 @@
 package br.com.mercadoturbo.mercadolivre.dto;
 
-public class TendenciasResponse {
+public class TendenciasResponse extends ProxyEnabledDTO{
     public String keyword;
     public String url;
 }

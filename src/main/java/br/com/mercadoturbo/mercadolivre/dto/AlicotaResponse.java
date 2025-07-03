@@ -2,7 +2,7 @@ package br.com.mercadoturbo.mercadolivre.dto;
 
 import java.util.List;
 
-public class AlicotaResponse {
+public class AlicotaResponse extends ProxyEnabledDTO{
     public Long id;
     public String description;
     public Long user_id;

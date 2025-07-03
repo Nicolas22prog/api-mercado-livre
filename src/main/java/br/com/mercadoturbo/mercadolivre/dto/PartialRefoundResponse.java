@@ -2,7 +2,7 @@ package br.com.mercadoturbo.mercadolivre.dto;
 
 import java.util.List;
 
-public class PartialRefoundResponse {
+public class PartialRefoundResponse extends ProxyEnabledDTO{
     public String currency_id;
     public List<Offer> available_offers;
     public List<Recommendation> recommendations;

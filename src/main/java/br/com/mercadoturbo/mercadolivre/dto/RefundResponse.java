@@ -2,7 +2,7 @@ package br.com.mercadoturbo.mercadolivre.dto;
 
 import java.util.List;
 
-public class RefundResponse {
+public class RefundResponse extends ProxyEnabledDTO{
         public String player_role;
         public Long user_id;
         public List<Detail> details;

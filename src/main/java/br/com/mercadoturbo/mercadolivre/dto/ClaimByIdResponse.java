@@ -2,7 +2,7 @@ package br.com.mercadoturbo.mercadolivre.dto;
 
 import java.util.List;
 
-public class ClaimByIdResponse {
+public class ClaimByIdResponse extends ProxyEnabledDTO{
     public Long id;
     public Long resource_id;
     public String status;
