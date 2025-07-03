@@ -28,7 +28,7 @@ public class NotaFiscalResource {
             }
 
     @GET
-    @Path("/order_id}")
+    @Path("/{order_id}")
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<NotaFiscalResponse> getNotaFiscalByOrderId(
             @HeaderParam("Authorization") String authorization,
@@ -38,7 +38,7 @@ public class NotaFiscalResource {
     }
 
     @GET
-    @Path("/shipment_id}")
+    @Path("/{shipment_id}")
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<NotaFiscalResponse> getNotaFiscalByShipmentId(
             @HeaderParam("Authorization") String authorization,

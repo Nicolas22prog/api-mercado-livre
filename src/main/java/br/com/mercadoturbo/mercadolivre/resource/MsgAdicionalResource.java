@@ -15,8 +15,9 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
+import java.util.List;
 
-@Path("/user/{user_id}/invoices/fiscal_rules/v2/aditional-messages")
+@Path("/users/{user_id}/invoices/fiscal_rules/v2/aditional-messages")
 public class MsgAdicionalResource {
     
     @Inject
@@ -46,7 +47,7 @@ public class MsgAdicionalResource {
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Uni<MensagemAdicionalResponse> getMensagemAdicional(
+    public Uni<List<MensagemAdicionalResponse>> getMensagemAdicional(
             @HeaderParam("Authorization") String authorization,
             @PathParam("user_id") String userId) {
         return service.getMensagemAdicional(authorization, userId);

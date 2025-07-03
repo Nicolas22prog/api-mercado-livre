@@ -18,6 +18,7 @@ import br.com.mercadoturbo.mercadolivre.dto.PostItemResponse;
 import br.com.mercadoturbo.mercadolivre.dto.RelistRequest;
 import br.com.mercadoturbo.mercadolivre.dto.VariationFullResponse;
 import br.com.mercadoturbo.mercadolivre.dto.VariationRequest;
+import br.com.mercadoturbo.mercadolivre.dto.VariationResponse;
 import br.com.mercadoturbo.mercadolivre.dto.VariationsUpdateRequest;
 import io.smallrye.mutiny.Uni;
 import jakarta.ws.rs.Consumes;
@@ -98,21 +99,23 @@ public interface MercadoLivreItemsApi {
                 AttributesRequest request);
 
 
-    @GET
-    @Path("/{item_id}/variations")
-    @Produces(MediaType.APPLICATION_JSON)
-    Uni<PostItemResponse.Variation> getVariations(
-                @HeaderParam("Authorization")String authorization,
-                @PathParam("item_id")String item_id
-               );
+  
+   @GET
+   @Path("/{item_id}/variations")
+   @Consumes(MediaType.APPLICATION_JSON)
+   @Produces(MediaType.APPLICATION_JSON)
+   Uni<VariationResponse> getVariations(
+            @HeaderParam("Authorization")String authorization,
+            @PathParam("item_id")String item_id);
 
     @GET
-    @Path("/{item_id}/variations/{variation_id}")
+    @Path("/{item_id: [^/]+}/variations/{variation_id}")
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    Uni<PostItemResponse.Variation> getVariation(
+    Uni<VariationResponse> getVariation(
                 @HeaderParam("Authorization")String authorization,
                 @PathParam("item_id")String item_id,
-                @PathParam("variation_id")String variation_id);
+                @PathParam("variation_id")Long variation_id);
 
     @POST
     @Path("/{item_id}/variations")

@@ -10,6 +10,7 @@ import br.com.mercadoturbo.mercadolivre.dto.MensagemAdicionalResponse;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import java.util.List;
 
 @ApplicationScoped
 public class MsgAdicionalService implements Serializable {
@@ -27,7 +28,7 @@ public class MsgAdicionalService implements Serializable {
         return msgAdicionalApi.updateMensagemAdicional(accessToken, userId, request);
     }
 
-    public Uni<MensagemAdicionalResponse> getMensagemAdicional(String accessToken, String userId) {
+    public Uni<List<MensagemAdicionalResponse>> getMensagemAdicional(String accessToken, String userId) {
         return msgAdicionalApi.getMensagemAdicional(accessToken, userId);
     }
 

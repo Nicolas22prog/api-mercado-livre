@@ -2,6 +2,7 @@ package br.com.mercadoturbo.mercadolivre.dto;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
+import java.util.List;
 
 public class PostItemResponse extends ProxyEnabledDTO{
 
@@ -179,12 +180,12 @@ public class PostItemResponse extends ProxyEnabledDTO{
         public String id;
         public BigDecimal price;
         public Integer available_quantity;
-        public Integer sold_quantity; // Campo adicionado
-        public Attribute[] attributes;
-        public Picture[] pictures;
-        public SaleTerm[] sale_terms;
-        public AttributeCombination[] attribute_combinations;
-        public String[] picture_ids;
+        public Integer sold_quantity; 
+        public List<Attribute> attributes;
+        public List<Picture> pictures;
+        public List<SaleTerm> sale_terms;
+        public List<AttributeCombination> attribute_combinations;
+        public List<String> picture_ids;
         public String seller_custom_field;
         public String catalog_product_id;
         public static class AttributeCombination {

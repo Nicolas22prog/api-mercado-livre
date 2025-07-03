@@ -17,6 +17,7 @@ import br.com.mercadoturbo.mercadolivre.dto.PostItemResponse;
 import br.com.mercadoturbo.mercadolivre.dto.RelistRequest;
 import br.com.mercadoturbo.mercadolivre.dto.VariationFullResponse;
 import br.com.mercadoturbo.mercadolivre.dto.VariationRequest;
+import br.com.mercadoturbo.mercadolivre.dto.VariationResponse;
 import br.com.mercadoturbo.mercadolivre.dto.VariationsUpdateRequest;
 import br.com.mercadoturbo.mercadolivre.service.MigrationService;
 import br.com.mercadoturbo.mercadolivre.service.MigrationValidationService;
@@ -101,27 +102,26 @@ public class ItemsResource implements Serializable{
     }
     
     @GET
-    @Path("/{item_id}/variations")
+    @Path("/{item_id: [^/]+}/variations") // nao funciona 
     @Produces(MediaType.APPLICATION_JSON)
-    public Uni<PostItemResponse.Variation> getVariations(
-                @HeaderParam("Authorization")String authorization,
-                @PathParam("item_id")String item_id
-               ){
+    public Uni<VariationResponse> getVariations(
+            @HeaderParam("Authorization") String authorization,
+            @PathParam("item_id") String item_id) {
         return service.getVariations(authorization, item_id);
-               }
+    }
 
     @GET
-    @Path("/{item_id}/variations/{variation_id}")
+    @Path("/{item_id: [^/]+ }/variations/{variation_id}") // nao funciona
     @Produces(MediaType.APPLICATION_JSON)
-    public Uni<PostItemResponse.Variation> getVariation(
+    public Uni<VariationResponse> getVariation(
                 @HeaderParam("Authorization")String authorization,
                 @PathParam("item_id")String item_id,
-                @PathParam("variation_id")String variation_id){
+                @PathParam("variation_id")Long variation_id){
         return service.getVariation(authorization, item_id, variation_id);
     }
 
     @POST
-    @Path("/{item_id}/variations")
+    @Path("/{item_id: [^/]+}/variations/post")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Uni<VariationRequest> postVariation(

@@ -1,5 +1,6 @@
 package br.com.mercadoturbo.mercadolivre.resource;
 
+import br.com.mercadoturbo.mercadolivre.dto.ClaimHistoryResponse;
 import java.io.Serializable;
 import java.util.List;
 
@@ -26,14 +27,7 @@ import br.com.mercadoturbo.mercadolivre.dto.SendMessageRequest;
 import br.com.mercadoturbo.mercadolivre.service.ClaimService;
 import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.HeaderParam;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.QueryParam;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
 
@@ -85,8 +79,9 @@ public class ClaimResource implements Serializable {
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<ClaimReasonResponse> getClaimReason(
             @HeaderParam("Authorization") String accessToken,
+            @PathParam("claim_id")String claim_id,
             @PathParam("reason_id") String reasonId) {
-        return service.fetchClaimReason(accessToken, reasonId);
+        return service.fetchClaimReason(accessToken, claim_id,reasonId);
     }
 
     @GET
@@ -172,7 +167,7 @@ public class ClaimResource implements Serializable {
     }
 
     @GET
-    @Path("/claims/{claim_id}/returns")
+    @Path("/claims/{claim_id}/changes")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<DevolucoesResponse> getDevolucoes(
@@ -245,7 +240,7 @@ public class ClaimResource implements Serializable {
     }
 
     @POST
-    @Path("/claims/{claim_id}/expected-resolutions/allow-return")
+    @Path("/claims/{claim_id}/expected-resolutions/allow-replace")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<List<RefundResponse>> postAllowRefund(
@@ -309,7 +304,7 @@ public class ClaimResource implements Serializable {
         return service.sendFailReason(authorization, claimId, request);
     }
 
-        @GET
+    @GET
     @Path("/claims/{claim_id}/charges/return-cost")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)

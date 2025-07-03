@@ -26,7 +26,7 @@ import br.com.mercadoturbo.mercadolivre.dto.ReturnReviewFailResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ReturnReviewOkResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ReviewMessageRequest;
 import br.com.mercadoturbo.mercadolivre.dto.SendMessageRequest;
-import br.com.mercadoturbo.mercadolivre.resource.ClaimHistoryResponse;
+import br.com.mercadoturbo.mercadolivre.dto.ClaimHistoryResponse;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -50,8 +50,8 @@ public class ClaimService implements Serializable{
         return claimApi.getClaims(accessToken, status, stage, sort, offset, limit);
     }
 
-    public Uni<ClaimReasonResponse> fetchClaimReason(String accessToken, String reasonId) {
-        return claimApi.getClaimReason(accessToken, reasonId);
+    public Uni<ClaimReasonResponse> fetchClaimReason(String accessToken, String claim_id,String reasonId) {
+        return claimApi.getClaimReason(accessToken, claim_id,reasonId);
     }
 
     public Uni<List<ClaimHistoryResponse.ActionItem>> fetchClaimActionHistory(String accessToken, String claimId) {

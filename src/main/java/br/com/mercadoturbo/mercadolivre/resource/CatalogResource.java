@@ -8,12 +8,7 @@ import br.com.mercadoturbo.mercadolivre.dto.DomainsTrackResponse;
 import br.com.mercadoturbo.mercadolivre.service.CatalogService;
 import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.HeaderParam;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.QueryParam;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
 @Path("/catalog")
@@ -47,6 +42,4 @@ public class CatalogResource implements Serializable{
                 return catalogService.postDomainSearch(authorization,offset,limit ,request);
             }
             
-            
-  
 }

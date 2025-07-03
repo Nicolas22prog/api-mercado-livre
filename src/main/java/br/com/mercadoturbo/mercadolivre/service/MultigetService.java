@@ -17,6 +17,7 @@ import br.com.mercadoturbo.mercadolivre.dto.PostItemResponse;
 import br.com.mercadoturbo.mercadolivre.dto.RelistRequest;
 import br.com.mercadoturbo.mercadolivre.dto.VariationFullResponse;
 import br.com.mercadoturbo.mercadolivre.dto.VariationRequest;
+import br.com.mercadoturbo.mercadolivre.dto.VariationResponse;
 import br.com.mercadoturbo.mercadolivre.dto.VariationsUpdateRequest;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -27,18 +28,18 @@ public class MultigetService implements Serializable{
     
     @Inject
     @RestClient
-    private MercadoLivreItemsApi multiget;
+    MercadoLivreItemsApi multiget;
     
     public Uni<List<MultigetResponse>> fetchItens(String accesToken, String ids, String attributes){
       
         return multiget.getMultigetItens(accesToken, ids, attributes);
     }
 
-    public Uni<PostItemResponse.Variation> getVariations(String accessToken, String item_id) {
+    public Uni<VariationResponse> getVariations(String accessToken, String item_id){
         return multiget.getVariations(accessToken, item_id);
     }
 
-    public Uni<PostItemResponse.Variation> getVariation(String accessToken, String item_id, String variation_id) {
+    public Uni<VariationResponse> getVariation(String accessToken, String item_id, Long variation_id) {
         return multiget.getVariation(accessToken, item_id, variation_id);
     }
 

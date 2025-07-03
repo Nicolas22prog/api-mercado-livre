@@ -26,7 +26,7 @@ import br.com.mercadoturbo.mercadolivre.dto.ReturnReviewFailResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ReturnReviewOkResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ReviewMessageRequest;
 import br.com.mercadoturbo.mercadolivre.dto.SendMessageRequest;
-import br.com.mercadoturbo.mercadolivre.resource.ClaimHistoryResponse;
+import br.com.mercadoturbo.mercadolivre.dto.ClaimHistoryResponse;
 import io.smallrye.mutiny.Uni;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
@@ -81,6 +81,7 @@ public interface MercadoLivreClaimApi {
     @Consumes(MediaType.APPLICATION_JSON)
     Uni<ClaimReasonResponse> getClaimReason(
         @HeaderParam("Authorization") String authorization,
+        @PathParam("claim_id")String claim_id,
         @PathParam("reason_id") String reasonId
     );
 
@@ -198,7 +199,7 @@ public interface MercadoLivreClaimApi {
     );
 
     @POST
-    @Path("/claims/{claim_id}/expected-resolutions/allow-return")
+    @Path("/claims/{claim_id}/expected-resolutions/allow-replace")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     Uni<List<RefundResponse>> postAllowRefund(
@@ -237,7 +238,7 @@ public interface MercadoLivreClaimApi {
     );
 
     @GET
-    @Path("/claims/{claim_id}/returns")
+    @Path("/claims/{claim_id}/changes")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     Uni<DevolucoesResponse> getDevolucoes(

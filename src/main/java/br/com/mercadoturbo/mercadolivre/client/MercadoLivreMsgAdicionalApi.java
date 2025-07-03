@@ -18,6 +18,7 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
+import java.util.List;
 
 @Path("users/{user_id}/invoices/fiscal_rules/v2/additional-messages")
 @RegisterRestClient(configKey = "mercado-livre-api")
@@ -44,7 +45,7 @@ public interface MercadoLivreMsgAdicionalApi {
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    Uni<MensagemAdicionalResponse> getMensagemAdicional(
+    Uni<List<MensagemAdicionalResponse>> getMensagemAdicional(
             @HeaderParam("Authorization") String authorization,
             @PathParam("user_id") String userId);
 
