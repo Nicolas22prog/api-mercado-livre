@@ -1,12 +1,9 @@
 package br.com.mercadoturbo.mercadolivre.resource;
 
-import br.com.mercadoturbo.mercadolivre.dto.ClaimHistoryResponse;
-import java.io.Serializable;
-import java.util.List;
-
 import br.com.mercadoturbo.mercadolivre.dto.ChangesCost;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimByIdResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimDetailResponse;
+import br.com.mercadoturbo.mercadolivre.dto.ClaimHistoryResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimMessagesResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimReasonResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimsResponse;
@@ -29,9 +26,11 @@ import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import java.io.Serializable;
+import java.util.List;
 
 
-@Path("/post-purchase/v1")
+@Path("/post-purchase")
 public class ClaimResource implements Serializable {
 
     @Inject
@@ -40,7 +39,7 @@ public class ClaimResource implements Serializable {
     // --- GET endpoints ---
 
     @GET
-    @Path("/claims/{claim_id}")
+    @Path("/v1/claims/{claim_id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<ClaimByIdResponse> getClaimDetails(
@@ -50,7 +49,7 @@ public class ClaimResource implements Serializable {
     }
 
     @GET
-    @Path("/claims/{claim_id}/detail")
+    @Path("/v2/claims/{claim_id}/returns")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<ClaimDetailResponse> getClaimDetail(
@@ -60,7 +59,7 @@ public class ClaimResource implements Serializable {
     }
 
     @GET
-    @Path("/claims/search")
+    @Path("/v1/claims/search")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<ClaimsResponse> getClaims(
@@ -74,7 +73,7 @@ public class ClaimResource implements Serializable {
     }
 
     @GET
-    @Path("/claims/{claim_id}/reasons/{reason_id}")
+    @Path("/v1/claims/{claim_id}/reasons/{reason_id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<ClaimReasonResponse> getClaimReason(
@@ -85,7 +84,7 @@ public class ClaimResource implements Serializable {
     }
 
     @GET
-    @Path("/claims/{claim_id}/actions-history")
+    @Path("/v1/claims/{claim_id}/actions-history")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<List<ClaimHistoryResponse.ActionItem>> getClaimActionHistory(
@@ -95,7 +94,7 @@ public class ClaimResource implements Serializable {
     }
 
     @GET
-    @Path("/claims/{claim_id}/status-history")
+    @Path("/v1/claims/{claim_id}/status-history")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<List<ClaimHistoryResponse.HistoryItem>> getClaimStatusHistory(
@@ -105,7 +104,7 @@ public class ClaimResource implements Serializable {
     }
 
     @GET
-    @Path("/claims/{claim_id}/affects-reputation")
+    @Path("/v1/claims/{claim_id}/affects-reputation")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<ClaimHistoryResponse> getClaimReputation(
@@ -115,7 +114,7 @@ public class ClaimResource implements Serializable {
     }
 
     @GET
-    @Path("/claims/{claim_id}/messages")
+    @Path("/v1/claims/{claim_id}/messages")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<List<ClaimMessagesResponse>> getClaimMessages(
@@ -125,7 +124,7 @@ public class ClaimResource implements Serializable {
     }
 
     @GET
-    @Path("/claims/{claim_id}/attachments/{attachment_id}")
+    @Path("/v1/claims/{claim_id}/attachments/{attachment_id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<GetFileResponse> getFileResponse(
@@ -136,7 +135,7 @@ public class ClaimResource implements Serializable {
     }
 
     @GET
-    @Path("/claims/{claim_id}/expected-resolutions")
+    @Path("/v1/claims/{claim_id}/expected-resolutions")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<List<ClaimHistoryResponse.ActionItem>> getResolutions(
@@ -146,7 +145,7 @@ public class ClaimResource implements Serializable {
     }
 
     @GET
-    @Path("/claims/{claim_id}/partial-refund/available-offers")
+    @Path("/v1/claims/{claim_id}/partial-refund/available-offers")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<PartialRefoundResponse> getPartialRefund(
@@ -156,7 +155,7 @@ public class ClaimResource implements Serializable {
     }
 
     @GET
-    @Path("/claims/{claim_id}/attachments-evidences/{attachment_id}")
+    @Path("/v1/claims/{claim_id}/attachments-evidences/{attachment_id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<GetFileResponse> postEvidences(
@@ -167,7 +166,7 @@ public class ClaimResource implements Serializable {
     }
 
     @GET
-    @Path("/claims/{claim_id}/changes")
+    @Path("/v1/claims/{claim_id}/changes")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<DevolucoesResponse> getDevolucoes(
@@ -177,10 +176,10 @@ public class ClaimResource implements Serializable {
     }
 
     @GET
-    @Path("/returns/reasons/return-fail")
+    @Path("/v1/returns/reasons/return-fail")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Uni<ReturnReviewFailResponse> getReturnFailReason(
+    public Uni<List<ReturnReviewFailResponse>> getReturnFailReason(
             @HeaderParam("Authorization") String authorization) {
         return service.sendReturnFail(authorization);
     }
@@ -188,7 +187,7 @@ public class ClaimResource implements Serializable {
     // --- POST endpoints ---
 
     @POST
-    @Path("/claims/{claim_id}/attachments")
+    @Path("/v1/claims/{claim_id}/attachments")
     @Produces(MediaType.MULTIPART_FORM_DATA)
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     public Uni<FileAttachmentResponse> postAttachment(
@@ -199,7 +198,7 @@ public class ClaimResource implements Serializable {
     }
 
     @POST
-    @Path("/claims/{claim_id}/actions/send-message")
+    @Path("/v1/claims/{claim_id}/actions/send-message")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<String> postMessage(
@@ -210,7 +209,7 @@ public class ClaimResource implements Serializable {
     }
 
     @POST
-    @Path("/claims/{claim_id}/actions/open-dispute")
+    @Path("/v1/claims/{claim_id}/actions/open-dispute")
     @Produces(MediaType.APPLICATION_JSON)
     public Uni<DisputeResponse> postDisput(
             @HeaderParam("Authorization") String authorization,
@@ -219,7 +218,7 @@ public class ClaimResource implements Serializable {
     }
 
     @POST
-    @Path("/claims/{claim_id}/expected-resolutions/partial-refund")
+    @Path("/v1/claims/{claim_id}/expected-resolutions/partial-refund")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<RefundResponse> postPartialRefund(
@@ -230,7 +229,7 @@ public class ClaimResource implements Serializable {
     }
 
     @POST
-    @Path("/claims/{claim_id}/expected-resolutions/refund")
+    @Path("/v1/claims/{claim_id}/expected-resolutions/refund")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<List<RefundResponse>> postRefund(
@@ -240,7 +239,7 @@ public class ClaimResource implements Serializable {
     }
 
     @POST
-    @Path("/claims/{claim_id}/expected-resolutions/allow-replace")
+    @Path("/v1/claims/{claim_id}/expected-resolutions/allow-return")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<List<RefundResponse>> postAllowRefund(
@@ -250,7 +249,7 @@ public class ClaimResource implements Serializable {
     }
 
     @POST
-    @Path("/claims/{claim_id}/attachments-evidences")
+    @Path("/v1/claims/{claim_id}/attachments-evidences")
     @Produces(MediaType.MULTIPART_FORM_DATA)
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     public Uni<FileAttachmentResponse> postEvidenceFile(
@@ -261,7 +260,7 @@ public class ClaimResource implements Serializable {
     }
 
     @POST
-    @Path("/claims/{claim_id}/actions/evidences")
+    @Path("/v1/claims/{claim_id}/actions/evidences")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<EvidenceResponse> postActionEvidence(
@@ -272,7 +271,7 @@ public class ClaimResource implements Serializable {
     }
 
     @POST
-    @Path("/claims/{claim_id}/actions/return-review-ok")
+    @Path("/v1/claims/{claim_id}/actions/return-review-ok")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<ReturnReviewOkResponse> postReturnOK(
@@ -282,7 +281,7 @@ public class ClaimResource implements Serializable {
     }
 
     @POST
-    @Path("/claims/{claim_id}/returns/attachments")
+    @Path("/v1/claims/{claim_id}/returns/attachments")
     @Produces(MediaType.MULTIPART_FORM_DATA)
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     public Uni<FileAttachmentResponse> postReturnEvidence(
@@ -293,7 +292,7 @@ public class ClaimResource implements Serializable {
     }
 
     @POST
-    @Path("/claims/{claim_id}/actions/return-review-fail")
+    @Path("/v1/claims/{claim_id}/actions/return-review-fail")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<ReturnReviewOkResponse> postFailReason(
@@ -305,7 +304,7 @@ public class ClaimResource implements Serializable {
     }
 
     @GET
-    @Path("/claims/{claim_id}/charges/return-cost")
+    @Path("/v1/claims/{claim_id}/charges/return-cost")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Uni<ChangesCost> getChangeCost(

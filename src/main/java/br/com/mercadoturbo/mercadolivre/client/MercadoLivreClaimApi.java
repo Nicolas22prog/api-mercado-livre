@@ -1,14 +1,10 @@
 package br.com.mercadoturbo.mercadolivre.client;
 
-import java.util.List;
-
-import org.eclipse.microprofile.rest.client.annotation.RegisterProvider;
-import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
-
 import br.com.mercadoturbo.mercadolivre.apiexception.MercadoLivreExceptionMapper;
 import br.com.mercadoturbo.mercadolivre.dto.ChangesCost;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimByIdResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimDetailResponse;
+import br.com.mercadoturbo.mercadolivre.dto.ClaimHistoryResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimMessagesResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimReasonResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimsResponse;
@@ -26,7 +22,6 @@ import br.com.mercadoturbo.mercadolivre.dto.ReturnReviewFailResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ReturnReviewOkResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ReviewMessageRequest;
 import br.com.mercadoturbo.mercadolivre.dto.SendMessageRequest;
-import br.com.mercadoturbo.mercadolivre.dto.ClaimHistoryResponse;
 import io.smallrye.mutiny.Uni;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
@@ -37,14 +32,17 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
+import java.util.List;
+import org.eclipse.microprofile.rest.client.annotation.RegisterProvider;
+import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
-@Path("/post-purchase/v1")
+@Path("/post-purchase")
 @RegisterRestClient(configKey = "mercado-livre-api")
 @RegisterProvider(MercadoLivreExceptionMapper.class)
 public interface MercadoLivreClaimApi {
     
     @GET
-    @Path("/claims/{claim_id}")
+    @Path("/v1/claims/{claim_id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     Uni<ClaimByIdResponse> getClaimById(
@@ -53,7 +51,7 @@ public interface MercadoLivreClaimApi {
     );
 
     @GET
-    @Path("/claims/{claim_id}/detail")
+    @Path("/v2/claims/{claim_id}/returns")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     Uni<ClaimDetailResponse> getClaimDetail(
@@ -63,7 +61,7 @@ public interface MercadoLivreClaimApi {
 
 
     @GET
-    @Path("/claims/search")
+    @Path("/v1/claims/search")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     Uni<ClaimsResponse> getClaims(
@@ -76,7 +74,7 @@ public interface MercadoLivreClaimApi {
     );
 
     @GET
-    @Path("/claims/{claim_id}/reasons/{reason_id}")
+    @Path("/v1/claims/{claim_id}/reasons/{reason_id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     Uni<ClaimReasonResponse> getClaimReason(
@@ -87,7 +85,7 @@ public interface MercadoLivreClaimApi {
 
 
     @GET
-    @Path("/claims/{claim_id}/actions-history")
+    @Path("/v1/claims/{claim_id}/actions-history")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     Uni<List<ClaimHistoryResponse.ActionItem>> getClaimActionHistory(
@@ -96,7 +94,7 @@ public interface MercadoLivreClaimApi {
     );
 
     @GET
-    @Path("/claims/{claim_id}/status-history")
+    @Path("/v1/claims/{claim_id}/status-history")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     Uni<List<ClaimHistoryResponse.HistoryItem>> getClaimStatusHistory(
@@ -105,7 +103,7 @@ public interface MercadoLivreClaimApi {
     );
 
     @GET
-    @Path("/claims/{claim_id}/affects-reputation")
+    @Path("/v1/claims/{claim_id}/affects-reputation")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     Uni<ClaimHistoryResponse> getClaimReputation(
@@ -114,7 +112,7 @@ public interface MercadoLivreClaimApi {
     );
 
     @GET
-    @Path("/claims/{claim_id}/messages")
+    @Path("/v1/claims/{claim_id}/messages")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     Uni<List<ClaimMessagesResponse>> getClaimMessages(
@@ -123,7 +121,7 @@ public interface MercadoLivreClaimApi {
     );
 
     @POST
-    @Path("/claims/{claim_id}/attachments")
+    @Path("/v1/claims/{claim_id}/attachments")
     @Produces(MediaType.MULTIPART_FORM_DATA)
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     Uni<FileAttachmentResponse> postAttachment(
@@ -133,7 +131,7 @@ public interface MercadoLivreClaimApi {
     );
 
     @POST
-    @Path("/claims/{claim_id}/actions/send-message")
+    @Path("/v1/claims/{claim_id}/actions/send-message")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     Uni<String> postMessage(
@@ -143,7 +141,7 @@ public interface MercadoLivreClaimApi {
     );
 
     @GET
-    @Path("/claims/{claim_id}/attachments/{attachment_id}")
+    @Path("/v1/claims/{claim_id}/attachments/{attachment_id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     Uni<GetFileResponse> getFileResponse(
@@ -153,7 +151,7 @@ public interface MercadoLivreClaimApi {
     );
 
     @POST
-    @Path("/claims/{claim_id}/actions/open-dispute")
+    @Path("/v1/claims/{claim_id}/actions/open-dispute")
     @Produces(MediaType.APPLICATION_JSON)
     Uni<DisputeResponse> postDisput(
         @HeaderParam("Authorization") String authorization,
@@ -161,7 +159,7 @@ public interface MercadoLivreClaimApi {
     );
 
     @GET
-    @Path("/claims/{claim_id}/expected-resolutions")
+    @Path("/v1/claims/{claim_id}/expected-resolutions")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     Uni<List<ClaimHistoryResponse.ActionItem>> getResolutions(
@@ -170,7 +168,7 @@ public interface MercadoLivreClaimApi {
 
 
     @GET
-    @Path("/claims/{claim_id}/partial-refund/available-offers")
+    @Path("/v1/claims/{claim_id}/partial-refund/available-offers")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     Uni<PartialRefoundResponse> getPartialRefund(
@@ -180,7 +178,7 @@ public interface MercadoLivreClaimApi {
 
 
     @POST
-    @Path("/claims/{claim_id}/expected-resolutions/partial-refund")
+    @Path("/v1/claims/{claim_id}/expected-resolutions/partial-refund")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     Uni<RefundResponse> postPartialRefund(
@@ -190,7 +188,7 @@ public interface MercadoLivreClaimApi {
     );
 
     @POST
-    @Path("/claims/{claim_id}/expected-resolutions/refund")
+    @Path("/v1/claims/{claim_id}/expected-resolutions/refund")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     Uni<List<RefundResponse>> postRefund(
@@ -199,7 +197,7 @@ public interface MercadoLivreClaimApi {
     );
 
     @POST
-    @Path("/claims/{claim_id}/expected-resolutions/allow-replace")
+    @Path("/v1/claims/{claim_id}/expected-resolutions/allow-return")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     Uni<List<RefundResponse>> postAllowRefund(
@@ -208,7 +206,7 @@ public interface MercadoLivreClaimApi {
     );
 
     @GET
-    @Path("/claims/{claim_id}/attachments-evidences/{attachment_id}")
+    @Path("/v1/claims/{claim_id}/attachments-evidences/{attachment_id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     Uni<GetFileResponse> postEvidences(
@@ -218,7 +216,7 @@ public interface MercadoLivreClaimApi {
     );
 
     @POST
-    @Path("/claims/{claim_id}/attachments-evidences")
+    @Path("/v1/claims/{claim_id}/attachments-evidences")
     @Produces(MediaType.MULTIPART_FORM_DATA)
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     Uni<FileAttachmentResponse> postEvidenceFile(
@@ -228,7 +226,7 @@ public interface MercadoLivreClaimApi {
     );
 
     @POST
-    @Path("/claims/{claim_id}/actions/evidences")
+    @Path("/v1/claims/{claim_id}/actions/evidences")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     Uni<EvidenceResponse> postActionEvidence(
@@ -238,7 +236,7 @@ public interface MercadoLivreClaimApi {
     );
 
     @GET
-    @Path("/claims/{claim_id}/changes")
+    @Path("/v1/claims/{claim_id}/changes")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     Uni<DevolucoesResponse> getDevolucoes(
@@ -248,7 +246,7 @@ public interface MercadoLivreClaimApi {
 
 
     @POST
-    @Path("/claims/{claim_id}/actions/return-review-ok")
+    @Path("/v1/claims/{claim_id}/actions/return-review-ok")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     Uni<ReturnReviewOkResponse> postReturnOK(
@@ -257,15 +255,15 @@ public interface MercadoLivreClaimApi {
     );
 
     @GET
-    @Path("/returns/reasons/return-fail")
+    @Path("/v1/returns/reasons/return-fail")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    Uni<ReturnReviewFailResponse> postReturnFail(
+    Uni<List<ReturnReviewFailResponse>> postReturnFail(
         @HeaderParam("Authorization") String authorization
     );
 
     @POST
-    @Path("/claims/{claim_id}/actions/return-review-fail")
+    @Path("/v1/claims/{claim_id}/actions/return-review-fail")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     Uni<ReturnReviewOkResponse> postFailReason(
@@ -276,7 +274,7 @@ public interface MercadoLivreClaimApi {
 
     
     @POST
-    @Path("/claims/{claim_id}/returns/attachments")
+    @Path("/v1/claims/{claim_id}/returns/attachments")
     @Produces(MediaType.MULTIPART_FORM_DATA)
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     Uni<FileAttachmentResponse> postReturnEvidence(
@@ -286,7 +284,7 @@ public interface MercadoLivreClaimApi {
     );
 
     @GET
-    @Path("/claims/{claim_id}/charges/return-cost")
+    @Path("/v1/claims/{claim_id}/charges/return-cost")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     Uni<ChangesCost> getChangeCost(

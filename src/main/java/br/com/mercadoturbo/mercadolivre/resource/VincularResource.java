@@ -4,9 +4,15 @@ import br.com.mercadoturbo.mercadolivre.dto.AttributesItemsResponse;
 import br.com.mercadoturbo.mercadolivre.dto.AttributesRequest;
 import br.com.mercadoturbo.mercadolivre.dto.AttributesResponse;
 import br.com.mercadoturbo.mercadolivre.dto.LinkRequest;
+import br.com.mercadoturbo.mercadolivre.dto.MigrationStatusResponse;
+import br.com.mercadoturbo.mercadolivre.dto.MigrationValidationResponse;
 import br.com.mercadoturbo.mercadolivre.dto.PictureUpdateRequest;
+import br.com.mercadoturbo.mercadolivre.dto.VariationResponse;
 import br.com.mercadoturbo.mercadolivre.service.AttributesService;
 import br.com.mercadoturbo.mercadolivre.service.BrandService;
+import br.com.mercadoturbo.mercadolivre.service.MigrationService;
+import br.com.mercadoturbo.mercadolivre.service.MigrationValidationService;
+import br.com.mercadoturbo.mercadolivre.service.MultigetService;
 import br.com.mercadoturbo.mercadolivre.service.VincularService;
 import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
@@ -29,9 +35,29 @@ public class VincularResource {
     
     @Inject
     VincularService service;
+    
+    @Inject
+    MultigetService serviceItems;
+    
 
     @Inject
     BrandService brandService;
+    
+        @Inject
+    MigrationValidationService validation;
+        
+            @Inject
+    MigrationService migration;
+    
+    
+            @GET
+    @Path("/migration_live_listing")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Uni<MigrationStatusResponse> getMigrationStatus(
+                @HeaderParam("Authorization")String authorization,
+                @PathParam("item_id")String item_id){
+        return migration.fetchMigrationStatus(authorization, item_id);
+    }
    
     @POST
     @Path("/pictures")
@@ -65,7 +91,6 @@ public class VincularResource {
     }
 
     @PUT
-    @Path("/{item_id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Uni<AttributesResponse> updateItem(
@@ -74,4 +99,23 @@ public class VincularResource {
                 AttributesRequest request){
                     return brandService.updateAttributes(authorization, item_id, request);
                 }
+    
+    @GET
+    @Path("/user_product_listings/validate") //item_id é o id antigo do produto
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Uni<MigrationValidationResponse> getValidation(
+                @HeaderParam("Authorization")String authorization,
+                @PathParam("item_id")String item_id){
+        return validation.fetchValidation(authorization, item_id);
+    }
+    
+        @GET
+    @Path("/{item_id: [^/]+}/variations") // nao funciona 
+    @Produces(MediaType.APPLICATION_JSON)
+    public Uni<VariationResponse> getVariations(
+            @HeaderParam("Authorization") String authorization,
+            @PathParam("item_id") String item_id) {
+        return serviceItems.getVariations(authorization, item_id);
+    }
 }

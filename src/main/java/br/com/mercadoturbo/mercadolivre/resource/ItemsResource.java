@@ -4,13 +4,6 @@
  */
 package br.com.mercadoturbo.mercadolivre.resource;
 
-import java.io.Serializable;
-import java.util.List;
-
-import br.com.mercadoturbo.mercadolivre.dto.AttributesRequest;
-import br.com.mercadoturbo.mercadolivre.dto.AttributesResponse;
-import br.com.mercadoturbo.mercadolivre.dto.MigrationStatusResponse;
-import br.com.mercadoturbo.mercadolivre.dto.MigrationValidationResponse;
 import br.com.mercadoturbo.mercadolivre.dto.MultigetResponse;
 import br.com.mercadoturbo.mercadolivre.dto.PostItemRequest;
 import br.com.mercadoturbo.mercadolivre.dto.PostItemResponse;
@@ -19,8 +12,6 @@ import br.com.mercadoturbo.mercadolivre.dto.VariationFullResponse;
 import br.com.mercadoturbo.mercadolivre.dto.VariationRequest;
 import br.com.mercadoturbo.mercadolivre.dto.VariationResponse;
 import br.com.mercadoturbo.mercadolivre.dto.VariationsUpdateRequest;
-import br.com.mercadoturbo.mercadolivre.service.MigrationService;
-import br.com.mercadoturbo.mercadolivre.service.MigrationValidationService;
 import br.com.mercadoturbo.mercadolivre.service.MultigetService;
 import br.com.mercadoturbo.mercadolivre.service.PostItemService;
 import io.smallrye.mutiny.Uni;
@@ -36,6 +27,8 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
+import java.io.Serializable;
+import java.util.List;
 
 @Path("/items")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -48,12 +41,8 @@ public class ItemsResource implements Serializable{
     @Inject
     PostItemService itemService;
     
-    @Inject
-    MigrationValidationService validation;
-    
-    @Inject
-    MigrationService migration;
-    
+
+
     
     @GET
     public Uni<List<MultigetResponse>> getItens(
@@ -73,15 +62,7 @@ public class ItemsResource implements Serializable{
     }
     
     
-    @GET
-    @Path("/{item_id}/user_product_listings/validate") //item_id é o id antigo do produto
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Uni<MigrationValidationResponse> getValidation(
-                @HeaderParam("Authorization")String authorization,
-                @PathParam("item_id")String item_id){
-        return validation.fetchValidation(authorization, item_id);
-    }
+
     
     @PUT
     @Path("/{item_id}/family_name")
@@ -92,23 +73,9 @@ public class ItemsResource implements Serializable{
                 PostItemRequest request){
         return itemService.updateItem(authorization, item_id, request);
     }
-    @GET
-    @Path("/{item_id}/migration_live_listing")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Uni<MigrationStatusResponse> getMigrationStatus(
-                @HeaderParam("Authorization")String authorization,
-                @PathParam("item_id")String item_id){
-        return migration.fetchMigrationStatus(authorization, item_id);
-    }
+
     
-    @GET
-    @Path("/{item_id: [^/]+}/variations") // nao funciona 
-    @Produces(MediaType.APPLICATION_JSON)
-    public Uni<VariationResponse> getVariations(
-            @HeaderParam("Authorization") String authorization,
-            @PathParam("item_id") String item_id) {
-        return service.getVariations(authorization, item_id);
-    }
+
 
     @GET
     @Path("/{item_id: [^/]+ }/variations/{variation_id}") // nao funciona
@@ -163,14 +130,5 @@ public class ItemsResource implements Serializable{
         return service.relistItem(authorization, item_id, request);
     }
 
-    @PUT
-    @Path("/{item_id}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Uni<AttributesResponse> updateItem(
-                @HeaderParam("Authorization")String authorization,
-                @PathParam("item_id")String item_id,
-                AttributesRequest request){
-        return service.updateItem(authorization, item_id, request);
-    }
+
 }

@@ -1,11 +1,6 @@
 package br.com.mercadoturbo.mercadolivre.client;
 
 
-import java.util.List;
-
-import org.eclipse.microprofile.rest.client.annotation.RegisterProvider;
-import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
-
 import br.com.mercadoturbo.mercadolivre.apiexception.MercadoLivreExceptionMapper;
 import br.com.mercadoturbo.mercadolivre.dto.AttributesItemsResponse;
 import br.com.mercadoturbo.mercadolivre.dto.AttributesRequest;
@@ -32,6 +27,9 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
+import java.util.List;
+import org.eclipse.microprofile.rest.client.annotation.RegisterProvider;
+import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 @Path("/items")
 @RegisterRestClient(configKey = "mercado-livre-api")

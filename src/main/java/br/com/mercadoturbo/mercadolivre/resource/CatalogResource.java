@@ -1,7 +1,5 @@
 package br.com.mercadoturbo.mercadolivre.resource;
 
-import java.io.Serializable;
-
 import br.com.mercadoturbo.mercadolivre.dto.CatalogRequest;
 import br.com.mercadoturbo.mercadolivre.dto.CatalogResponse;
 import br.com.mercadoturbo.mercadolivre.dto.DomainsTrackResponse;
@@ -10,6 +8,7 @@ import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import java.io.Serializable;
 
 @Path("/catalog")
 public class CatalogResource implements Serializable{

@@ -1,0 +1,13 @@
+2025-07-04 13:39:21,914 mercadoturbo api-mercado-livre-dev.jar[4676] ERROR [io.qua.test] (Test runner thread) [39m==================== TEST REPORT #1[39m ==================== [Error Occurred After Shutdown]
+2025-07-04 13:39:21,915 mercadoturbo api-mercado-livre-dev.jar[4676] ERROR [io.qua.test] (Test runner thread) [91mTest VisitsServiceTest#testSomeMethod() failed 
+[39m [Error Occurred After Shutdown]: org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:138)
+	at br.com.mercadoturbo.mercadolivre.service.VisitsServiceTest.testSomeMethod(VisitsServiceTest.java:43)
+
+2025-07-04 13:39:21,916 mercadoturbo api-mercado-livre-dev.jar[4676] ERROR [io.qua.test] (Test runner thread) [39m>>>>>>>>>>>>>>>>>>>> [91mSummary:[39m <<<<<<<<<<<<<<<<<<<<
+br.com.mercadoturbo.mercadolivre.service.VisitsServiceTest#testSomeMethod(VisitsServiceTest.java:43) [91mVisitsServiceTest#testSomeMethod()[39m The test case is a prototype. [Error Occurred After Shutdown]
+2025-07-04 13:39:21,918 mercadoturbo api-mercado-livre-dev.jar[4676] ERROR [io.qua.test] (Test runner thread) [39m>>>>>>>>>>>>>>>>>>>> [91m1 TEST FAILED[39m <<<<<<<<<<<<<<<<<<<< [Error Occurred After Shutdown]
+2025-07-04 13:39:49,240 mercadoturbo api-mercado-livre-dev.jar[4676] WARN  [io.qua.res.cli.rea.dep.RestClientReactiveProcessor] (build-39) Unsupported default scope javax.inject.Singleton provided for REST client br.com.mercadoturbo.mercadolivre.client.MercadoLivreAutomaticPricingApi. Defaulting to jakarta.enterprise.context.ApplicationScoped
+2025-07-04 13:39:49,242 mercadoturbo api-mercado-livre-dev.jar[4676] WARN  [io.qua.res.cli.rea.dep.RestClientReactiveProcessor] (build-39) Unsupported default scope javax.inject.Singleton provided for REST client br.com.mercadoturbo.mercadolivre.client.MercadoLivreNoticesApi. Defaulting to jakarta.enterprise.context.ApplicationScoped
+2025-07-04 13:39:49,243 mercadoturbo api-mercado-livre-dev.jar[4676] WARN  [io.qua.res.cli.rea.dep.RestClientReactiveProcessor] (build-39) Unsupported default scope javax.inject.Singleton provided for REST client br.com.mercadoturbo.mercadolivre.client.MercadoLivreSaleApi. Defaulting to jakarta.enterprise.context.ApplicationScoped

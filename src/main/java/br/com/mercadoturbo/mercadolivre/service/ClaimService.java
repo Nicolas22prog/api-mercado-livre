@@ -1,14 +1,10 @@
 package br.com.mercadoturbo.mercadolivre.service;
 
-import java.io.Serializable;
-import java.util.List;
-
-import org.eclipse.microprofile.rest.client.inject.RestClient;
-
 import br.com.mercadoturbo.mercadolivre.client.MercadoLivreClaimApi;
 import br.com.mercadoturbo.mercadolivre.dto.ChangesCost;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimByIdResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimDetailResponse;
+import br.com.mercadoturbo.mercadolivre.dto.ClaimHistoryResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimMessagesResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimReasonResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ClaimsResponse;
@@ -26,10 +22,12 @@ import br.com.mercadoturbo.mercadolivre.dto.ReturnReviewFailResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ReturnReviewOkResponse;
 import br.com.mercadoturbo.mercadolivre.dto.ReviewMessageRequest;
 import br.com.mercadoturbo.mercadolivre.dto.SendMessageRequest;
-import br.com.mercadoturbo.mercadolivre.dto.ClaimHistoryResponse;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import java.io.Serializable;
+import java.util.List;
+import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 @ApplicationScoped
 public class ClaimService implements Serializable{
@@ -127,7 +125,7 @@ public class ClaimService implements Serializable{
         return claimApi.postReturnOK(accessToken, claim_id);
     }
 
-        public Uni<ReturnReviewFailResponse> sendReturnFail(String accessToken){
+        public Uni<List<ReturnReviewFailResponse>> sendReturnFail(String accessToken){
         return claimApi.postReturnFail(accessToken);
     }
 

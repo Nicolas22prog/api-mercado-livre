@@ -1,0 +1,10 @@
+2025-07-04 13:39:50,725 mercadoturbo api-mercado-livre-dev.jar[4676] ERROR [io.qua.test] (Test runner thread) [39m==================== TEST REPORT #2[39m ==================== [Error Occurred After Shutdown]
+2025-07-04 13:39:50,726 mercadoturbo api-mercado-livre-dev.jar[4676] ERROR [io.qua.test] (Test runner thread) [91mTest VisitsServiceTest#testSomeMethod() failed 
+[39m [Error Occurred After Shutdown]: org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:138)
+	at br.com.mercadoturbo.mercadolivre.service.VisitsServiceTest.testSomeMethod(VisitsServiceTest.java:43)
+
+2025-07-04 13:39:50,726 mercadoturbo api-mercado-livre-dev.jar[4676] ERROR [io.qua.test] (Test runner thread) [39m>>>>>>>>>>>>>>>>>>>> [91mSummary:[39m <<<<<<<<<<<<<<<<<<<<
+br.com.mercadoturbo.mercadolivre.service.VisitsServiceTest#testSomeMethod(VisitsServiceTest.java:43) [91mVisitsServiceTest#testSomeMethod()[39m The test case is a prototype. [Error Occurred After Shutdown]
+2025-07-04 13:39:50,727 mercadoturbo api-mercado-livre-dev.jar[4676] ERROR [io.qua.test] (Test runner thread) [39m>>>>>>>>>>>>>>>>>>>> [91m1 TEST FAILED[39m <<<<<<<<<<<<<<<<<<<< [Error Occurred After Shutdown]
