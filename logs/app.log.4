@@ -1,46 +1,21 @@
-2025-07-04 15:28:54,322 mercadoturbo api-mercado-livre-dev.jar[14484] INFO  [io.quarkus] (Quarkus Main Thread) api-mercado-livre 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.10.0) started in 1.390s. Listening on: http://localhost:8080
-2025-07-04 15:28:54,323 mercadoturbo api-mercado-livre-dev.jar[14484] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-2025-07-04 15:28:54,323 mercadoturbo api-mercado-livre-dev.jar[14484] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [cdi, rest, rest-client, rest-client-jackson, rest-jackson, smallrye-context-propagation, smallrye-openapi, swagger-ui, vertx]
-2025-07-04 15:28:54,324 mercadoturbo api-mercado-livre-dev.jar[14484] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-11) Live reload total time: 1.613s 
-2025-07-04 15:28:54,585 mercadoturbo api-mercado-livre-dev.jar[14484] ERROR [io.qua.ver.htt.run.QuarkusErrorHandler] (vert.x-eventloop-thread-0) HTTP Request to /post-purchase/v1/returns/reasons/return-fail failed, error id: 94bd5dde-026f-4aff-aecf-e420f019a67e-4: org.jboss.resteasy.reactive.ClientWebApplicationException: Received: 'HTTP 400 Bad Request' when invoking: Rest Client method: 'br.com.mercadoturbo.mercadolivre.client.MercadoLivreClaimApi#postReturnFail'
-	at org.jboss.resteasy.reactive.client.impl.RestClientRequestContext.unwrapException(RestClientRequestContext.java:195)
-	at org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.handleException(AbstractResteasyReactiveContext.java:326)
-	at org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:175)
-	at org.jboss.resteasy.reactive.client.impl.RestClientRequestContext$1.lambda$execute$0(RestClientRequestContext.java:314)
-	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:279)
-	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:261)
-	at io.vertx.core.impl.ContextInternal.lambda$runOnContext$0(ContextInternal.java:59)
-	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
-	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
-	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:566)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.base/java.lang.Thread.run(Thread.java:1447)
-Caused by: com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `br.com.mercadoturbo.mercadolivre.dto.ReturnReviewFailResponse` from Array value (token `JsonToken.START_ARRAY`)
- at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 1]
-	at com.fasterxml.jackson.databind.exc.MismatchedInputException.from(MismatchedInputException.java:59)
-	at com.fasterxml.jackson.databind.DeserializationContext.reportInputMismatch(DeserializationContext.java:1767)
-	at com.fasterxml.jackson.databind.DeserializationContext.handleUnexpectedToken(DeserializationContext.java:1541)
-	at com.fasterxml.jackson.databind.DeserializationContext.handleUnexpectedToken(DeserializationContext.java:1488)
-	at com.fasterxml.jackson.databind.deser.BeanDeserializer._deserializeFromArray(BeanDeserializer.java:654)
-	at com.fasterxml.jackson.databind.deser.BeanDeserializer._deserializeOther(BeanDeserializer.java:211)
-	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:187)
-	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:342)
-	at com.fasterxml.jackson.databind.ObjectReader._bindAndClose(ObjectReader.java:2125)
-	at com.fasterxml.jackson.databind.ObjectReader.readValue(ObjectReader.java:1501)
-	at io.quarkus.rest.client.reactive.jackson.runtime.serialisers.ClientJacksonMessageBodyReader.readFrom(ClientJacksonMessageBodyReader.java:53)
-	at org.jboss.resteasy.reactive.client.impl.ClientReaderInterceptorContextImpl.proceed(ClientReaderInterceptorContextImpl.java:86)
-	at org.jboss.resteasy.reactive.client.impl.ClientSerialisers.invokeClientReader(ClientSerialisers.java:160)
-	at org.jboss.resteasy.reactive.client.impl.RestClientRequestContext.readEntity(RestClientRequestContext.java:209)
-	at org.jboss.resteasy.reactive.client.handlers.ClientResponseCompleteRestHandler.mapToResponse(ClientResponseCompleteRestHandler.java:105)
-	at org.jboss.resteasy.reactive.client.handlers.ClientResponseCompleteRestHandler.handle(ClientResponseCompleteRestHandler.java:35)
-	at org.jboss.resteasy.reactive.client.handlers.ClientResponseCompleteRestHandler.handle(ClientResponseCompleteRestHandler.java:31)
-	at org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.invokeHandler(AbstractResteasyReactiveContext.java:231)
-	at org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
-	... 12 more
-
-2025-07-04 15:28:54,587 mercadoturbo api-mercado-livre-dev.jar[14484] INFO  [io.qua.htt.access-log] (vert.x-eventloop-thread-0) 127.0.0.1 - - [04/Jul/2025:15:28:54 -0300] "GET /post-purchase/v1/returns/reasons/return-fail HTTP/1.1" 500 4563
-2025-07-04 15:30:42,958 mercadoturbo api-mercado-livre-dev.jar[14484] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-13) Restarting quarkus due to changes in ClaimService.class, MercadoLivreClaimApi.class, ClaimResource.class.
-2025-07-04 15:30:43,011 mercadoturbo api-mercado-livre-dev.jar[14484] INFO  [io.quarkus] (Quarkus Main Thread) api-mercado-livre stopped in 0.052s
+2025-07-04 16:32:11,457 mercadoturbo api-mercado-livre-dev.jar[11800] INFO  [io.quarkus] (Quarkus Main Thread) api-mercado-livre 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.10.0) started in 1.469s. Listening on: http://localhost:8080
+2025-07-04 16:32:11,458 mercadoturbo api-mercado-livre-dev.jar[11800] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+2025-07-04 16:32:11,459 mercadoturbo api-mercado-livre-dev.jar[11800] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [cdi, rest, rest-client, rest-client-jackson, rest-jackson, smallrye-context-propagation, smallrye-openapi, swagger-ui, vertx]
+2025-07-04 16:32:11,459 mercadoturbo api-mercado-livre-dev.jar[11800] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-3) Live reload total time: 1.689s 
+2025-07-04 16:32:11,830 mercadoturbo api-mercado-livre-dev.jar[11800] INFO  [io.qua.htt.access-log] (vert.x-eventloop-thread-1) 127.0.0.1 - - [04/Jul/2025:16:32:11 -0300] "GET /items/MLB3959706417/user_product_listings/validate HTTP/1.1" 200 156
+2025-07-04 16:32:54,664 mercadoturbo api-mercado-livre-dev.jar[11800] INFO  [io.qua.htt.access-log] (vert.x-eventloop-thread-1) 127.0.0.1 - - [04/Jul/2025:16:32:54 -0300] "GET /items/MLB3959706417/user_product_listings/validate HTTP/1.1" 200 156
+2025-07-04 16:33:05,355 mercadoturbo api-mercado-livre-dev.jar[11800] INFO  [io.qua.htt.access-log] (vert.x-eventloop-thread-1) 127.0.0.1 - - [04/Jul/2025:16:33:05 -0300] "GET /sites/MLB/user-products-families/1590015549320749587 HTTP/1.1" 200 119
+2025-07-04 16:33:18,706 mercadoturbo api-mercado-livre-dev.jar[11800] INFO  [io.qua.htt.access-log] (vert.x-eventloop-thread-1) 127.0.0.1 - - [04/Jul/2025:16:33:18 -0300] "GET /sites/MLB/items/user_product_listings HTTP/1.1" 405 -
+2025-07-04 16:35:40,044 mercadoturbo api-mercado-livre-dev.jar[11800] INFO  [io.qua.htt.access-log] (vert.x-eventloop-thread-0) 127.0.0.1 - - [04/Jul/2025:16:35:40 -0300] "POST /sites/MLB/items/user_product_listings HTTP/1.1" 400 -
+2025-07-04 16:35:55,390 mercadoturbo api-mercado-livre-dev.jar[11800] INFO  [io.qua.htt.access-log] (vert.x-eventloop-thread-0) 127.0.0.1 - - [04/Jul/2025:16:35:55 -0300] "GET /user-products/MLBU424038471/stock HTTP/1.1" 200 110
+2025-07-04 16:36:08,190 mercadoturbo api-mercado-livre-dev.jar[11800] INFO  [io.qua.htt.access-log] (vert.x-eventloop-thread-0) 127.0.0.1 - - [04/Jul/2025:16:36:08 -0300] "GET /users/445066511/stores/search?tags=stock_location HTTP/1.1" 200 59
+2025-07-04 16:37:50,291 mercadoturbo api-mercado-livre-dev.jar[11800] INFO  [io.qua.htt.access-log] (vert.x-eventloop-thread-1) 127.0.0.1 - - [04/Jul/2025:16:37:50 -0300] "GET /items/MLB3959706417/prices HTTP/1.1" 200 191
+2025-07-04 16:38:38,511 mercadoturbo api-mercado-livre-dev.jar[11800] INFO  [io.qua.htt.access-log] (vert.x-eventloop-thread-1) 127.0.0.1 - - [04/Jul/2025:16:38:38 -0300] "POST /items/MLB3959706417/prices/standard HTTP/1.1" 403 69
+2025-07-04 16:39:10,269 mercadoturbo api-mercado-livre-dev.jar[11800] INFO  [io.qua.htt.access-log] (vert.x-eventloop-thread-1) 127.0.0.1 - - [04/Jul/2025:16:39:10 -0300] "GET /sites/MLB/listing_prices?price=500&listing_type_id=gold_pro HTTP/1.1" 200 384
+2025-07-04 16:39:26,197 mercadoturbo api-mercado-livre-dev.jar[11800] INFO  [io.qua.htt.access-log] (vert.x-eventloop-thread-1) 127.0.0.1 - - [04/Jul/2025:16:39:26 -0300] "GET /categories/MLB278255/attributes HTTP/1.1" 200 19425
+2025-07-04 16:39:43,177 mercadoturbo api-mercado-livre-dev.jar[11800] INFO  [io.qua.htt.access-log] (vert.x-eventloop-thread-1) 127.0.0.1 - - [04/Jul/2025:16:39:43 -0300] "GET /categories/MLB278255/technical_specs/input HTTP/1.1" 200 23769
+2025-07-04 16:40:01,371 mercadoturbo api-mercado-livre-dev.jar[11800] INFO  [io.qua.htt.access-log] (vert.x-eventloop-thread-1) 127.0.0.1 - - [04/Jul/2025:16:40:01 -0300] "POST /categories/MLB278255/attributes/conditional HTTP/1.1" 400 96
+2025-07-04 16:40:16,569 mercadoturbo api-mercado-livre-dev.jar[11800] INFO  [io.qua.htt.access-log] (vert.x-eventloop-thread-1) 127.0.0.1 - - [04/Jul/2025:16:40:16 -0300] "POST /categories/MLB1055/attributes/conditional HTTP/1.1" 200 39
+2025-07-04 16:40:44,753 mercadoturbo api-mercado-livre-dev.jar[11800] INFO  [io.qua.htt.access-log] (vert.x-eventloop-thread-1) 127.0.0.1 - - [04/Jul/2025:16:40:44 -0300] "PUT /items/MLB3959706417/variations HTTP/1.1" 404 269426
+2025-07-04 16:41:33,519 mercadoturbo api-mercado-livre-dev.jar[11800] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-5) Restarting quarkus due to changes in VincularResource.class.
+2025-07-04 16:41:33,579 mercadoturbo api-mercado-livre-dev.jar[11800] INFO  [io.quarkus] (Quarkus Main Thread) api-mercado-livre stopped in 0.059s

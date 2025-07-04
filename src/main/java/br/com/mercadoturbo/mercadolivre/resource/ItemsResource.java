@@ -8,10 +8,8 @@ import br.com.mercadoturbo.mercadolivre.dto.MultigetResponse;
 import br.com.mercadoturbo.mercadolivre.dto.PostItemRequest;
 import br.com.mercadoturbo.mercadolivre.dto.PostItemResponse;
 import br.com.mercadoturbo.mercadolivre.dto.RelistRequest;
-import br.com.mercadoturbo.mercadolivre.dto.VariationFullResponse;
 import br.com.mercadoturbo.mercadolivre.dto.VariationRequest;
 import br.com.mercadoturbo.mercadolivre.dto.VariationResponse;
-import br.com.mercadoturbo.mercadolivre.dto.VariationsUpdateRequest;
 import br.com.mercadoturbo.mercadolivre.service.MultigetService;
 import br.com.mercadoturbo.mercadolivre.service.PostItemService;
 import io.smallrye.mutiny.Uni;
@@ -98,16 +96,7 @@ public class ItemsResource implements Serializable{
         return service.postVariation(authorization, item_id, request);
     }
 
-    @PUT
-    @Path("/{item_id}/variations")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Uni<VariationFullResponse> updateVariations(
-                @HeaderParam("Authorization")String authorization,
-                @PathParam("item_id")String item_id,
-                VariationsUpdateRequest request){
-        return service.updateVariations(authorization, item_id, request);
-    }
+
 
     @DELETE
     @Path("/{item_id}/variations/{variation_id}")

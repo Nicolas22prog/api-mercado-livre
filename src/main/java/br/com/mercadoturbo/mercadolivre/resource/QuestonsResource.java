@@ -23,7 +23,7 @@ public class QuestonsResource implements Serializable{
     public Uni<QuestionsResponse> getQuestions(
             @HeaderParam("Authorization") String authorization,
             @QueryParam("item_id") String item_id,
-            @QueryParam("limit") @DefaultValue("0") int limit){
+            @QueryParam("limit") @DefaultValue("50") int limit){
         return service.fetchQuestions(authorization, item_id, limit);
     }
     

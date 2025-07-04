@@ -17,7 +17,7 @@ public class MigrationValidationService implements Serializable{
     
     
     public Uni<MigrationValidationResponse> fetchValidation(String accessToken, String item_id){
-        return validation.getValidation(item_id, item_id);
+        return validation.getValidation(accessToken, item_id);
     }
 
 }

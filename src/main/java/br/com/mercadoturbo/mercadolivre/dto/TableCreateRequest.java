@@ -7,6 +7,7 @@ public class TableCreateRequest {
     public Map<String, String> names;
     public String domain_id;
     public String site_id;
+    public Long seller_id;
     public MainAttribute main_attribute;
     public List<Attribute> attributes;
     public List<Row> rows;

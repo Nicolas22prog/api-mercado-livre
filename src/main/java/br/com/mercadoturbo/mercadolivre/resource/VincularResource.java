@@ -7,7 +7,9 @@ import br.com.mercadoturbo.mercadolivre.dto.LinkRequest;
 import br.com.mercadoturbo.mercadolivre.dto.MigrationStatusResponse;
 import br.com.mercadoturbo.mercadolivre.dto.MigrationValidationResponse;
 import br.com.mercadoturbo.mercadolivre.dto.PictureUpdateRequest;
+import br.com.mercadoturbo.mercadolivre.dto.VariationFullResponse;
 import br.com.mercadoturbo.mercadolivre.dto.VariationResponse;
+import br.com.mercadoturbo.mercadolivre.dto.VariationsUpdateRequest;
 import br.com.mercadoturbo.mercadolivre.service.AttributesService;
 import br.com.mercadoturbo.mercadolivre.service.BrandService;
 import br.com.mercadoturbo.mercadolivre.service.MigrationService;
@@ -111,11 +113,22 @@ public class VincularResource {
     }
     
         @GET
-    @Path("/{item_id: [^/]+}/variations") // nao funciona 
+    @Path("/{item_id: [^/]+}/variations")  
     @Produces(MediaType.APPLICATION_JSON)
     public Uni<VariationResponse> getVariations(
             @HeaderParam("Authorization") String authorization,
             @PathParam("item_id") String item_id) {
         return serviceItems.getVariations(authorization, item_id);
+    }
+    
+        @PUT
+    @Path("/{item_id: [^/]+}/variations")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Uni<VariationFullResponse> updateVariations(
+                @HeaderParam("Authorization")String authorization,
+                @PathParam("item_id")String item_id,
+                VariationsUpdateRequest request){
+        return serviceItems.updateVariations(authorization, item_id, request);
     }
 }

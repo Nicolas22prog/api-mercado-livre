@@ -22,7 +22,7 @@ public interface MercadoLivreQuestionsApi{
     Uni<QuestionsResponse> getQuestions(
         @HeaderParam("Authorization") String authorization,
         @QueryParam("item_id") String item_id,
-        @QueryParam("limit") @DefaultValue("0") int limit);
+        @QueryParam("limit") @DefaultValue("50") int limit);
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
