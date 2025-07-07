@@ -83,10 +83,19 @@ O objetivo é:
 
 ---
 
-### 2.10. Métricas
 
-- Vários endpoints em `/visits/` para consultar visitas e interações por item ou usuário.  
-  ⚠️ Apenas um item por requisição é aceito.
+### 2.10. Métricas (Visitas)
+
+- `GET /visits/users/{USER_ID}/items_visits/time_window` — Visitas aos itens de um usuário em um intervalo de tempo.
+- `GET /visits/users/{USER_ID}/items_visits` — Visitas aos itens de um usuário.
+- `GET /visits/items/{ITEM_ID}/contacts/questions` — Interações de perguntas por item.
+- `GET /visits/users/{USER_ID}/contacts/questions` — Interações de perguntas por usuário.
+- `GET /visits/users/{USER_ID}/contacts/questions/time_window` — Interações em um intervalo de tempo por usuário.
+- `GET /visits/items/{ITEM_ID}/contacts/questions/time_window` — Interações em um intervalo de tempo por item.
+- `GET /visits/items/visits?ids={ITEM_ID}` — Visitas para um ou mais itens.
+- `GET /visits/items/visits?ids={ITEM_ID}&last={LAST}&unit={UNIT}` — Visitas recentes com granularidade de tempo.
+
+⚠️ Observação: Os endpoints de visitas aceitam apenas **um item por requisição**.
 
 ---
 
