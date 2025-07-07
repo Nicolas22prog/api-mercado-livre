@@ -3,7 +3,7 @@ package br.com.mercadoturbo.mercadolivre.client;
 import br.com.mercadoturbo.mercadolivre.apiexception.MercadoLivreExceptionMapper;
 import br.com.mercadoturbo.mercadolivre.dto.AutomaticPricingRequest;
 import br.com.mercadoturbo.mercadolivre.dto.AutomaticPricingResponse;
-import br.com.mercadoturbo.mercadolivre.resource.PriceAutomationResponse;
+import br.com.mercadoturbo.mercadolivre.dto.PriceAutomationResponse;
 import io.smallrye.mutiny.Uni;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;

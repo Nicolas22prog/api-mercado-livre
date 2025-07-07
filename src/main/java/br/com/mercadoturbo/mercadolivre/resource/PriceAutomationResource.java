@@ -1,5 +1,6 @@
 package br.com.mercadoturbo.mercadolivre.resource;
 
+import br.com.mercadoturbo.mercadolivre.dto.PriceAutomationResponse;
 import br.com.mercadoturbo.mercadolivre.dto.AutomaticPricingRequest;
 import br.com.mercadoturbo.mercadolivre.dto.AutomaticPricingResponse;
 import br.com.mercadoturbo.mercadolivre.service.PriceAutomationService;

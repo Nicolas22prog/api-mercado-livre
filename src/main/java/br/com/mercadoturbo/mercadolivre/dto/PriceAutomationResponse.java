@@ -1,4 +1,4 @@
-package br.com.mercadoturbo.mercadolivre.resource;
+package br.com.mercadoturbo.mercadolivre.dto;
 
 import java.math.BigDecimal;
 
