@@ -7,6 +7,8 @@ import br.com.mercadoturbo.mercadolivre.dto.LinkRequest;
 import br.com.mercadoturbo.mercadolivre.dto.MigrationStatusResponse;
 import br.com.mercadoturbo.mercadolivre.dto.MigrationValidationResponse;
 import br.com.mercadoturbo.mercadolivre.dto.PictureUpdateRequest;
+import br.com.mercadoturbo.mercadolivre.dto.PostItemRequest;
+import br.com.mercadoturbo.mercadolivre.dto.PostItemResponse;
 import br.com.mercadoturbo.mercadolivre.dto.VariationFullResponse;
 import br.com.mercadoturbo.mercadolivre.dto.VariationResponse;
 import br.com.mercadoturbo.mercadolivre.dto.VariationsUpdateRequest;
@@ -15,6 +17,7 @@ import br.com.mercadoturbo.mercadolivre.service.BrandService;
 import br.com.mercadoturbo.mercadolivre.service.MigrationService;
 import br.com.mercadoturbo.mercadolivre.service.MigrationValidationService;
 import br.com.mercadoturbo.mercadolivre.service.MultigetService;
+import br.com.mercadoturbo.mercadolivre.service.PostItemService;
 import br.com.mercadoturbo.mercadolivre.service.VincularService;
 import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
@@ -51,6 +54,8 @@ public class VincularResource {
             @Inject
     MigrationService migration;
     
+            @Inject
+            PostItemService itemService;
     
             @GET
     @Path("/migration_live_listing")
@@ -130,5 +135,15 @@ public class VincularResource {
                 @PathParam("item_id")String item_id,
                 VariationsUpdateRequest request){
         return serviceItems.updateVariations(authorization, item_id, request);
+    }
+    
+    @PUT
+    @Path("/{item_id}/family_name")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Uni<PostItemResponse> updateItem(
+                @HeaderParam("Authorization")String authorization,
+                @PathParam("item_id")Long item_id,
+                PostItemRequest request){
+        return itemService.updateItem(authorization, item_id, request);
     }
 }

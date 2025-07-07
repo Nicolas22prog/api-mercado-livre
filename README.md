@@ -1,60 +1,51 @@
 
 # API Proxy Mercado Livre
 
-## Objetivo do Projeto
+## 1. Objetivo do Projeto
 
-Este projeto tem como finalidade disponibilizar uma camada de integração intermediária (proxy) entre sistemas externos (integradores) e a API oficial do Mercado Livre, expondo os principais recursos da plataforma **Mercado Livre Developers**. 
+Este projeto tem como finalidade fornecer uma camada intermediária (proxy) entre sistemas externos (integradores) e a API oficial do Mercado Livre.  
+O objetivo é:
 
----
-
-## Endpoints Disponíveis
-
-### 1. Dados do Usuário
-
-- `GET /users/{user_id}`  
-  Retorna informações do vendedor correspondente ao `user_id`.  
-  **Observação:** O `user_id` deve estar associado ao token autenticado.
-
-- `GET /users/me`  
-  Retorna dados do vendedor autenticado.  
-  **Observação:** Não requer `user_id`.
+- Simplificar a integração com a plataforma.
+- Garantir conformidade com políticas e padrões do Mercado Livre.
+- Centralizar o controle de autenticação, roteamento e consistência de dados.
 
 ---
 
-### 2. Itens do Usuário
+## 2. Endpoints Disponíveis
 
-- `GET /users/{user_id}/items/search`  
-  Retorna a lista de itens ativos do vendedor.  
-  **Parâmetros opcionais:**
-  - `limit`: máximo de itens (padrão: 50)
-  - `offset`: posição inicial (padrão: 0)
-  - `user_product_id`: ID do User Product (em implementação)
+### 2.1. Dados do Usuário
+
+- `GET /users/{user_id}` — Retorna as informações do vendedor associado ao `user_id`.
+- `GET /users/me` — Retorna os dados do vendedor autenticado.
 
 ---
 
-### 3. Comunicados e Notificações
+### 2.2. Itens do Usuário
 
-- `GET /communications/notices`  
-  Retorna comunicados do Mercado Livre.  
-  **Parâmetros opcionais:**
-  - `limit`: padrão 20
-  - `offset`: padrão 0
+- `GET /users/{user_id}/items/search` — Retorna a lista de itens ativos do vendedor.  
+  Parâmetros opcionais: `limit`, `offset`, `user_product_id` (em desenvolvimento)
 
 ---
 
-### 4. Perguntas em Itens Específicos
+### 2.3. Comunicados e Notificações
 
-- `GET /questions/search?item_id={ITEM_ID}`  
-  Retorna perguntas em um item.  
-  **Parâmetro opcional:** `limit`
+- `GET /communications/notices` — Retorna comunicados enviados ao vendedor.  
+  Parâmetros opcionais: `limit`, `offset`
 
 ---
 
-### 5. Respostas a Perguntas
+### 2.4. Perguntas
 
-- `POST /answers`  
-  Envia uma resposta a uma pergunta.  
-  **Exemplo JSON:**
+- `GET /questions/search?item_id={ITEM_ID}` — Retorna perguntas feitas em um item.  
+  Parâmetros opcionais: `limit`
+
+---
+
+### 2.5. Respostas a Perguntas
+
+- `POST /answers` — Envia uma resposta.  
+  Exemplo de body:
   ```json
   {
     "question_id": 123456789,
@@ -64,188 +55,163 @@ Este projeto tem como finalidade disponibilizar uma camada de integração inter
 
 ---
 
-### 6. Usuários Bloqueados
+### 2.6. Usuários Bloqueados
 
-- `GET /block-api/search/users/{user_id}`  
-  Lista usuários bloqueados pelo vendedor.
-
----
-
-### 7. Pedidos
-
-- `GET /orders/search?seller={SELLER_ID}`  
-  Lista de pedidos do vendedor.
-
-- `GET /orders/search?seller={SELLER_ID}&q={ORDER_ID}`  
-  Detalhes de um pedido.
-
-- `GET /orders/search?buyer={BUYER_ID}`  
-  Pedidos de um comprador.
-
-**Parâmetros opcionais:**
-- `limit`: padrão 50
-- `offset`: padrão 0
+- `GET /block-api/search/users/{user_id}` — Lista de usuários bloqueados.
 
 ---
 
-### 8. Pagamentos
+### 2.7. Pedidos
 
-- `GET /payments/{payment_id}`  
-  Retorna dados de um pagamento.
-
----
-
-### 9. Feedback
-
-- `GET /orders/{ORDER_ID}/feedback`  
-  Retorna feedbacks de um pedido.
-
-- `POST /orders/{ORDER_ID}/feedback`  
-  Envia feedback para um pedido.
+- `GET /orders/search?seller={SELLER_ID}` — Lista de pedidos.
+- `GET /orders/search?seller={SELLER_ID}&q={ORDER_ID}` — Detalha pedido específico.
+- `GET /orders/search?buyer={BUYER_ID}` — Pedidos do comprador.  
+  Parâmetros opcionais: `limit`, `offset`
 
 ---
 
-### 10. Métricas
+### 2.8. Pagamentos
 
-- `GET /visits/users/{USER_ID}/items_visits/time_window?last={LAST}&unit={UNIT}`  
-- `GET /visits/users/{USER_ID}/items_visits?date_from={ISO_DATE}&date_to={ISO_DATE}`  
-- `GET /visits/items/{ITEM_ID}/contacts/questions?date_from={ISO_DATE}&date_to={ISO_DATE}`  
-- `GET /visits/users/{USER_ID}/contacts/questions?date_from={ISO_DATE}&date_to={ISO_DATE}`  
-- `GET /visits/users/{USER_ID}/contacts/questions/time_window?last={LAST}&unit={UNIT}`  
-- `GET /visits/items/{ITEM_ID}/contacts/questions/time_window?last={LAST}&unit={UNIT}`  
-- `GET /visits/items/visits?ids={ITEM_ID}&date_from={ISO_DATE}&date_to={ISO_DATE}`  
-- `GET /visits/items/visits?ids={ITEM_ID}&last={LAST}&unit={UNIT}`  
-
-**Observação:** Aceita apenas um item por requisição.
+- `GET /payments/{payment_id}` — Dados de pagamento.
 
 ---
 
-### 11. Envios
+### 2.9. Feedback
 
-- `GET /shipments/{SHIPMENT_ID}`  
-  Retorna dados de envio.
-
-- `GET /order/{ORDER_ID}/shipments`  
-  Retorna envio associado ao pedido.
+- `GET /orders/{ORDER_ID}/feedback`
+- `POST /orders/{ORDER_ID}/feedback`
 
 ---
 
-### 12. User Product
+### 2.10. Métricas
 
-- `GET /user-products/{user_product_id}`  
-  Retorna dados de um User Product.
+- Vários endpoints em `/visits/` para consultar visitas e interações por item ou usuário.  
+  ⚠️ Apenas um item por requisição é aceito.
 
-- `POST /items`  
-  Cadastra um User Product.  
-  **Exemplo:**
-  ```json
-  {
-    "family_name": "Apple iPhone 256GB",
-    "category_id": "MLM1055",
-    "price": 17616,
-    "currency_id": "MXN",
-    "available_quantity": 6,
-    "sale_terms": [
-      { "id": "WARRANTY_TIME", "value_name": "3 meses" },
-      { "id": "WARRANTY_TYPE", "value_name": "Garantía del vendedor" }
-    ],
-    "buying_mode": "buy_it_now",
-    "listing_type_id": "gold_special",
-    "condition": "new",
-    "pictures": [...],
-    "attributes": [
-      { "id": "BRAND", "value_name": "Apple" },
-      { "id": "COLOR", "value_name": "Azul" },
-      { "id": "GTIN", "value_name": "195949034862" },
-      { "id": "RAM", "value_name": "6 GB" },
-      { "id": "IS_DUAL_SIM", "value_name": "Sí" },
-      { "id": "MODEL", "value_name": "iPhone 15" },
-      { "id": "CARRIER", "value_name": "Desbloqueado" }
-    ]
-  }
+---
+
+### 2.11. Envios
+
+- `GET /shipments/{SHIPMENT_ID}`
+- `GET /order/{ORDER_ID}/shipments`
+
+---
+
+### 2.12. User Product
+
+- `GET /user-products/{user_product_id}`
+- `POST /items` — Criação de novo User Product.
+
+---
+
+### 2.13. Migração para User Product
+
+- Vários endpoints para migração de itens (`/items/{item_id}/user_product_listings/validate`, `PUT /items/{item_id}/family_name`, etc.)
+
+---
+
+### 2.14. Estoque
+
+- `GET /user-product/{user_product_id}/stock`
+- `GET /sites/{site_id}/user-product-families/{family_id}`
+- `GET /users/{user_id}/stores/search`
+
+---
+
+### 2.15. Preços e Custos
+
+- `GET`, `POST`, `PUT` para preços padrões, quantidade, listagem, simulações e automação.
+
+---
+
+### 2.16. Imagens
+
+- `POST /moderations/pictures/diagnostic` — Valida conformidade.
+- `POST /pictures/items/upload` — Upload de imagens locais.
+
+---
+
+### 2.17. Atributos
+
+- Consultas de atributos por categoria e item.
+- Inclusão e validação condicional de atributos técnicos.
+
+---
+
+### 2.18. Catálogo
+
+- `POST /catalog/charts/search`
+- `POST /catalog/charts/domains/search`
+
+---
+
+### 2.19. Domínios
+
+- `GET /domains/{domain_id}/technical_specs`
+- `POST /domains/{domain_id}/technical_specs`
+
+---
+
+### 2.20. Medidas (Charts)
+
+- `POST`, `GET`, `PUT`, `DELETE` — criação, edição e remoção de tabelas de medidas.
+
+---
+
+### 2.21. Tendências (Trends)
+
+- `GET /trends/{site_id}`
+- `GET /trends/{category_id}`
+
+---
+
+### 2.22. Pós-venda (Post-Purchase)
+
+- Diversos endpoints para gerenciamento completo de reclamações (`claims`):  
+  ações, status, mensagens, anexos, reembolsos parciais/totais, evidências, custos, histórico, mediações e trocas.
+
+---
+
+### 2.23. Descrição do Produto
+
+- `GET /items/description/{item_id}`
+- `POST /items/description/{item_id}`
+- `PUT /items/description/{item_id}`
+
+---
+
+### 2.24. Automação de Preços
+
+- `GET /pricing-automation/items/{item_id}/rules`
+- `POST /pricing-automation/items/{item_id}/automation`
+
+---
+
+## 3. Observações Técnicas
+
+- O endpoint:
   ```
-
----
-
-### 13. Migração
-
-- `GET /items/{item_id}/user_product_listings/validate`  
-- `POST /sites/{site_id}/items/user_product_listings`  
-- `PUT /items/{item_id}/family_name`  
-- `GET /items/{item_id}/migration_live_listing`  
-- `GET /items/{item_id}/user_product_listing/validate`  
-
----
-
-### 14. Estoque
-
-- `GET /user-product/{user_product_id}/stock`  
-- `GET /sites/{site_id}/user-product-families/{family_id}`  
-
----
-
-### 15. Preços e Custos
-
-- `GET /items/{ITEM_ID}/sale_price`  
-  **Parâmetro `context` (opcional):**
-  - `channel_marketplace`
-  - `buyer_loyalty_channel_mshops`
-  - `channel_proximity`
-  - `mp_merchants`
-  - `mp_links`
-
-- `GET /items/{ITEM_ID}/prices`  
-- `POST /items/{ITEM_ID}/prices/standard`  
-- `POST /items/{ITEM_ID}/prices/standard/quantity`  
-- `GET /listing_prices`  
-  **Parâmetros obrigatórios:**
-  - `category_id`
-  - `price`
-  - `currency_id`  
-  **Parâmetros opcionais:**
-  - `listing_type_id`
-  - `official_store_id`
-  - `condition`
-  - `site`
-
----
-
-### 16. Imagens
-
-- `POST /moderations/pictures/diagnostic`  
-  Diagnóstico da imagem.  
-  **Exemplo:**
-  ```json
-  {
-    "id": "f0b6198b-a4ef-4291-82a5-41956e0af96e",
-    "picture_url": "https://miurl.com/mi_imagen.jpg",
-    "context": {
-      "category_id": "MLA1346",
-      "title": "This a item title"
-    }
-  }
+  GET /sites/MLB/items/search?seller_id={SELLER_ID}&category={CATEGORY_ID}
   ```
+  está **descontinuado** e retorna **HTTP 400 - Bad Request**.
 
-- `POST /pictures/items/upload`  
-  Upload de imagem local (jpg, jpeg, png, gif, webp).  
-  **Exemplo curl:**
-  ```bash
-  curl --location 'http://localhost:8080/pictures/items/upload'     --header 'Content-Type: multipart/form-data'     --header 'Authorization: Bearer {TOKEN}'     --form 'file=@"/caminho/imagem.webp"'
-  ```
+  ✅ **Alternativa recomendada**:  
+  Use `GET /users/{USER_ID}/items/search` e filtre por categoria no lado cliente.
 
 ---
 
-## Observação: Busca por Categorias
+## 4. Autenticação
 
-O endpoint descontinuado:
+Todos os endpoints que envolvem dados sensíveis ou manipulação de informações requerem o uso de um **Bearer Token** no header:
+
 ```
-/sites/MLB/items/search?seller_id={SELLER_ID}&category={CATEGORY_ID}
+Authorization: Bearer {TOKEN}
 ```
 
-**Alternativa recomendada:**
-```
-/users/{USER_ID}/items/search
-```
-A filtragem por categoria deve ser feita localmente após a consulta.
+---
+
+## 5. Licença
+
+Este projeto é de uso interno e segue as políticas de integração com o Mercado Livre. Consulte os termos de uso da plataforma antes de distribuir.
 
 ---

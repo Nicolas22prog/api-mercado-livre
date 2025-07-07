@@ -19,7 +19,6 @@ import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.HeaderParam;
 import jakarta.ws.rs.POST;
-import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
@@ -62,15 +61,7 @@ public class ItemsResource implements Serializable{
     
 
     
-    @PUT
-    @Path("/{item_id}/family_name")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Uni<PostItemResponse> updateItem(
-                @HeaderParam("Authorization")String authorization,
-                @PathParam("item_id")Long item_id,
-                PostItemRequest request){
-        return itemService.updateItem(authorization, item_id, request);
-    }
+    
 
     
 
